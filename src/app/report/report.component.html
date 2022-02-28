@@ -1,0 +1,88 @@
+<div class="report">
+    <div class="report-title">
+        Quản trị hệ thống salon tech
+    </div>
+    <div class="report-body">
+        <div class="grid">
+            <div class="col-3">
+                <div class="report-body-systemsetting">
+                    <div class="card-left">
+                        <div class="card-title">
+                            Cài đặt hệ thống
+                        </div>
+                       <div class="card-content">
+                           <ul>
+                               <li>Khởi tạo lĩnh vực-dịch vụ</li>
+                               <li>Khởi tạo tài khoản</li>
+                           </ul>
+                       </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="statistical">
+                    <div class="statistical-top">
+                        <div class="statistical-top-name"> Thống kê</div>
+                        <div class="statistical-top-month"> Tháng 8</div>
+                    </div>
+                    <div class="statistical-bottom">
+                        <div class="statistical-item" *ngFor="let item of thongke ">
+                            <div class="statistical-item-img">
+                                <img src="../../assets/img/gio_hang.png" alt="">
+                            </div>
+                            <div class="statistical-item-right">
+                                <div class="statistical-item-name">{{item.donhang}}</div>
+                             <div class="statistical-item-description">Đơn hàng </div>
+                            </div>
+                        </div>
+                        <div class="statistical-item" *ngFor="let item of thongke ">
+                            <div class="statistical-item-img">
+                                <img src="../../assets/img/user.png" alt="">
+                            </div>
+                            <div class="statistical-item-right">
+                                <div class="statistical-item-name">{{item.khachhang}}</div>
+                             <div class="statistical-item-description">Khách hàng  </div>
+                            </div>
+                        </div>
+                        <div class="statistical-item" *ngFor="let item of thongke ">
+                            <div class="statistical-item-img">
+                                <img src="../../assets/img/gio_hang.png" alt="">
+                            </div>
+                            <div class="statistical-item-right">
+                                <div class="statistical-item-name">{{item.doanhthu}}</div>
+                             <div class="statistical-item-description">Doanh thu </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart">
+                    <div class="grid">
+                        <div class="col-12">
+                            <div class="chart-img">
+                                
+                            </div>
+                            <div class="chart-note">
+                                <img src="../../assets/img/note.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="report-body-systemsetting">
+                    <div class="card-right">
+                        <div class="card-title">
+                            Báo cáo
+                        </div>
+                       <div class="card-content">
+                           <ul>
+                               <li>Tổng hợp đơn booking</li>
+                               <li>Báo cáo doanh thu</li>
+                           </ul>
+                       </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

@@ -1,0 +1,35 @@
+.header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%);
+    &-left{
+        display: flex;
+        &__menubot{
+            padding: 5px;
+        }
+        &__logo{
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            padding:13px
+        };
+    }
+    &-center{
+        margin-top: -8px;
+    }
+    &-right{
+        display: flex;
+    
+        margin-right: 50px;
+        padding: 5px 5px;
+        justify-content: center;
+       align-items: center;
+      &-img{
+      
+        margin-top:-8px;
+      }
+      &-arrow{        
+        margin-top:10px;
+      }
+    }
+}

@@ -1,0 +1,151 @@
+<div class="booking-manager">
+    <div class="grid">
+        <div class="col-6">
+            <div class="left">
+                <div class="left-title">
+                    Danh sách khách hàng
+                </div>
+                <div class="add-booking">
+                    <div class="left-button">
+                        <button pButton type="button" label="Thêm Salon" icon="pi pi-plus"></button>
+                    </div>
+                    <div class="left-title">
+                        <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+                     </div> 
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="right">
+                <div class="right-title">Tìm kiếm theo tên__________________</div>
+                <div class="right-body">
+                    <div class="grid">
+                        
+                        <div class="col-4">
+                            <div class="search">
+                                <span class="p-input-icon-right">
+                                    <i class="pi pi-search"></i>
+                                    <input type="text" pInputText placeholder="Search">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="grid">
+                                <div class="col-12">
+                                    <div class="restoredata">
+                                        <p-button icon="pi pi-sync" iconPos="left"></p-button>
+                                        <button pButton type="button" label="Lấy giá trị"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="booking-body">
+            <div class="booking-sort">
+                <div class="grid">
+                    <div class="col-6">
+                        Đã chọn (0,0) | Xuất Excel
+                    </div>
+                    <div class="col-6">
+                        <div class="sort-columnd">
+                        Tìm theo cột
+                            <i class="pi pi-sort-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-12">
+                    <p-table>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th></th>
+                                <th> Mã Khách hàng</th>
+                                <th>Tên khách hàng </th>
+                                <th>Số điện thoại </th>
+                                <th>Email</th>
+                                <th>Địa chỉ</th>
+                                <th>Loại hình</th>
+                                <th>Chức năng</th>
+                            </tr>
+                            <tr *ngFor="let item of datasalon">
+                                <th>
+                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                </th>
+                                <th>
+                                    {{item.id}}
+                                </th>
+                                <th>
+                                    {{item.namesalon}}
+                                </th>
+                                <th>
+                                    {{item.phone}}
+                                </th>
+                                <th>
+                                    {{item.emailsalon}}
+                                </th>
+                                <th>
+                                    {{item.andress}}
+                                </th>
+                                <th>
+                                    <p-rating [(ngModel)]="val2" [cancel]="false"></p-rating>
+                                </th>
+                                
+                                <th>
+                                    <button pButton type="button" label="Chi tiết"></button>
+                                </th>
+                            </tr>
+                            
+                            
+                            
+                           
+                        </ng-template>
+                        <ng-template pTemplate="body" let-customer>
+                            <tr class="p-selectable-row">
+                                <td>
+                                    <p-tableCheckbox [value]="customer"></p-tableCheckbox>
+                                </td>
+                                <td>
+                                    <span class="p-column-title">Name</span>
+                                    {{customer.name}}
+                                </td>
+                                <td>
+                                    <span class="p-column-title">Country</span>
+                                    <span class="image-text">{{customer.country.name}}</span>
+                                </td>
+                                <td>
+                                    <span class="p-column-title">Representative</span>
+                                    <span class="image-text">{{customer.representative.name}}</span>
+                                </td>
+                                <td>
+                                    <span class="p-column-title">Date</span>
+
+                                </td>
+                                <td>
+                                    <span class="p-column-title">Status</span>
+                                    <span
+                                        [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
+                                </td>
+                                <td>
+                                    <span class="p-column-title">Activity</span>
+
+                                </td>
+                                <td style="text-align: center">
+                                    <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"></button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="8">No customers found.</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

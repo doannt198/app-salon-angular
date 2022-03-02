@@ -16,12 +16,37 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
-import {CheckboxModule} from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 import { CustomerManagementComponent } from './customer-management/customer-management.component';
 import { SalonManagementComponent } from './salon-management/salon-management.component';
 import { WorkerManagementComponent } from './worker-management/worker-management.component';
 import { VoucherManagementComponent } from './voucher-management/voucher-management.component';
-import {RatingModule} from 'primeng/rating';
+import { RatingModule } from 'primeng/rating';
+import { LinhVucDichVuComponent } from './linh-vuc-dich-vu/linh-vuc-dich-vu.component';
+import { KhoiTaoTaiKhoanComponent } from './khoi-tao-tai-khoan/khoi-tao-tai-khoan.component';
+import { TongHopDonBookingComponent } from './tong-hop-don-booking/tong-hop-don-booking.component';
+import { BaoCaoDoanhThuComponent } from './bao-cao-doanh-thu/bao-cao-doanh-thu.component';
+import { AddLinhVucComponent } from './linh-vuc-dich-vu/add-linh-vuc/add-linh-vuc.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import { ThemTaiKhoanComponent } from './khoi-tao-tai-khoan/them-tai-khoan/them-tai-khoan.component';
+import { GanDuLieuComponent } from './khoi-tao-tai-khoan/gan-du-lieu/gan-du-lieu.component';
+import { ThemBookingComponent } from './manager-booking/them-booking/them-booking.component';
+import { ThemKhachHangComponent } from './customer-management/them-khach-hang/them-khach-hang.component';
+import { ThemSalonComponent } from './salon-management/them-salon/them-salon.component';
+import { GanDuLieuSalonComponent } from './salon-management/gan-du-lieu-salon/gan-du-lieu-salon.component';
+import { GioiThieuSalonComponent } from './salon-management/gioi-thieu-salon/gioi-thieu-salon.component';
+import { QuanLyThoComponent } from './salon-management/quan-ly-tho/quan-ly-tho.component';
+import { ThemThoComponent } from './worker-management/them-tho/them-tho.component';
+import { GanDuLieuThoComponent } from './worker-management/gan-du-lieu-tho/gan-du-lieu-tho.component';
+import { GioiThieuThoComponent } from './worker-management/gioi-thieu-tho/gioi-thieu-tho.component';
+import { QuanLySalonThoComponent } from './worker-management/quan-ly-salon-tho/quan-ly-salon-tho.component';
+import { ThemVoucherComponent } from './voucher-management/them-voucher/them-voucher.component';
+import { GanDuLieuVoucherComponent } from './voucher-management/gan-du-lieu-voucher/gan-du-lieu-voucher.component';
+import { BookingDetailComponent } from './manager-booking/booking-detail/booking-detail.component';
+import { CustomerDetailComponent } from './customer-management/customer-detail/customer-detail.component';
+import { SalonDetailComponent } from './salon-management/salon-detail/salon-detail.component';
+import { WorkerDetailComponent } from './worker-management/worker-detail/worker-detail.component';
+import { VoucherDetailComponent } from './voucher-management/voucher-detail/voucher-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +56,31 @@ import {RatingModule} from 'primeng/rating';
     CustomerManagementComponent,
     SalonManagementComponent,
     WorkerManagementComponent,
-    VoucherManagementComponent
+    VoucherManagementComponent,
+    LinhVucDichVuComponent,
+    KhoiTaoTaiKhoanComponent,
+    TongHopDonBookingComponent,
+    BaoCaoDoanhThuComponent,
+    AddLinhVucComponent,
+    ThemTaiKhoanComponent,
+    GanDuLieuComponent,
+    ThemBookingComponent,
+    ThemKhachHangComponent,
+    ThemSalonComponent,
+    GanDuLieuSalonComponent,
+    GioiThieuSalonComponent,
+    QuanLyThoComponent,
+    ThemThoComponent,
+    GanDuLieuThoComponent,
+    GioiThieuThoComponent,
+    QuanLySalonThoComponent,
+    ThemVoucherComponent,
+    GanDuLieuVoucherComponent,
+    BookingDetailComponent,
+    CustomerDetailComponent,
+    SalonDetailComponent,
+    WorkerDetailComponent,
+    VoucherDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +96,8 @@ import {RatingModule} from 'primeng/rating';
     BrowserAnimationsModule,
     TableModule,
     CheckboxModule,
-    RatingModule
+    RatingModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

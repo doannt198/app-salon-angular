@@ -1,0 +1,81 @@
+<div class="them-linh-vuc">
+    <div class="grid">
+        <div class="col-4">
+            <div class="option">
+                <a routerLink="/khoitao-taikhoan"><i class="pi pi-chevron-left"></i>Tổng quan</a> 
+
+            </div>
+        </div>
+        
+            <div class="option">
+                <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+            </div>
+     
+        <div class="col-4">
+            <div class="option-close">
+                <a routerLink="/khoitao-taikhoan"><i class="pi pi-times"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form">
+    <div class="form-add">
+        <div class="grid">
+            <div class="col-8">
+                <div class="title">
+                    Thông tin chung
+                </div>
+                <div class="input">
+                    <div class="input-top">
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText > 
+                            <label for="float-input">Tên nhân viên</label>
+                        </span>
+                    </div>
+                    <div class="input-bottom">
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText > 
+                            <label for="float-input">Email dùng làm tài khoản đăng nhập</label>
+                        </span>
+                    </div>
+                    <div class="input-top">
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText > 
+                            <label for="float-input">Mật khẩu</label>
+                        </span>
+                    </div>
+                    <div class="input-bottom">
+                        <span class="p-float-label">
+                            <input id="float-input" type="text" pInputText > 
+                            <label for="float-input">Số điện thoại</label>
+                        </span>
+                    </div>
+                    <div class="setup">
+                        <div class="title">Cài đặt trạng thái</div>
+                        <div class="setup-radio">
+                            <div class="field-radiobutton">
+                                <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1"></p-radioButton>
+                                <label for="city1">Hoạt động</label>
+                            </div>
+                            <div class="field-radiobutton">
+                                <p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2"></p-radioButton>
+                                <label for="city2">Dừng hoạt động</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="button">
+    <div class="button-item">
+        <button pButton type="button" label="Hủy"  ></button>
+    </div>
+    <div class="button-item">
+        <button pButton type="button" label="Lưu"  ></button>
+    </div>
+    <div class="button-item">
+        <button pButton type="button" label="Lưu & Thoát" ></button>
+    </div>
+</div>

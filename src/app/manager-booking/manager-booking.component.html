@@ -7,7 +7,7 @@
                 </div>
                 <div class="add-booking">
                     <div class="left-button">
-                        <button pButton type="button" label="Thêm booking" icon="pi pi-plus"></button>
+                        <button pButton type="button" label="Thêm booking" icon="pi pi-plus" routerLink="/them-booking"></button>
                     </div>
                     <div class="left-title">
                         <p>Trạng thái:</p>
@@ -69,8 +69,8 @@
                     <div class="col-6 ">
                         <div class="sort-columnd">
                             Tìm theo cột
-                                <i class="pi pi-sort-alt"></i>
-                            </div>
+                            <i class="pi pi-sort-alt"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                                     {{item. field}}
                                 </th>
                                 <th>
-                                    <button pButton type="button" label="Chi tiết"></button>
+                                    <button pButton type="button" label="Chi tiết" routerLink="/booking-detail"></button>
                                 </th>
                             </tr>
                         </ng-template>

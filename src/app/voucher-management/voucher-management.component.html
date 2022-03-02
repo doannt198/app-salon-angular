@@ -7,7 +7,7 @@
                 </div>
                 <div class="add-booking">
                     <div class="left-button">
-                        <button pButton type="button" label="Thêm Salon" icon="pi pi-plus"></button>
+                        <button pButton type="button" label="Thêm Voucher" icon="pi pi-plus" routerLink="/them-voucher"></button>
                     </div>
                     <div class="left-title">
                         <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
@@ -115,7 +115,7 @@
                                     {{item.status}}
                                 </th>
                                 <th>
-                                    <button pButton type="button" label="Chi tiết"></button>
+                                    <button pButton type="button" label="Chi tiết" routerLink="/voucher-detail"></button>
                                 </th>
                             </tr>
                         </ng-template>

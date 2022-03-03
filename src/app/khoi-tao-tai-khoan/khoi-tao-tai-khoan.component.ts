@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import {MenuItem} from 'primeng/api'
+import {MenuItem} from 'primeng/api';
+import { TRISTATECHECKBOX_VALUE_ACCESSOR } from 'primeng/tristatecheckbox';
+import { KhoitaotaikhoanService } from 'src/services/khoitaotaikhoan.service';
+
 interface City {
   name: string
 }
@@ -15,15 +18,8 @@ export class KhoiTaoTaiKhoanComponent implements OnInit {
   items: SelectItem[];
   items1: MenuItem[];
   activeItem: MenuItem;
-  datataikhoan = [
-    { email: "Hoagyen0387@gmailcomm", hoten: 'Nguyễn Hoàng Yến', phone: '034 034 3947', vaitro: 'HCNS', timedangky: '30/9/2021 08:00', status: true },
-    { email: "Hoagyen0387@gmailcomm", hoten: 'Võ Thanh Mai', phone: '034 846 5874', vaitro: 'KETOAN', timedangky: '30/9/2021 08:00', status: false },
-    { email: "Hoagyen0387@gmailcomm", hoten: 'Nguyễn Thị Hoàn', phone: '039 948 7647', vaitro: 'User 3', timedangky: '30/9/2021 08:00', status: true },
-    { email: "Hoagyen0387@gmailcomm", hoten: 'Võ Yến Nhi', phone: '034 309 8463', vaitro: 'User1:', timedangky: '5/9/2021 08:00', status: false },
-    { email: "Hoagyen0387@gmailcomm", hoten: 'Đặng Thị Kim Yến', phone: '034 098 8988', vaitro: 'User 1', timedangky: '30/9/2021 08:00', status: false },
-    { email: "Hoagyen0387@gmailcomm", hoten: 'Nguyễn Phương Trinh', phone: '034 093 8764', vaitro: 'User 1', timedangky: '30/9/2021 08:00', status: true },
-  ]
-  constructor() { }
+  datataikhoan:any =[];
+  constructor( private khoitaotaikhoan:KhoitaotaikhoanService) { }
   ngOnInit(): void {
     this.items = [];
     for (let i = 0; i < 10000; i++) {
@@ -40,6 +36,9 @@ export class KhoiTaoTaiKhoanComponent implements OnInit {
       {label: 'Dịch vụ'},
   ];
     this.activeItem = this.items[0];
+    this.getKhoitao();
   }
-
+  getKhoitao(){
+    this.khoitaotaikhoan.getKhoitaotaikhoan().subscribe(reponse=>{this.datataikhoan=reponse})
+  }
 }

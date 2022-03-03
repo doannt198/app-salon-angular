@@ -97,46 +97,8 @@
                                     <button pButton type="button" label="Chi tiết" routerLink="/customer-detail"></button>
                                 </th>
                             </tr>
-                            
-                            
-                            
-                           
                         </ng-template>
-                        <ng-template pTemplate="body" let-customer>
-                            <tr class="p-selectable-row">
-                                <td>
-                                    <p-tableCheckbox [value]="customer"></p-tableCheckbox>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Name</span>
-                                    {{customer.name}}
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Country</span>
-                                    <span class="image-text">{{customer.country.name}}</span>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Representative</span>
-                                    <span class="image-text">{{customer.representative.name}}</span>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Date</span>
-
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Status</span>
-                                    <span
-                                        [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Activity</span>
-
-                                </td>
-                                <td style="text-align: center">
-                                    <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"></button>
-                                </td>
-                            </tr>
-                        </ng-template>
+                        
                         <ng-template pTemplate="emptymessage">
                             <tr>
                                 <td colspan="8">No customers found.</td>

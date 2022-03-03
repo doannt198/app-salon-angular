@@ -78,7 +78,7 @@
                 <div class="price">200.000</div>
             </div>
             <div class="thongtinchung-bottom">
-                <h2>Tổng tiền</h2>
+               
             </div>
         </div>
     </div>
@@ -128,5 +128,71 @@
             </div>
         </div>
     </div>
-    
+    <div class="col-12 booking-body">
+        <div class="booking-sort">
+            <div class="grid">
+                <div class="col-6">
+                    Dịch vụ sử dụng
+                </div>
+                <div class="col-6 ">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-12">
+                <p-table>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>STT</th>
+                            <th> Mã dịch vụ</th>
+                            <th>Tên dịch vụ </th>
+                            <th>Lĩnh vực </th>
+                            <th>Giá</th>
+                            <th>Thành tiền(đ)</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        <tr *ngFor="let item of addbooking">
+                           
+                            <th>
+                                {{item?.stt}} 
+                            </th>
+                            <th>
+                                 {{item?.madichvu}} 
+                            </th>
+                            <th>
+                                {{item?.tendichvu}} 
+                            </th>
+                            <th>
+                                {{item?.linhvuc}} 
+                            </th>
+                            <th>
+                             {{item?.gia}} 
+                            </th>
+                            <th>
+                               {{item?.thanhtien}} 
+                            </th>
+                            <th>
+                               <a href=""><i class="pi pi-trash"></i></a> 
+                            </th>
+                        </tr>
+                    </ng-template>
+                    
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="8">No customers found.</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+    <div class="button-event">
+        <div class="button-right">
+            <button pButton type="button" label="Hủy" ></button>
+        </div>
+        <div class="button-left">
+            <button pButton type="button" label="Gửi yêu cầu"  ></button>
+        </div>
+    </div>
 </div>

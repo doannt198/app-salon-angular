@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import {MenuItem} from 'primeng/api'
-interface Status{
+import { MenuItem } from 'primeng/api'
+import { BaocaobookingService } from 'src/services/baocaobooking.service';
+interface Status {
   name: string
 }
 @Component({
@@ -19,15 +20,8 @@ export class TongHopDonBookingComponent implements OnInit {
   items: SelectItem[];
   items1: MenuItem[];
   activeItem: MenuItem;
-  databooking = [
-    { id: 'JGD345VE', name: 'Nguyễn Hoàng Yến', checkinday: '29/10/2021', typebooking: true , status: true , hairdresser: 'Đặng Kim Thanh',  },
-    { id: 'JGD345VE', name: 'Võ Thanh Mai', checkinday: '29/10/2021',  typebooking: false , status: true , hairdresser: 'Nguyễn Thị Ngọc', },
-    { id: 'JGD345VE', name: 'Nguyễn Thị Hoàn', checkinday: '29/10/2021',  typebooking: true , status: false , hairdresser: 'Mona Lisa',  },
-    { id: 'JGD345VE', name: 'Võ Yến Nhi', checkinday: '29/10/2021',  typebooking: true , status: true ,hairdresser: 'Đặng Kim Lan',  },
-    { id: 'JGD345VE', name: 'Đặng Thị Kim Yến', checkinday: '29/10/2021',  typebooking: false , status: true , hairdresser: 'Lê Lan Anh',  },
-    { id: 'JGD345VE', name: 'Nguyễn Phương Trinh', checkinday: '29/10/2021',  typebooking: true , status: false ,hairdresser: 'Fendi', },
-  ]
-  constructor() { }
+  databooking: any = [];
+  constructor(private baocaobooking: BaocaobookingService) { }
 
   ngOnInit(): void {
     this.cities1 = [
@@ -45,5 +39,9 @@ export class TongHopDonBookingComponent implements OnInit {
       { name: 'Online' },
       { name: 'Office' },
     ];
+    this.getbaocaobooking();
+  }
+  getbaocaobooking() {
+    this.baocaobooking.getBaocaobooking().subscribe(reponse => { this.databooking = reponse })
   }
 }

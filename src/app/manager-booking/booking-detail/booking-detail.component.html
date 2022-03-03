@@ -1,1 +1,204 @@
-<p>booking-detail works!</p>
+
+<div class="add-booking">
+    <div class="grid">
+        <div class="col-6">
+            <div class="option-left">
+                <a routerLink="/managerbooking"><i class="pi pi-chevron-left"></i>Chi tiết booking</a> 
+            </div>
+        </div>
+    </div>
+    <div class="addbooking-body">
+        <div class="grid">
+            <div class="col-4">
+                <div class="thongtinchung">
+                    <h2>Thông tin chung</h2>
+                    <div class="input-title">
+                    Tên salon
+                    </div>
+                    <div class="input-text">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                    </div>
+                    <div class="input-title">
+                    Mã booking
+                    </div>
+                    <div class="input-text">
+                        <input type="text" pInputText > 
+                    </div>
+                    <div class="input-title">
+                    Thợ
+                    </div>
+                    <div class="input-text">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                    </div>
+                    <div class="input-title">
+                    Ngày check in 
+                    </div>
+                    <div class="input-text">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                    </div>
+                    <div class="input-title">
+                    Ngày check out
+                    </div>
+                    <div class="input-text">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                    </div>
+                    <div class="input-title">
+                    Mã giảm giá áp dụng
+                    </div>
+                    <div class="input-text">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="thongtinchung">
+                    <h2>Thông tin khách hàng</h2>
+                    <div class="input-title">
+                    Tên khách hàng
+                    </div>
+                    <div class="input-text">
+                        <input type="text" pInputText > 
+                    </div>
+                    <div class="input-title">
+                    Số điện thoại
+                    <div class="input-text">
+                        <input type="text" pInputText > 
+                    </div>
+                    <div class="input-title">
+                    Email
+                    </div>
+                    <div class="input-text">
+                        <input type="text" pInputText > 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="thongtinchung-top">
+                <h2>Tổng tiền</h2>
+                <div class="price">200.000</div>
+            </div>
+            <div class="thongtinchung-bottom">
+                <div class="qr-code">
+                    <img src="../../../assets/img/qr_code.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="trangthaibk">
+        <div class="grid">
+            <div class="col-5">
+                <div class="trangthaibooking">
+                    <div class="trangthaibooking-title">
+                        Trang thái booking
+                    </div>
+                    <div class="trangthaibooking-radio">
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="city" value="hoanthanh" [(ngModel)]="status" inputId="status1"></p-radioButton>
+                            <label for="city1">Hoàn thành </label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="city" value="choduyet" [(ngModel)]="status" inputId="status2"></p-radioButton>
+                            <label for="city2">Chờ duyệt</label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="city" value="checkin" [(ngModel)]="status" inputId="status3"></p-radioButton>
+                            <label for="city3">Check in </label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="city" value="dahuy" [(ngModel)]="status" inputId="status4"></p-radioButton>
+                            <label for="city4">Đã  hủy</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="trangthaibooking">
+                    <div class="trangthaibooking-title">
+                        Trang thái đối soát
+                    </div>
+                    <div class="trangthaibooking-radio-right">
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="city" value="dadoisoat" [(ngModel)]="status" inputId="status1"></p-radioButton>
+                            <label for="city1">Đã đối soát </label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="city" value="chuadoisoat" [(ngModel)]="status" inputId="status2"></p-radioButton>
+                            <label for="city2">Chưa đối soát</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 booking-body">
+        <div class="booking-sort">
+            <div class="grid">
+                <div class="col-6">
+                    Dịch vụ sử dụng
+                </div>
+                <div class="col-6 ">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-12">
+                <p-table>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>STT</th>
+                            <th> Mã dịch vụ</th>
+                            <th>Tên dịch vụ </th>
+                            <th>Lĩnh vực </th> 
+                            <th>Giá</th>
+                            <th>Thành tiền(đ)</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        <tr *ngFor="let item of addbooking">
+                           
+                            <th>
+                                {{item?.stt}} 
+                            </th>
+                            <th>
+                                 {{item?.madichvu}} 
+                            </th>
+                            <th>
+                                {{item?.tendichvu}} 
+                            </th>
+                            <th>
+                                {{item?.linhvuc}} 
+                            </th>
+                            <th>
+                             {{item?.gia}} 
+                            </th>
+                            <th>
+                               {{item?.thanhtien}} 
+                            </th>
+                            <th>
+                               <a href=""><i class="pi pi-trash"></i></a> 
+                            </th>
+                        </tr>
+                    </ng-template>
+                    
+                    <ng-template pTemplate="emptymessage">
+                        <tr>
+                            <td colspan="8">No customers found.</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+    <div class="button-event">
+        <div class="button-right">
+            <button pButton type="button" label="Hủy" ></button>
+        </div>
+        <div class="button-center">
+            <button pButton type="button" label="In phiếu" ></button>
+        </div>
+        <div class="button-left">
+            <button pButton type="button" label="Gửi yêu cầu"  ></button>
+        </div>
+    </div>
+</div>

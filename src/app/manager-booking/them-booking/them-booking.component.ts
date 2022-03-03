@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/api';
+import { AddbookingService } from 'src/services/addbooking.service';
 interface Booking {
   name: string,
   code: string,
@@ -13,7 +14,8 @@ export class ThemBookingComponent implements OnInit {
   cities: Booking[];
   status:string;
   selectedbooking: Booking;
-  constructor() { }
+  addbooking:any=[];
+  constructor(private getaddbooking:AddbookingService) { }
   ngOnInit(): void {
     this.cities = [
       {name: 'Salon 1', code: 'NY'},
@@ -22,6 +24,9 @@ export class ThemBookingComponent implements OnInit {
       {name: 'Salon 4', code: 'IST'},
       {name: 'Salon 5', code: 'PRS'}
   ];
+  this.getaddBooking()
   }
-
+  getaddBooking(){
+    this.getaddbooking.getaddbooking().subscribe(respone=>this.addbooking=respone)
+  }
 }

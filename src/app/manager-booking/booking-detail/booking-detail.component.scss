@@ -1,0 +1,81 @@
+.option-left{
+    padding: 30px;  
+}
+.option-left a{
+    text-decoration: none;
+}
+.thongtinchung{
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%);
+    padding: 15px;
+    border-radius: 20px;
+}
+.input-title{
+    margin-bottom: 10px;
+}
+.input-text{
+    margin-bottom: 10px;
+}
+::ng-deep{
+    .p-dropdown{
+        width: 100%;
+    }
+    .p-inputtext{
+        width: 100%;
+    }
+    .p-radioButton{
+        margin-left: 10px;
+    }
+}
+.thongtinchung{
+    height: 573px;
+}
+.thongtinchung-top{
+height: 200px;
+box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%);
+margin-bottom: 10px;
+border-radius: 20px;
+padding: 20px;
+}
+.thongtinchung-top .price{
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+.thongtinchung-bottom{
+height: 353px;
+box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%);
+border-radius: 20px;
+}
+.trangthaibooking-radio{
+    display: flex;
+   padding: 20px;
+}
+.trangthaibooking-radio{
+    justify-content: space-between;
+}
+.trangthaibooking-radio-right{
+    display: flex;
+    padding: 20px;
+}
+.p-field-radiobutton{
+ margin: 0 20px;
+}
+.trangthaibooking{
+    margin-top: 20px;
+  border-right: 3px solid gray;
+}
+.button-event{
+    display: flex;
+    float: right;
+}
+.button-left{
+    margin-right: 30px;
+}
+.button-right{
+    margin-right: 30px;
+}
+.thongtinchung-bottom{
+    display: flex;
+  justify-content: center;
+    align-items: center;
+}

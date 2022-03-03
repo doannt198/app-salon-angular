@@ -2,11 +2,10 @@
     <div class="grid">
         <div class="col-4">
             <div class="option">
-                <a routerLink="/khoitao-taikhoan"><i class="pi pi-chevron-left"></i>Tổng quan</a> 
+                <a routerLink="/khoitao-taikhoan"><i class="pi pi-chevron-left"></i>Khởi tạo tài khoản</a> 
 
             </div>
         </div>
-        
             <div class="option">
                 <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
             </div>
@@ -22,48 +21,53 @@
     <div class="form-add">
         <div class="grid">
             <div class="col-8">
-                <div class="title">
-                    Thông tin chung
-                </div>
-                <div class="input">
-                    <div class="input-top">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" pInputText > 
-                            <label for="float-input">Tên nhân viên</label>
-                        </span>
-                    </div>
-                    <div class="input-bottom">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" pInputText > 
-                            <label for="float-input">Email dùng làm tài khoản đăng nhập</label>
-                        </span>
-                    </div>
-                    <div class="input-top">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" pInputText > 
-                            <label for="float-input">Mật khẩu</label>
-                        </span>
-                    </div>
-                    <div class="input-bottom">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" pInputText > 
-                            <label for="float-input">Số điện thoại</label>
-                        </span>
-                    </div>
-                    <div class="setup">
-                        <div class="title">Cài đặt trạng thái</div>
-                        <div class="setup-radio">
-                            <div class="field-radiobutton">
-                                <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1"></p-radioButton>
-                                <label for="city1">Hoạt động</label>
+               <div class="grid">
+                   <div class="col-7">
+                        <div class="left">
+                         <h3>Gán dữ liệu</h3>
+                            <div class="title">   
+                                Tên vai trò
                             </div>
-                            <div class="field-radiobutton">
-                                <p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2"></p-radioButton>
-                                <label for="city2">Dừng hoạt động</label>
-                            </div>
+                            <input type="text" pInputText class="input-gan" />                                                                              
                         </div>
-                    </div>
-                </div>
+                   </div>
+                   <div class="col-5">
+                       <div class="right">
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="tongquan" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
+                            <label for="ny">Tổng quan</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlybooking" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
+                            <label for="sf">Quản lý booking</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlykhachhang" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
+                            <label for="la">Quản lý khách hàng</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlysalon" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+                            <label for="ch">Quản lý Salon</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlytho" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+                            <label for="ch">Quản lý thợ</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlyvoucher" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+                            <label for="ch">Quản lý Voucher</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quantriapp" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+                            <label for="ch">Quản trị app</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlythongbao" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+                            <label for="ch">Quản lý thông báo</label>
+                        </div>
+                       </div>
+                   </div>
+               </div>
             </div>
         </div>
     </div>

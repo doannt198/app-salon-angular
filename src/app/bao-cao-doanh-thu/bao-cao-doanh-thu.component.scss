@@ -29,10 +29,7 @@
     margin-top: 35px;
     justify-content: space-around;
 }
-.booking-body{
-    margin-left: 250px;
-   
-}
+
 .sort-columnd{
   float: right;
 }
@@ -58,5 +55,9 @@
     display: flex;
     justify-content: space-around;
 }
-
+::ng-deep{
+    p-dropdown{
+        height: 40px;
+    }
+}
 

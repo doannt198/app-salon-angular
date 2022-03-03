@@ -95,7 +95,12 @@ a{
     text-decoration: none;
     color: black;
 }
-
+::ng-deep{
+   p-chart{
+       width: 650px;
+       height: 300px;
+   }
+}
 
 
 

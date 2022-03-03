@@ -14,6 +14,7 @@ export class GanDuLieuComponent implements OnInit {
   city: string;
   items: MenuItem[];
   activeItem: MenuItem; 
+  selectedCities: string[] = [];
   constructor() { }
 
   ngOnInit(): void {

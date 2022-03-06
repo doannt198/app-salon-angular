@@ -1,1 +1,108 @@
-<p>customer-detail works!</p>
+<div class="add-booking">
+    <div class="dieu-huong">
+        <div class="option-left">
+            <a routerLink="/managementcustomer"><i class="pi pi-chevron-left"></i>Chi tiết khách hàng</a>
+        </div>
+
+        <div class="option-right">
+            <a routerLink="/managementcustomer"><i class="pi pi-times"></i></a>
+        </div>
+    </div>
+    <div class="customer-detail">
+        <div class="customer-detail-info">
+            <div class="customer-info--common">
+                <div class="title-line">
+                    <span>Khai báo thông tin chung</span>
+                </div>
+                <div class="form-data">
+                    <div class="lable"> Mã khách hàng:</div>
+                    <div class="value"> KH0001</div>
+                </div>
+                <div class="form-data">
+                    <div class="lable"> Tên khách hàng:</div>
+                    <div class="value"> Nguyễn Văn A</div>
+                </div>
+                <div class="form-data">
+                    <div class="lable"> Đia chỉ:</div>
+                    <div class="value"> Chung cư K35 Tân Mai</div>
+                </div>
+                <div class="form-data">
+                    <div class="lable"> Email:</div>
+                    <div class="value"> abc@gmail.com</div>
+                </div>
+                <div class="form-data">
+                    <div class="lable"> Số điện thoại:</div>
+                    <div class="value"> 0913456235</div>
+                </div>
+                <div class="form-data">
+                    <div class="lable"> Ngày sinh:</div>
+                    <div class="value"> 22/11/2022</div>
+                </div>
+            </div>
+        </div>
+        <div class="customer-detail-avatar">
+            <img src="../../../assets/img/hinh-dai-dien.jpg" alt="">
+        </div>
+    </div>
+    <div class="col-12 booking-body">
+        <div class="booking-sort">
+            <div class="grid">
+                <div class="col-6">
+                    Lịch sử đặt Booking
+                </div>
+                <div class="col-6 ">
+
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-12">
+                <p-table>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>STT</th>
+                            <th> Mã Booking</th>
+                            <th>Thợ </th>
+                            <th>Dịch vụ  </th>
+                            <th>Ngày check in</th>
+                            <th>Thành tiền(đ)</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                        <tr >
+
+                            <th>
+                               
+                            </th>
+                            <th>
+                             
+                            </th>
+                            <th>
+                               
+                            </th>
+                            <th>
+                               
+                            </th>
+                            <th>
+                              
+                            </th>
+                            <th>
+                           
+                            </th>
+                            <th>
+                               
+                            </th>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+    <div class="customer-actions">
+        <div class="btn-edit">
+            <button pButton type="button" label="Chỉnh sửa"></button>
+        </div>
+        <div class="btn-exit">
+            <button pButton type="button" label="Thoát"></button>
+        </div>
+    </div>
+</div>

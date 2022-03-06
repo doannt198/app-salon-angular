@@ -25,8 +25,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReportComponent } from './report/report.component';
 import { ManagerBookingComponent } from './manager-booking/manager-booking.component';
-
-const routes: Routes = [
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component'
+const routes: Routes = [ 
+  { path: '', redirectTo: '/report', pathMatch: 'full' },
   { path: 'report', component: ReportComponent },
   { path: 'managerbooking', component: ManagerBookingComponent },
   { path: 'managementcustomer', component: CustomerManagementComponent },
@@ -47,15 +48,15 @@ const routes: Routes = [
   { path: 'gioi-thieu-salon', component: GioiThieuSalonComponent },
   { path: 'them-voucher', component: ThemVoucherComponent },
   { path: 'gan-du-lieu-voucher', component: GanDuLieuComponent },
-  { path: 'them-tho', component: ThemThoComponent},
-  { path: 'them-voucher', component:ThemVoucherComponent },
-  { path: 'booking-detail', component:BookingDetailComponent},
-  { path: 'customer-detail', component:CustomerDetailComponent},
-  { path: 'salon-detail', component:SalonDetailComponent},
-  { path: 'worker-detail', component:WorkerDetailComponent},
-  { path: 'voucher-detail', component:VoucherDetailComponent}
+  { path: 'them-tho', component: ThemThoComponent },
+  { path: 'them-voucher', component: ThemVoucherComponent },
+  { path: 'booking-detail', component: BookingDetailComponent },
+  { path: 'customer-detail', component: CustomerDetailComponent },
+  { path: 'salon-detail', component: SalonDetailComponent },
+  { path: 'worker-detail', component: WorkerDetailComponent },
+  { path: 'voucher-detail', component: VoucherDetailComponent },
+  {path:'**', component:PageNotFoundComponent}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

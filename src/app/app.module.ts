@@ -47,6 +47,7 @@ import { CustomerDetailComponent } from './customer-management/customer-detail/c
 import { SalonDetailComponent } from './salon-management/salon-detail/salon-detail.component';
 import { WorkerDetailComponent } from './worker-management/worker-detail/worker-detail.component';
 import { VoucherDetailComponent } from './voucher-management/voucher-detail/voucher-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +81,8 @@ import { VoucherDetailComponent } from './voucher-management/voucher-detail/vouc
     CustomerDetailComponent,
     SalonDetailComponent,
     WorkerDetailComponent,
-    VoucherDetailComponent
+    VoucherDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -49,6 +49,7 @@ import { WorkerDetailComponent } from './worker-management/worker-detail/worker-
 import { VoucherDetailComponent } from './voucher-management/voucher-detail/voucher-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { GanDuLieuVoucherDetailComponent } from './voucher-management/gan-du-lieu-voucher-detail/gan-du-lieu-voucher-detail.component';
+import { QuanLySalonComponent } from './salon-management/quan-ly-salon/quan-ly-salon.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +85,8 @@ import { GanDuLieuVoucherDetailComponent } from './voucher-management/gan-du-lie
     WorkerDetailComponent,
     VoucherDetailComponent,
     PageNotFoundComponent,
-    GanDuLieuVoucherDetailComponent
+    GanDuLieuVoucherDetailComponent,
+    QuanLySalonComponent
   ],
   imports: [
     BrowserModule,

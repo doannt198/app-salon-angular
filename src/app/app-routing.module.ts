@@ -30,6 +30,7 @@ import { GanDuLieuVoucherComponent } from './voucher-management/gan-du-lieu-vouc
 import { GanDuLieuThoComponent } from './worker-management/gan-du-lieu-tho/gan-du-lieu-tho.component';
 import { GioiThieuThoComponent } from './worker-management/gioi-thieu-tho/gioi-thieu-tho.component';
 import { QuanLySalonThoComponent } from './worker-management/quan-ly-salon-tho/quan-ly-salon-tho.component';
+import { QuanLySalonComponent} from './salon-management/quan-ly-salon/quan-ly-salon.component'
 const routes: Routes = [ 
   { path: '', redirectTo: '/report', pathMatch: 'full' },
   { path: 'report', component: ReportComponent },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'them-salon', component: ThemSalonComponent },
   { path: 'gan-du-lieu-salon', component: GanDuLieuSalonComponent },
   { path: 'gioi-thieu-salon', component: GioiThieuSalonComponent },
+  { path: 'quan-ly-salon', component: QuanLySalonComponent},
   { path: 'them-voucher', component: ThemVoucherComponent },
   { path: 'gan-du-lieu-voucher', component: GanDuLieuVoucherComponent },
   { path: 'them-tho', component: ThemThoComponent },

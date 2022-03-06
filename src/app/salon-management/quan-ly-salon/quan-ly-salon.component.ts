@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api'
 @Component({
-  selector: 'app-gioi-thieu-salon',
-  templateUrl: './gioi-thieu-salon.component.html',
-  styleUrls: ['./gioi-thieu-salon.component.scss']
+  selector: 'app-quan-ly-salon',
+  templateUrl: './quan-ly-salon.component.html',
+  styleUrls: ['./quan-ly-salon.component.scss']
 })
-export class GioiThieuSalonComponent implements OnInit {
+export class QuanLySalonComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
   status:string;

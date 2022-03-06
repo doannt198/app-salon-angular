@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import {MenuItem} from 'primeng/api';
-import { TRISTATECHECKBOX_VALUE_ACCESSOR } from 'primeng/tristatecheckbox';
 import { KhoitaotaikhoanService } from 'src/services/khoitaotaikhoan.service';
 
 interface City {

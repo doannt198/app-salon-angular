@@ -12,9 +12,8 @@ export class ThemVoucherComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      {label: 'Thông tin'},
-      {label: 'Gán dữ liệu'},
-      
+      {label: 'Thông tin', routerLink:'/them-voucher'},
+      {label: 'Gán dữ liệu', routerLink:'/gan-du-lieu-voucher'},
   ];
     this.activeItem = this.items[0];
   }

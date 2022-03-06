@@ -1,1 +1,63 @@
-<p>gan-du-lieu-tho works!</p>
+<div class="menu-top">
+    <div class="option-left">
+        <a routerLink="/managementvoucher"><i class="pi pi-chevron-left"></i>Thêm Thợ</a>
+    </div>
+    <div class="option-center">
+        <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+    </div>
+    <div class="option-right">
+        <a routerLink="/managementvoucher"><i class="pi pi-times"></i></a>
+    </div>
+</div>
+
+<div class="form">
+    <div class="form-add">
+        <div class="grid">
+            <div class="col-8">
+               <div class="grid">
+                   <div class="col-7">
+                        <div class="left">
+                         <h3>Gán dữ liệu</h3>
+                            <div class="title">   
+                                Tên vai trò
+                            </div>
+                            <input type="text" pInputText class="input-gan" />                                                                              
+                        </div>
+                   </div>
+                   <div class="col-5">
+                       <div class="right">
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="tongquan" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
+                            <label for="ny">Nail</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlybooking" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
+                            <label for="sf">Hail</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlykhachhang" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
+                            <label for="la">Lĩnh vực 2</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlysalon" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+                            <label for="ch">Lĩnh vực 3</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <p-checkbox name="group1" value="quanlytho" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+                            <label for="ch">Lĩnh vực 4</label>
+                        </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="button">
+    <div class="button-item">
+        <button pButton type="button" label="Hủy"  ></button>
+    </div>
+    <div class="button-item">
+        <button pButton type="button" label="Thêm"  ></button>
+    </div>
+</div>

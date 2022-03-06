@@ -26,6 +26,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReportComponent } from './report/report.component';
 import { ManagerBookingComponent } from './manager-booking/manager-booking.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component'
+import { GanDuLieuVoucherComponent } from './voucher-management/gan-du-lieu-voucher/gan-du-lieu-voucher.component';
+import { GanDuLieuThoComponent } from './worker-management/gan-du-lieu-tho/gan-du-lieu-tho.component';
+import { GioiThieuThoComponent } from './worker-management/gioi-thieu-tho/gioi-thieu-tho.component';
+import { QuanLySalonThoComponent } from './worker-management/quan-ly-salon-tho/quan-ly-salon-tho.component';
 const routes: Routes = [ 
   { path: '', redirectTo: '/report', pathMatch: 'full' },
   { path: 'report', component: ReportComponent },
@@ -47,7 +51,7 @@ const routes: Routes = [
   { path: 'gan-du-lieu-salon', component: GanDuLieuSalonComponent },
   { path: 'gioi-thieu-salon', component: GioiThieuSalonComponent },
   { path: 'them-voucher', component: ThemVoucherComponent },
-  { path: 'gan-du-lieu-voucher', component: GanDuLieuComponent },
+  { path: 'gan-du-lieu-voucher', component: GanDuLieuVoucherComponent },
   { path: 'them-tho', component: ThemThoComponent },
   { path: 'them-voucher', component: ThemVoucherComponent },
   { path: 'booking-detail', component: BookingDetailComponent },
@@ -55,6 +59,9 @@ const routes: Routes = [
   { path: 'salon-detail', component: SalonDetailComponent },
   { path: 'worker-detail', component: WorkerDetailComponent },
   { path: 'voucher-detail', component: VoucherDetailComponent },
+  { path: 'gan-du-lieu-tho', component: GanDuLieuThoComponent},
+  { path: 'gioi-thieu-tho', component:GioiThieuThoComponent},
+  { path: 'quan-ly-salon-tho',  component:QuanLySalonThoComponent},
   {path:'**', component:PageNotFoundComponent}
 ];
 @NgModule({

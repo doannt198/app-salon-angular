@@ -1,0 +1,57 @@
+.dieu-huong{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;  
+}
+.option-left{
+    margin-left: 50px;
+}
+.option-right{
+    margin-right: 50px;
+}
+.option-left a{
+ text-decoration: none;
+ color:black
+}
+.customer-detail{
+    max-width: 1090px;
+    min-height: 410px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 4px 4px 20px rgb(0 0 0 / 3%);
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap:10px
+}
+.customer-detail-avatar img{
+    width: 265px;
+    height: 265px;
+    border-radius: 100%;
+    box-shadow: 0 0 3px #cecece;
+    object-fit: contain;
+    margin-left: 50px;
+}
+.form-data{
+    display: flex;
+    font-size:15px;
+    font-weight: 400;
+    padding: 10px 0;
+    border-bottom: 1px solid #ededed;
+}
+.form-data .lable{
+    color:#9ea1a5;
+}
+.customer-actions{
+    display: flex;
+    float: right;
+    margin-top: 50px;
+}
+.btn-edit{
+    margin-right: 50px ;
+}
+.btn-exit{
+    margin-right: 50px;
+}

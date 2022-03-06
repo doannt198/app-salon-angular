@@ -5,7 +5,6 @@ import { CustomerDetailComponent } from './customer-management/customer-detail/c
 import { BookingDetailComponent } from './manager-booking/booking-detail/booking-detail.component';
 import { ThemThoComponent } from './worker-management/them-tho/them-tho.component';
 import { ThemVoucherComponent } from './voucher-management/them-voucher/them-voucher.component';
-import { QuanLyThoComponent } from './salon-management/quan-ly-tho/quan-ly-tho.component';
 import { GioiThieuSalonComponent } from './salon-management/gioi-thieu-salon/gioi-thieu-salon.component';
 import { GanDuLieuSalonComponent } from './salon-management/gan-du-lieu-salon/gan-du-lieu-salon.component';
 import { ThemSalonComponent } from './salon-management/them-salon/them-salon.component';
@@ -27,7 +26,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReportComponent } from './report/report.component';
 import { ManagerBookingComponent } from './manager-booking/manager-booking.component';
 
-
 const routes: Routes = [
   { path: 'report', component: ReportComponent },
   { path: 'managerbooking', component: ManagerBookingComponent },
@@ -47,7 +45,6 @@ const routes: Routes = [
   { path: 'them-salon', component: ThemSalonComponent },
   { path: 'gan-du-lieu-salon', component: GanDuLieuSalonComponent },
   { path: 'gioi-thieu-salon', component: GioiThieuSalonComponent },
-  { path: 'quan-ly-tho', component: QuanLyThoComponent },
   { path: 'them-voucher', component: ThemVoucherComponent },
   { path: 'gan-du-lieu-voucher', component: GanDuLieuComponent },
   { path: 'them-tho', component: ThemThoComponent},

@@ -83,6 +83,33 @@ border-radius: 20px;
     border: 1px solid red;
     margin-left:300px
 }
-.cha{
-
+.customer-detail{
+    max-width: 1090px;
+    min-height: 410px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 4px 4px 20px rgb(0 0 0 / 3%);
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns:  1.2fr 1fr;
+    gap:10px
+}
+.custommer-detail--avatar img{
+    height: 265px;
+    width: 265px;
+    border-radius: 100%;
+    box-shadow: 0 0 3px #cecece;
+    object-fit: contain;
+    margin-left: 100px;
+    margin-top:100px
+}
+.actions{
+    margin-top: 25px;
+    font-size: 16px;
+    color: #2c6dda;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
 }

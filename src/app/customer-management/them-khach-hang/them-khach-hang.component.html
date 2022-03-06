@@ -12,56 +12,69 @@
         </div>
     </div>
     <div class="addbooking-body">
-        <div class="grid">
-            <div class="col-12">
-                <div class="cha">
-
-                    <div class="thongtinchung">
-                        <h2>Thông tin khách hàng</h2>
-                        <div class="input-title">
-                            Tên salon
-                        </div>
-                        <div class="input-text">
-                            <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
-                            </p-dropdown>
-                        </div>
-                        <div class="input-title">
-                            Mã booking
-                        </div>
-                        <div class="input-text">
-                            <input type="text" pInputText>
-                        </div>
-                        <div class="input-title">
-                            Thợ
-                        </div>
-                        <div class="input-text">
-                            <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
-                            </p-dropdown>
-                        </div>
-                        <div class="input-title">
-                            Ngày check in
-                        </div>
-                        <div class="input-text">
-                            <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
-                            </p-dropdown>
-                        </div>
-                        <div class="input-title">
-                            Ngày check out
-                        </div>
-                        <div class="input-text">
-                            <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
-                            </p-dropdown>
-                        </div>
-                        <div class="input-title">
-                            Mã giảm giá áp dụng
-                        </div>
-                        <div class="input-text">
-                            <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
-                            </p-dropdown>
-                        </div>
+        <div class="customer-detail">
+            <div class="customer-detail--common">
+                    <h2>Khái báo thông tin chung</h2>
+                    <div class="input-title">
+                        Mã khách hàng
                     </div>
+                    <div class="input-text">
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="input-title">
+                        Tên khách hàng 
+                    </div>
+                    <div class="input-text">
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="input-title">
+                        Địa chỉ
+                    </div>
+                    <div class="input-text-chia">
+                       <div class="grid">
+                           <div class="col-4"> <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
+                        </p-dropdown></div>
+                           <div class="col-4"> <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
+                        </p-dropdown></div>
+                           <div class="col-4"> <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
+                        </p-dropdown></div>
+                       </div>
+                    </div>
+                    <div class="input-title">
+                        Địa chỉ chi tiết
+                    </div>
+                    <div class="input-text">
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="input-title">
+                        Email
+                    </div>
+                    <div class="input-text">
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="input-title">
+                        Số điện thoại
+                    </div>
+                    <div class="input-text">
+                        <input type="text" pInputText>
+                    </div>
+                    <div class="input-title">
+                        Ngày sinh
+                    </div>
+                    <div class="input-text">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
+                        </p-dropdown>
+                    </div>
+            </div>
+            <div class="custommer-detail--avatar">
+                <img src="../../../assets/img/hinh-dai-dien.png" alt="">
+                <div class="actions">
+                    <div class="edit">Sửa</div>
+                    <div class="devision">|</div>
+                    <div class="delete">Xóa</div>
                 </div>
             </div>
+            
         </div>
     </div>
     <div class="trangthaibk">

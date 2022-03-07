@@ -16,60 +16,99 @@
         </div>
     </div>
 </div>
-<div class="form">
-    <div class="form-add">
-        <div class="grid">
-            <div class="col-8">
-                <div class="title">
-                    Thông tin chung
-                </div>
-                <div class="input">
-                    <div class="grid">
-                        <div class="col-8">
-                            <div class="input-top">
-                                <span class="p-float-label">
-                                    <input id="float-input" type="text" pInputText>
-                                    <label for="float-input">Tên nhân viên</label>
-                                </span>
-                            </div>
-                            <div class="input-bottom">
-                                <span class="p-float-label">
-                                    <input id="float-input" type="text" pInputText>
-                                    <label for="float-input">Email dùng làm tài khoản đăng nhập</label>
-                                </span>
-                            </div>
-                            <div class="input-top">
-                                <span class="p-float-label">
-                                    <input id="float-input" type="text" pInputText>
-                                    <label for="float-input">Mật khẩu</label>
-                                </span>
-                            </div>
-                            <div class="input-bottom">
-                                <span class="p-float-label">
-                                    <input id="float-input" type="text" pInputText>
-                                    <label for="float-input">Số điện thoại</label>
-                                </span>
-                            </div>    
-                        </div>
-                        <div class="col-4">
-                        <img src="../../../assets/img/hinh-dai-dien.png" alt="">
-                        <div class="button-delete-img">
-                            <a >Sửa</a> | <a >Xóa</a>
-                        </div>
-                        </div>
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="form">
+        <div class="form-add">
+            <div class="grid">
+                <div class="col-8">
+                    <div class="title">
+                        Thông tin chung
                     </div>
-                    <div class="setup">
-                        <div class="title">Cài đặt trạng thái</div>
-                        <div class="setup-radio">
-                            <div class="field-radiobutton">
-                                <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1">
-                                </p-radioButton>
-                                <label for="city1">Hoạt động</label>
+                    <div class="input">
+                        <div class="grid">
+                            <div class="col-8">
+                                <div class="input-top">
+                                    <label for="float-input">Tên nhân viên</label>
+                                    <span class="p-float-label">
+                                        <input id="float-input" type="text" pInputText name="tennhanvien"
+                                            [(ngModel)]="infokhachhang.tennhanvien" #tennhanvien="ngModel" required
+                                            [ngClass]="{ 'is-invalid': f.submitted && tennhanvien.invalid }">
+                                    </span>
+                                    <div *ngIf="f.submitted && tennhanvien.invalid">
+                                        <div *ngIf="tennhanvien.errors?.['required']">
+                                            <small>Trường này không được để trống</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-bottom">
+                                    <label for="float-input">Email dùng làm tài khoản đăng nhập</label>
+                                    <span class="p-float-label">
+                                        <input id="float-input" type="text" pInputText name="email"
+                                            [(ngModel)]="infokhachhang.email" #email="ngModel" required email
+                                            [ngClass]="{ 'is-invalid': f.submitted && email.invalid }">
+                                    </span>
+                                    <div *ngIf="f.submitted && email.invalid">
+                                        <div *ngIf="email.errors?.['required']">
+                                            <small>Trường này không được để trống</small>
+                                        </div>
+                                        <div *ngIf="email.errors?.['email']">
+                                            <small>Sai định dạng email</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-top">
+                                    <label for="float-input">Mật khẩu</label>
+                                    <span class="p-float-label">
+                                        <input id="float-input" type="password" pInputText name="matkhau"
+                                        [(ngModel)]="infokhachhang.matkhau" #matkhau="ngModel" required
+                                        [ngClass]="{ 'is-invalid': f.submitted && matkhau.invalid }">
+                                    </span>
+                                    <div *ngIf="f.submitted && matkhau.invalid">
+                                        <div *ngIf="matkhau.errors?.['required']">
+                                            <small>Trường này không được để trống</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-bottom">
+                                    <label for="float-input">Số điện thoại</label>
+                                    <span class="p-float-label">
+                                        <input id="float-input" type="text" pInputText name="sodienthoai"
+                                        [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" required
+                                        [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }">
+                                    </span>
+                                    <div *ngIf="f.submitted && sodienthoai.invalid">
+                                        <div *ngIf="sodienthoai.errors?.['required']">
+                                            <small>Trường này không được để trống</small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="field-radiobutton">
-                                <p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2">
-                                </p-radioButton>
-                                <label for="city2">Dừng hoạt động</label>
+                            <div class="col-4">
+                                <img src="../../../assets/img/hinh-dai-dien.png" alt="">
+                                <div class="button-delete-img">
+                                    <a>Sửa</a> | <a>Xóa</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setup">
+                            <div class="title">Cài đặt trạng thái</div>
+                            <div class="setup-radio">
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="trangthai" value="hoatdong" [(ngModel)]="infokhachhang.trangthai" #trangthai="ngModel" required  [ngClass]="{ 'is-invalid': f.submitted && trangthai.invalid }" > 
+                                    </p-radioButton>
+                                    <label for="city1">Hoạt động</label>
+                                </div>
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="trangthai" value="dunghoatdong" #trangthai="ngModel" required  [ngClass]="{ 'is-invalid': f.submitted && trangthai.invalid }"
+                                        [(ngModel)]="infokhachhang.trangthai"> 
+                                    </p-radioButton>
+                                    <label for="city2">Dừng hoạt động</label>
+                                </div>
+                            </div>
+                            <div *ngIf="f.submitted && trangthai.invalid">
+                                <div *ngIf="trangthai.errors?.['required']">
+                                    <small>Trường này không được để trống</small>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,15 +116,12 @@
             </div>
         </div>
     </div>
-</div>
-<div class="button">
-    <div class="button-item">
-        <button pButton type="button" label="Hủy"></button>
+    <div class="button">
+        <div class="button-item">
+            <button pButton type="button" label="Hủy" routerLink="/khoitao-taikhoan"></button>
+        </div>
+        <div class="button-item">
+            <button pButton type="submit" label="Lưu"></button>
+        </div>
     </div>
-    <div class="button-item">
-        <button pButton type="button" label="Lưu"></button>
-    </div>
-    <div class="button-item">
-        <button pButton type="button" label="Lưu & Thoát"></button>
-    </div>
-</div>
+</form>

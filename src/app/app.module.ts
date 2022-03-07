@@ -27,7 +27,7 @@ import { KhoiTaoTaiKhoanComponent } from './khoi-tao-tai-khoan/khoi-tao-tai-khoa
 import { TongHopDonBookingComponent } from './tong-hop-don-booking/tong-hop-don-booking.component';
 import { BaoCaoDoanhThuComponent } from './bao-cao-doanh-thu/bao-cao-doanh-thu.component';
 import { AddLinhVucComponent } from './linh-vuc-dich-vu/add-linh-vuc/add-linh-vuc.component';
-import {RadioButtonModule} from 'primeng/radiobutton';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { ThemTaiKhoanComponent } from './khoi-tao-tai-khoan/them-tai-khoan/them-tai-khoan.component';
 import { GanDuLieuComponent } from './khoi-tao-tai-khoan/gan-du-lieu/gan-du-lieu.component';
 import { ThemBookingComponent } from './manager-booking/them-booking/them-booking.component';
@@ -50,6 +50,8 @@ import { VoucherDetailComponent } from './voucher-management/voucher-detail/vouc
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { GanDuLieuVoucherDetailComponent } from './voucher-management/gan-du-lieu-voucher-detail/gan-du-lieu-voucher-detail.component';
 import { QuanLySalonComponent } from './salon-management/quan-ly-salon/quan-ly-salon.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +105,10 @@ import { QuanLySalonComponent } from './salon-management/quan-ly-salon/quan-ly-s
     TableModule,
     CheckboxModule,
     RatingModule,
-    RadioButtonModule
+    RadioButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

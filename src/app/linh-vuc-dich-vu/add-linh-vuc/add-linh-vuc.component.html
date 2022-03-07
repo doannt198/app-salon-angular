@@ -2,8 +2,7 @@
     <div class="grid">
         <div class="col-4">
             <div class="option">
-                <a routerLink="/linhvuc-dichvu"><i class="pi pi-chevron-left"></i>Tổng quan</a> 
-
+                <a routerLink="/linhvuc-dichvu"><i class="pi pi-chevron-left"></i>Tổng quan</a>
             </div>
         </div>
         <div class="col-4">
@@ -18,36 +17,53 @@
         </div>
     </div>
 </div>
-<div class="form">
-    <div class="form-add">
-        <div class="grid">
-            <div class="col-8">
-                <div class="title">
-                    Thông tin chung
-                </div>
-                <div class="input">
-                    <div class="input-top">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" pInputText > 
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+novalidate >
+    <div class="form">
+        <div class="form-add">
+            <div class="grid">
+                <div class="col-8">
+                    <div class="title">
+                        Thông tin chung
+                    </div>
+                    <div class="input">
+                        <div class="input-top">
                             <label for="float-input">Tên lĩnh vực</label>
-                        </span>
-                    </div>
-                    <div class="input-bottom">
-                        <span class="p-float-label">
-                            <input id="float-input" type="text" pInputText > 
-                            <label for="float-input">Mã lĩnh vực</label>
-                        </span>
-                    </div>
-                    <div class="setup">
-                        <div class="title">Cài đặt trạng thái</div>
-                        <div class="setup-radio">
-                            <div class="field-radiobutton">
-                                <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1"></p-radioButton>
-                                <label for="city1">Hoạt động</label>
+                            <span class="p-float-label">
+                                <input id="float-input" type="text" pInputText name="tenlinhvuc" [(ngModel)]="model.tenlinhvuc" #tenlinhvuc="ngModel" required
+                                [ngClass]="{ 'is-invalid': f.submitted && tenlinhvuc.invalid }">
+                            </span>
+                            <div *ngIf="f.submitted && tenlinhvuc.invalid">
+                               <div  *ngIf="tenlinhvuc.errors?.['required']"> 
+                                <small>Trường này không được để trống</small>
                             </div>
-                            <div class="field-radiobutton">
-                                <p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2"></p-radioButton>
-                                <label for="city2">Dừng hoạt động</label>
+                            </div>
+                        </div>
+                        <div class="input-bottom">
+                            <label for="float-input">Mã lĩnh vực</label>
+                            <span class="p-float-label">
+                                <input id="float-input" type="text" pInputText name="malinhvuc" [(ngModel)]="model.malinhvuc" #malinhvuc="ngModel" required
+                                [ngClass]="{ 'is-invalid': f.submitted && malinhvuc.invalid }">
+                            </span>
+                            <div *ngIf="f.submitted && tenlinhvuc.invalid" >
+                                <div *ngIf="malinhvuc.errors?.['required']"> 
+                                 <small>Trường này không được để trống</small>
+                             </div>
+                             </div>
+                        </div>
+                        <div class="setup">
+                            <div class="title">Cài đặt trạng thái</div>
+                            <div class="setup-radio">
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="city" value="Chicago" [(ngModel)]="model.trangthai" >
+                                    </p-radioButton>
+                                    <label for="city1">Hoạt động</label>
+                                </div>
+                                <div class="field-radiobutton">
+                                    <p-radioButton name="city" value="Los Angeles" [(ngModel)]="model.trangthai" >
+                                    </p-radioButton>
+                                    <label for="city2">Dừng hoạt động</label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,15 +71,12 @@
             </div>
         </div>
     </div>
-</div>
-<div class="button">
-    <div class="button-item">
-        <button pButton type="button" label="Hủy"  ></button>
+    <div class="button">
+        <div class="button-item">
+            <button pButton type="button" label="Hủy" routerLink="/linhvuc-dichvu"></button>
+        </div>
+        <div class="button-item">
+            <button pButton type="submit" label="Lưu"></button>
+        </div>
     </div>
-    <div class="button-item">
-        <button pButton type="button" label="Lưu"  ></button>
-    </div>
-    <div class="button-item">
-        <button pButton type="button" label="Lưu & Thoát" ></button>
-    </div>
-</div>
+</form>

@@ -11,6 +11,13 @@ export class ThemTaiKhoanComponent implements OnInit {
   city: string;
   items: MenuItem[];
   activeItem: MenuItem;
+  infokhachhang: any = {
+    tenkhachhang: '',
+    email: '',
+    matkhau: '',
+    sodienthoai: '',
+    trangthai:'',
+  };
   constructor() { }
 
   ngOnInit(): void {
@@ -20,5 +27,8 @@ export class ThemTaiKhoanComponent implements OnInit {
   ];
     this.activeItem = this.items[0];
   }
-
+  onSubmit(){
+    alert("Lưu thành công!")
+    /* alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model)); */
+  }
 }

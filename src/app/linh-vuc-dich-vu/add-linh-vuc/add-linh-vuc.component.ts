@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-linh-vuc',
@@ -7,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddLinhVucComponent implements OnInit {
   value2: string;
-  city: string;
+  status: string;
+  model: any = {
+    tenlinhvuc: '',
+    malinhvuc: '',
+    trangthai: ''
+  };
   constructor() { }
 
   ngOnInit(): void {
+    
   }
-
+  onSubmit(){
+    alert("Lưu thành công!")
+    /* alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model)); */
+  }
 }

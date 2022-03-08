@@ -10,6 +10,19 @@ export class ThemSalonComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
   status:string;
+  infosalon: any = {
+    masalon:'',
+    tensalon: '',
+    thanhpho:'',
+    quan:'',
+    phuong:'',
+    diachichitiet:'',
+    email: '',
+    sodienthoai: '',
+    ngaysinh:'',
+    trangthaibooking:'',
+    trangthaidoisoat:'',
+  };
   constructor() { }
 
   ngOnInit(): void {
@@ -19,5 +32,8 @@ export class ThemSalonComponent implements OnInit {
       {label: 'Giới thiệu', routerLink:'/gioi-thieu-salon' },
       {label: 'Quản lý Salon',routerLink:'/quan-ly-salon'}
   ];
+}
+onSubmit(){
+  alert("Thêm thành công!")
 }
 }

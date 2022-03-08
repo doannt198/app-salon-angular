@@ -117,3 +117,11 @@ a{
     text-decoration: none;
     color: black;
 }
+::ng-deep{
+    .p-calendar{
+        width: 100%;
+    }
+}
+small{
+    color: red;
+}

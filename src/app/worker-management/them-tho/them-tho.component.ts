@@ -10,6 +10,12 @@ export class ThemThoComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
   status:string;
+  infotho:any={
+    matho:'',
+    tentho:'',
+    sodienthoai:'',
+    email:''
+  }
   constructor() { }
 
   ngOnInit(): void {
@@ -22,5 +28,7 @@ export class ThemThoComponent implements OnInit {
   ];
     this.activeItem = this.items[0];
   }
-
+onSubmit(){
+  alert("Lưu thành công")
+}
 }

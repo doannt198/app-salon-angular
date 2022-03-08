@@ -9,6 +9,7 @@
         <a routerLink="/managementworker"><i class="pi pi-times"></i></a>
     </div>
 </div>
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 <div class="form-info">
     <div class="grid">
         <div class="col-7">
@@ -20,7 +21,14 @@
                     Mã thợ:
                 </div>
                 <div class="info-input">
-                    <input type="text" pInputText >
+                    <input type="text" pInputText name="masalon"
+                    [(ngModel)]="infotho.matho" #matho="ngModel" required
+                    [ngClass]="{ 'is-invalid': f.submitted && matho.invalid }" >
+                </div>
+                <div *ngIf="f.submitted && matho.invalid">
+                    <div *ngIf="matho.errors?.['required']">
+                        <small>Trường này không được để trống</small>
+                    </div>
                 </div>
             </div>
             <div class="info-item">
@@ -28,7 +36,14 @@
                     Tên thợ:
                 </div>
                 <div class="info-input">
-                    <input type="text" pInputText >
+                    <input type="text" pInputText name="tentho"
+                    [(ngModel)]="infotho.tentho" #tentho="ngModel" required
+                    [ngClass]="{ 'is-invalid': f.submitted && tentho.invalid }" >
+                </div>
+                <div *ngIf="f.submitted && tentho.invalid">
+                    <div *ngIf="tentho.errors?.['required']">
+                        <small>Trường này không được để trống</small>
+                    </div>
                 </div>
             </div>
             <div class="info-item">
@@ -36,7 +51,14 @@
                     Số điện thoại:
                 </div>
                 <div class="info-input">
-                    <input type="text" pInputText >
+                    <input type="text" pInputText name="sodienthoai"
+                    [(ngModel)]="infotho.sodienthoai" #sodienthoai="ngModel" required
+                    [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }" >
+                </div>
+                <div *ngIf="f.submitted && sodienthoai.invalid">
+                    <div *ngIf="sodienthoai.errors?.['required']">
+                        <small>Trường này không được để trống</small>
+                    </div>
                 </div>
             </div>
             <div class="info-item">
@@ -44,7 +66,17 @@
                     Email:
                 </div>
                 <div class="info-input">
-                    <input type="text" pInputText >
+                    <input type="text" pInputText name="email"
+                    [(ngModel)]="infotho.email" #email="ngModel" required email
+                    [ngClass]="{ 'is-invalid': f.submitted && email.invalid }">
+                </div>
+                <div *ngIf="f.submitted && email.invalid">
+                    <div *ngIf="email.errors?.['required']">
+                        <small>Trường này không được để trống</small>
+                    </div>
+                    <div *ngIf="email.errors?.['email']">
+                        <small>Sai định dạng email</small>
+                    </div>
                 </div>
             </div>
             <div class="info-item">
@@ -136,6 +168,7 @@
         <button pButton type="button" label="Thoát"></button>
     </div>
     <div class="btn-exit">
-        <button pButton type="button" label="Lưu"></button>
+        <button pButton type="submit" label="Lưu"></button>
     </div>
 </div>
+</form>

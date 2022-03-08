@@ -11,6 +11,7 @@
             </div>
         </div>
     </div>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     <div class="addbooking-body">
         <div class="customer-detail">
             <div class="customer-detail--common">
@@ -19,24 +20,44 @@
                         Mã khách hàng
                     </div>
                     <div class="input-text">
-                        <input type="text" pInputText>
+                        <input type="text" pInputText="sodienthoai" name="makhachhang"
+                        [(ngModel)]="infokhachhang.makhachhang" #makhachhang="ngModel" required
+                        >
+                    </div>
+                    <div *ngIf="f.submitted && makhachhang.invalid">
+                        <div *ngIf="makhachhang.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                         Tên khách hàng 
                     </div>
                     <div class="input-text">
-                        <input type="text" pInputText>
+                        <input type="text" pInputText name="tenkhachhang"
+                        [(ngModel)]="infokhachhang.tenkhachhang" #tenkhachhang="ngModel" required>
                     </div>
-                    <div class="input-title">
-                        Địa chỉ
+                    <div *ngIf="f.submitted && tenkhachhang.invalid">
+                        <div *ngIf="tenkhachhang.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-text-chia">
                        <div class="grid">
-                           <div class="col-4"> <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
+                           <div class="col-4"> 
+                            <div class="input-title">
+                                Tỉnh/Thành phố
+                            </div>
+                        <p-dropdown [options]="thanhpho" optionLabel="name">
                         </p-dropdown></div>
-                           <div class="col-4"> <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
+                           <div class="col-4">
+                            <div class="input-title">
+                                Quận/Huyện
+                            </div> <p-dropdown [options]="quan"  optionLabel="name">
                         </p-dropdown></div>
-                           <div class="col-4"> <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
+                           <div class="col-4">
+                            <div class="input-title">
+                                Xã/Phường
+                            </div> <p-dropdown [options]="phuong" optionLabel="name">
                         </p-dropdown></div>
                        </div>
                     </div>
@@ -50,20 +71,35 @@
                         Email
                     </div>
                     <div class="input-text">
-                        <input type="text" pInputText>
+                        <input type="text" pInputText name="email"
+                        [(ngModel)]="infokhachhang.email" #email="ngModel" required email
+                        [ngClass]="{ 'is-invalid': f.submitted && email.invalid }">
                     </div>
-                    <div class="input-title">
+                    <div *ngIf="f.submitted && email.invalid">
+                        <div *ngIf="email.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
+                        <div *ngIf="email.errors?.['email']">
+                            <small>Sai định dạng email</small>
+                        </div>
+                    </div>
+                    <div class="input-title" >
                         Số điện thoại
                     </div>
                     <div class="input-text">
-                        <input type="text" pInputText>
+                        <input type="text" pInputText name="sodienthoai"
+                        [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" required>
+                    </div>
+                    <div *ngIf="f.submitted && sodienthoai.invalid">
+                        <div *ngIf="sodienthoai.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                         Ngày sinh
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking" optionLabel="name">
-                        </p-dropdown>
+                        <p-calendar [showIcon]="true" inputId="ngaycheckin" ></p-calendar>
                     </div>
             </div>
             <div class="custommer-detail--avatar">
@@ -72,59 +108,6 @@
                     <div class="edit">Sửa</div>
                     <div class="devision">|</div>
                     <div class="delete">Xóa</div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-    <div class="trangthaibk">
-        <div class="grid">
-            <div class="col-5">
-                <div class="trangthaibooking">
-                    <div class="trangthaibooking-title">
-                        Trang thái booking
-                    </div>
-                    <div class="trangthaibooking-radio">
-                        <div class="p-field-radiobutton">
-                            <p-radioButton name="city" value="hoanthanh" [(ngModel)]="status" inputId="status1">
-                            </p-radioButton>
-                            <label for="city1">Hoàn thành </label>
-                        </div>
-                        <div class="p-field-radiobutton">
-                            <p-radioButton name="city" value="choduyet" [(ngModel)]="status" inputId="status2">
-                            </p-radioButton>
-                            <label for="city2">Chờ duyệt</label>
-                        </div>
-                        <div class="p-field-radiobutton">
-                            <p-radioButton name="city" value="checkin" [(ngModel)]="status" inputId="status3">
-                            </p-radioButton>
-                            <label for="city3">Check in </label>
-                        </div>
-                        <div class="p-field-radiobutton">
-                            <p-radioButton name="city" value="dahuy" [(ngModel)]="status" inputId="status4">
-                            </p-radioButton>
-                            <label for="city4">Đã hủy</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-7">
-                <div class="trangthaibooking">
-                    <div class="trangthaibooking-title">
-                        Trang thái đối soát
-                    </div>
-                    <div class="trangthaibooking-radio-right">
-                        <div class="p-field-radiobutton">
-                            <p-radioButton name="city" value="dadoisoat" [(ngModel)]="status" inputId="status1">
-                            </p-radioButton>
-                            <label for="city1">Đã đối soát </label>
-                        </div>
-                        <div class="p-field-radiobutton">
-                            <p-radioButton name="city" value="chuadoisoat" [(ngModel)]="status" inputId="status2">
-                            </p-radioButton>
-                            <label for="city2">Chưa đối soát</label>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -178,12 +161,6 @@
                             </th>
                         </tr>
                     </ng-template>
-
-                    <ng-template pTemplate="emptymessage">
-                        <tr>
-                            <td colspan="8">No customers found.</td>
-                        </tr>
-                    </ng-template>
                 </p-table>
             </div>
         </div>
@@ -193,7 +170,9 @@
             <button pButton type="button" label="Hủy"></button>
         </div>
         <div class="button-left">
-            <button pButton type="button" label="Gửi yêu cầu"></button>
+            <button pButton type="submit" label="Gửi yêu cầu"></button>
         </div>
     </div>
+    </form>
 </div>
+

@@ -8,6 +8,15 @@ import {MenuItem} from 'primeng/api'
 export class ThemVoucherComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
+  infovoucher: any = {
+    mavoucher: '',
+    tenvouher: '',
+    salon: '',
+    noidung: '',
+    startday: true,
+    endday: true,
+    giam: '',
+  };
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +26,7 @@ export class ThemVoucherComponent implements OnInit {
   ];
     this.activeItem = this.items[0];
   }
-
+  onSubmit(){
+    alert("Lưu Voucher thành công!")
+  }
 }

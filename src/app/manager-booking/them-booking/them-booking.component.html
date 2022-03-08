@@ -6,6 +6,7 @@
             </div>
         </div>
     </div>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     <div class="addbooking-body">
         <div class="grid">
             <div class="col-4">
@@ -15,7 +16,14 @@
                     Tên salon
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                        <p-dropdown [options]="cities"  optionLabel="name" name="tensalon"
+                        [(ngModel)]="infobooking.tensalon" #tensalon="ngModel" [required]="true"
+                        [ngClass]="{ 'is-invalid': f.submitted && tensalon.invalid }"></p-dropdown>
+                    </div>
+                    <div *ngIf="f.submitted && tensalon.invalid">
+                        <div *ngIf="tensalon.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                     Mã booking
@@ -27,25 +35,39 @@
                     Thợ
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                        <p-dropdown [options]="cities"  optionLabel="name"></p-dropdown>
                     </div>
                     <div class="input-title">
                     Ngày check in 
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                        <p-calendar [showIcon]="true" inputId="ngaycheckin" name="ngaycheckin"
+                        [(ngModel)]="infobooking.ngaycheckin" #ngaycheckin="ngModel" [required]="true"
+                        [ngClass]="{ 'is-invalid': f.submitted && ngaycheckin.invalid }"></p-calendar>
+                    </div>
+                    <div *ngIf="f.submitted && ngaycheckin.invalid">
+                        <div *ngIf="ngaycheckin.errors?.required">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                     Ngày check out
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                        <p-calendar [showIcon]="true" inputId="ngaycheckin"  name="ngaycheckout"
+                        [(ngModel)]="infobooking.ngaycheckout" #ngaycheckout="ngModel" [required]="true"
+                        [ngClass]="{ 'is-invalid': f.submitted && ngaycheckout.invalid }"  ></p-calendar>
+                    </div>
+                    <div *ngIf="f.submitted && ngaycheckout.invalid">
+                        <div *ngIf="ngaycheckout.errors?.required">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                     Mã giảm giá áp dụng
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedbooking"  optionLabel="name"></p-dropdown>
+                        <p-dropdown [options]="cities"  optionLabel="name"></p-dropdown>
                     </div>
                 </div>
             </div>
@@ -56,18 +78,42 @@
                     Tên khách hàng
                     </div>
                     <div class="input-text">
-                        <input type="text" pInputText > 
+                        <input type="text" pInputText name="tenkhachhang"
+                        [(ngModel)]="infobooking.tenkhachhang" #tenkhachhang="ngModel" required
+                        [ngClass]="{ 'is-invalid': f.submitted && tenkhachhang.invalid }"> 
+                    </div>
+                    <div *ngIf="f.submitted && tenkhachhang.invalid">
+                        <div *ngIf="tenkhachhang.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                     Số điện thoại
                     <div class="input-text">
-                        <input type="text" pInputText > 
+                        <input type="text" pInputText name="sodienthoai"
+                        [(ngModel)]="infobooking.sodienthoai" #sodienthoai="ngModel" required
+                        [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }"> 
+                    </div>
+                    <div *ngIf="f.submitted && sodienthoai.invalid">
+                        <div *ngIf="sodienthoai.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                     Email
                     </div>
                     <div class="input-text">
-                        <input type="text" pInputText > 
+                        <input type="text" pInputText  name="email"
+                        [(ngModel)]="infobooking.email" #email="ngModel" required email
+                        [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" > 
+                    </div>
+                    <div *ngIf="f.submitted && email.invalid">
+                        <div *ngIf="email.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
+                        <div *ngIf="email.errors?.['email']">
+                            <small>Sai định dạng email</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -192,7 +238,8 @@
             <button pButton type="button" label="Hủy" ></button>
         </div>
         <div class="button-left">
-            <button pButton type="button" label="Gửi yêu cầu"  ></button>
+            <button pButton type="submit" label="Gửi yêu cầu"  ></button>
         </div>
     </div>
 </div>
+</form>

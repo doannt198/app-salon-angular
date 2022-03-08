@@ -13,8 +13,8 @@ export class ThemVoucherComponent implements OnInit {
     tenvouher: '',
     salon: '',
     noidung: '',
-    startday: true,
-    endday: true,
+    startday: "",
+    endday: "",
     giam: '',
   };
   constructor() { }

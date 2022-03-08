@@ -16,12 +16,12 @@
                     Tên salon
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities"  optionLabel="name" name="tensalon"
+                        <p-dropdown [options]="cities"  optionLabel="name" [(ngModel)]="infobooking.tensalon" [editable]="true" name="tensalon"
                         [(ngModel)]="infobooking.tensalon" #tensalon="ngModel" [required]="true"
                         [ngClass]="{ 'is-invalid': f.submitted && tensalon.invalid }"></p-dropdown>
                     </div>
                     <div *ngIf="f.submitted && tensalon.invalid">
-                        <div *ngIf="tensalon.errors?.['required']">
+                        <div *ngIf="tensalon.errors?.required">
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
@@ -29,13 +29,27 @@
                     Mã booking
                     </div>
                     <div class="input-text">
-                        <input type="text" pInputText > 
+                        <input type="text" pInputText name="mabooking"
+                        [(ngModel)]="infobooking.mabooking" #mabooking="ngModel" required
+                        [ngClass]="{ 'is-invalid': f.submitted && mabooking.invalid }"> 
+                    </div>
+                    <div *ngIf="f.submitted && mabooking.invalid">
+                        <div *ngIf="mabooking.errors?.['required']">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                     Thợ
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities"  optionLabel="name"></p-dropdown>
+                        <p-dropdown [options]="tho"  optionLabel="tentho" ptionLabel="name" [(ngModel)]="infobooking.tentho" [editable]="true" name="tensalon"
+                        [(ngModel)]="infobooking.tentho" #tentho="ngModel" [required]="true"
+                        [ngClass]="{ 'is-invalid': f.submitted && tentho.invalid }"></p-dropdown>
+                    </div>
+                    <div *ngIf="f.submitted && tentho.invalid">
+                        <div *ngIf="tentho.errors?.required">
+                            <small>Trường này không được để trống</small>
+                        </div>
                     </div>
                     <div class="input-title">
                     Ngày check in 
@@ -221,12 +235,6 @@
                             <th>
                                <a href=""><i class="pi pi-trash"></i></a> 
                             </th>
-                        </tr>
-                    </ng-template>
-                    
-                    <ng-template pTemplate="emptymessage">
-                        <tr>
-                            <td colspan="8">No customers found.</td>
                         </tr>
                     </ng-template>
                 </p-table>

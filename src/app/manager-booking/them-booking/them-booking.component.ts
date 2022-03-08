@@ -16,8 +16,6 @@ export class ThemBookingComponent implements OnInit {
   cities: Booking[];
   tho:Tho[]
   status:string;
-  selectedbooking: Booking;
-  selectedtho:Tho;
   addbooking:any=[];
   infobooking:any={
     tensalon:'',

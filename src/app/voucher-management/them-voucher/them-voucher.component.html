@@ -17,7 +17,7 @@
             <span class="name">Thông tin chung</span>
         </div>
         <div class="info-item">
-            <div class="label">
+            <div class="lable-required">
                 Mã voucher
             </div>
             <div class="info-input">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="info-item">
-            <div class="label">
+            <div class="lable-required">
                 Tên Voucher
             </div>
             <div class="info-input">
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="info-item">
-            <div class="label">
+            <div class="lable-required">
                 Salon
             </div>
             <div class="info-input">
@@ -72,7 +72,7 @@
         <div class="info-item-chia">
             <div class="grid">
                 <div class="col-6">
-                    <div class="label">
+                    <div class="lable-required">
                         Ngày bắt đầu:
                     </div>
                     <div class="info-input">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="label">
+                    <div class="lable-required">
                         Ngày kết thúc:
                     </div>
                     <div class="info-input">
@@ -103,13 +103,13 @@
             </div>
         </div>
         <div class="info-item">
-            <div class="label">
+            <div class="lable-required">
                 Giảm(%)
             </div>
             <div class="info-input">
-                <input type="text" pInputText  name="giam"
+                <input type="number" pInputText  name="giam"
                 [(ngModel)]="infovoucher.giam" #giam="ngModel" required
-                [ngClass]="{ 'is-invalid': f.submitted && giam.invalid }"> 
+                [ngClass]="{ 'is-invalid': f.submitted && giam.invalid }" maxLength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> 
             </div>
             <div *ngIf="f.submitted && giam.invalid">
                 <div *ngIf="giam.errors?.['required']">
@@ -120,7 +120,6 @@
     </div>
     <div class="info-image">
         <img src="../../../assets/img/hinh-dai-dien.png" alt="">
-        
     </div>
 </div>
 <div class="custom-actions">
@@ -132,3 +131,14 @@
     </div>
 </div>
 </form>
+<p-toast position="top-right"  [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

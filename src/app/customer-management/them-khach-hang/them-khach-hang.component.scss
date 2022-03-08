@@ -125,3 +125,7 @@ a{
 small{
     color: red;
 }
+.input-title-required::after{
+    content:"*";
+    color: red;
+}

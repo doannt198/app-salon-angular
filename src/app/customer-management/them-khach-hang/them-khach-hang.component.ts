@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { AddbookingService } from 'src/services/addbooking.service';
+import {MessageService} from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 interface Booking {
   name: string
 }
 @Component({
   selector: 'app-them-khach-hang',
   templateUrl: './them-khach-hang.component.html',
-  styleUrls: ['./them-khach-hang.component.scss']
+  styleUrls: ['./them-khach-hang.component.scss'],
+  providers: [MessageService]
 })
 export class ThemKhachHangComponent implements OnInit {
   thanhpho: Booking[];
@@ -24,7 +27,7 @@ export class ThemKhachHangComponent implements OnInit {
     email: '',
     sodienthoai: '',
   };
-  constructor(private getaddbooking:AddbookingService) { }
+  constructor(private getaddbooking:AddbookingService,private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
 
@@ -50,12 +53,13 @@ export class ThemKhachHangComponent implements OnInit {
       {name: 'Mỹ Đình'}
   ];
   this.getaddBooking()
+  this.primengConfig.ripple = true;
   }
   getaddBooking(){
     this.getaddbooking.getaddbooking().subscribe(respone=>this.addbooking=respone)
   }
   onSubmit(){
-    alert("Lưu thành công!")
+    this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
   }
   }
 

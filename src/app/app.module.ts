@@ -52,6 +52,7 @@ import { GanDuLieuVoucherDetailComponent } from './voucher-management/gan-du-lie
 import { QuanLySalonComponent } from './salon-management/quan-ly-salon/quan-ly-salon.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {ToastModule} from 'primeng/toast';
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,7 +109,8 @@ import { CommonModule } from '@angular/common';
     RadioButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

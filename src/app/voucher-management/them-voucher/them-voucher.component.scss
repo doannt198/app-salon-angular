@@ -71,3 +71,7 @@ textarea{
     width: 100%;
     height: 70px;
 }
+.lable-required::after{
+    content: "*";
+    color: red;
+}

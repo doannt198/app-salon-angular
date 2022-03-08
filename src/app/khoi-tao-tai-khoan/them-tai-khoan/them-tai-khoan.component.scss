@@ -71,3 +71,11 @@ input{
 small{
     color: red !important;
 }
+.float-input::after{
+    content: "*";
+    color: red;
+}
+.title-trangthai::after{
+    content: "*";
+    color: red;
+}

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/api';
 import { AddbookingService } from 'src/services/addbooking.service';
+import {MessageService} from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 interface Booking {
   name: string
 }
@@ -10,7 +12,8 @@ interface Tho {
 @Component({
   selector: 'app-them-booking',
   templateUrl: './them-booking.component.html',
-  styleUrls: ['./them-booking.component.scss']
+  styleUrls: ['./them-booking.component.scss'],
+  providers: [MessageService]
 })
 export class ThemBookingComponent implements OnInit {
   cities: Booking[];
@@ -28,7 +31,7 @@ export class ThemBookingComponent implements OnInit {
     email:'',
     status:''
   }
-  constructor(private getaddbooking:AddbookingService) { }
+  constructor(private getaddbooking:AddbookingService,private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
   ngOnInit(): void {
     this.cities = [
       {name: 'Salon 1'},
@@ -44,9 +47,10 @@ export class ThemBookingComponent implements OnInit {
 
   ];
   this.getaddBooking()
+  this.primengConfig.ripple = true;
   }
   onSubmit(){
-    alert("Lưu thành công")
+    this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
   }
   getaddBooking(){
     this.getaddbooking.getaddbooking().subscribe(respone=>this.addbooking=respone)

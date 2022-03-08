@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {MenuItem} from 'primeng/api'
+import {MenuItem} from 'primeng/api';
+import {MessageService} from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-them-salon',
   templateUrl: './them-salon.component.html',
-  styleUrls: ['./them-salon.component.scss']
+  styleUrls: ['./them-salon.component.scss'],
+  providers: [MessageService]
 })
 export class ThemSalonComponent implements OnInit {
   items: MenuItem[];
@@ -23,7 +26,7 @@ export class ThemSalonComponent implements OnInit {
     trangthaibooking:'',
     trangthaidoisoat:'',
   };
-  constructor() { }
+  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
     this.items = [
@@ -32,8 +35,9 @@ export class ThemSalonComponent implements OnInit {
       {label: 'Giới thiệu', routerLink:'/gioi-thieu-salon' },
       {label: 'Quản lý Salon',routerLink:'/quan-ly-salon'}
   ];
+  this.primengConfig.ripple = true;
 }
 onSubmit(){
-  alert("Thêm thành công!")
+  this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
 }
 }

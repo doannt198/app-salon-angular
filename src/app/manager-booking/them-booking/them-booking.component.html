@@ -12,7 +12,7 @@
             <div class="col-4">
                 <div class="thongtinchung">
                     <h2>Thông tin chung</h2>
-                    <div class="input-title">
+                    <div class="input-title-required">
                     Tên salon
                     </div>
                     <div class="input-text">
@@ -25,7 +25,7 @@
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
-                    <div class="input-title">
+                    <div class="input-title-required">
                     Mã booking
                     </div>
                     <div class="input-text">
@@ -38,7 +38,7 @@
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
-                    <div class="input-title">
+                    <div class="input-title-required">
                     Thợ
                     </div>
                     <div class="input-text">
@@ -51,7 +51,7 @@
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
-                    <div class="input-title">
+                    <div class="input-title-required">
                     Ngày check in 
                     </div>
                     <div class="input-text">
@@ -64,7 +64,7 @@
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
-                    <div class="input-title">
+                    <div class="input-title-required">
                     Ngày check out
                     </div>
                     <div class="input-text">
@@ -88,7 +88,7 @@
             <div class="col-4">
                 <div class="thongtinchung">
                     <h2>Thông tin khách hàng</h2>
-                    <div class="input-title">
+                    <div class="input-title-required">
                     Tên khách hàng
                     </div>
                     <div class="input-text">
@@ -101,8 +101,9 @@
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
-                    <div class="input-title">
+                    <div class="input-title-required">
                     Số điện thoại
+                    </div>
                     <div class="input-text">
                         <input type="number" pInputText name="sodienthoai"
                         [(ngModel)]="infobooking.sodienthoai" #sodienthoai="ngModel" required
@@ -113,7 +114,7 @@
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
-                    <div class="input-title">
+                    <div class="input-title-required">
                     Email
                     </div>
                     <div class="input-text">
@@ -131,14 +132,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-4">
-            <div class="thongtinchung-top">
-                <h2>Tổng tiền</h2>
-                <div class="price">200.000</div>
-            </div>
-            <div class="thongtinchung-bottom">
-               
+            <div class="col-4">
+                <div class="thongtinchung-top">
+                    <h2>Tổng tiền</h2>
+                    <div class="price">200.000</div>
+                </div>
+                <div class="thongtinchung-bottom">
+                   
+                </div>
             </div>
         </div>
     </div>
@@ -249,5 +250,16 @@
             <button pButton type="submit" label="Gửi yêu cầu"  ></button>
         </div>
     </div>
-</div>
+
 </form>
+<p-toast position="top-right"  [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

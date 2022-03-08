@@ -28,7 +28,7 @@
                         <div class="grid">
                             <div class="col-8">
                                 <div class="input-top">
-                                    <label for="float-input">Tên nhân viên</label>
+                                    <label class="float-input">Tên nhân viên</label>
                                     <span class="p-float-label">
                                         <input id="float-input" type="text" pInputText name="tennhanvien"
                                             [(ngModel)]="infokhachhang.tennhanvien" #tennhanvien="ngModel" required
@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                                 <div class="input-bottom">
-                                    <label for="float-input">Email dùng làm tài khoản đăng nhập</label>
+                                    <label class="float-input">Email dùng làm tài khoản đăng nhập</label>
                                     <span class="p-float-label">
                                         <input id="float-input" type="text" pInputText name="email"
                                             [(ngModel)]="infokhachhang.email" #email="ngModel" required email
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                                 <div class="input-top">
-                                    <label for="float-input">Mật khẩu</label>
+                                    <label class="float-input">Mật khẩu</label>
                                     <span class="p-float-label">
                                         <input id="float-input" type="password" pInputText name="matkhau"
                                         [(ngModel)]="infokhachhang.matkhau" #matkhau="ngModel" required
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="input-bottom">
-                                    <label for="float-input">Số điện thoại</label>
+                                    <label class="float-input">Số điện thoại</label>
                                     <span class="p-float-label">
                                         <input id="float-input" type="number" pInputText name="sodienthoai"
                                         [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" required
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="setup">
-                            <div class="title">Cài đặt trạng thái</div>
+                            <div class="title-trangthai">Cài đặt trạng thái</div>
                             <div class="setup-radio">
                                 <div class="field-radiobutton">
                                     <p-radioButton name="trangthai" value="hoatdong" [(ngModel)]="infokhachhang.trangthai" #trangthai="ngModel" required  [ngClass]="{ 'is-invalid': f.submitted && trangthai.invalid }" > 
@@ -125,3 +125,14 @@
         </div>
     </div>
 </form>
+<p-toast position="top-right"  [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

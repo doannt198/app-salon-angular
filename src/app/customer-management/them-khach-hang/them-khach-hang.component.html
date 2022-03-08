@@ -16,7 +16,7 @@
         <div class="customer-detail">
             <div class="customer-detail--common">
                     <h2>Khái báo thông tin chung</h2>
-                    <div class="input-title">
+                    <div class="input-title-required">
                         Mã khách hàng
                     </div>
                     <div class="input-text">
@@ -29,7 +29,7 @@
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
-                    <div class="input-title">
+                    <div class="input-title-required">
                         Tên khách hàng 
                     </div>
                     <div class="input-text">
@@ -67,7 +67,7 @@
                     <div class="input-text">
                         <input type="text" pInputText>
                     </div>
-                    <div class="input-title">
+                    <div class="input-title-required">
                         Email
                     </div>
                     <div class="input-text">
@@ -83,7 +83,7 @@
                             <small>Sai định dạng email</small>
                         </div>
                     </div>
-                    <div class="input-title" >
+                    <div class="input-title-required" >
                         Số điện thoại
                     </div>
                     <div class="input-text">
@@ -178,4 +178,14 @@
     </div>
     </form>
 </div>
-
+<p-toast position="top-right"  [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

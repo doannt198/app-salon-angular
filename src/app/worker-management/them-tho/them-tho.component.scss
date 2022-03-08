@@ -100,3 +100,7 @@ input{
 small{
     color: red;
 }
+.lable-required::after{
+    content:"*";
+    color: red;
+}

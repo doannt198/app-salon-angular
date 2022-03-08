@@ -44,5 +44,8 @@
  font-weight: bold;
  color: black;
 }
-
+.float-input::after{
+    content:"*";
+    color:red;
+   }
 

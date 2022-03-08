@@ -8,6 +8,7 @@
     box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%);
     padding: 15px;
     border-radius: 20px;
+    min-height:573px;;
 }
 .input-title{
     margin-bottom: 10px;
@@ -25,9 +26,6 @@
     .p-radioButton{
         margin-left: 10px;
     }
-}
-.thongtinchung{
-    height: 573px;
 }
 .thongtinchung-top{
 height: 200px;
@@ -80,5 +78,9 @@ border-radius: 20px;
     }
 }
 small{
+    color: red;
+}
+.input-title-required::after{
+    content: "*";
     color: red;
 }

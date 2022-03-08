@@ -72,9 +72,9 @@
                                 <div class="input-bottom">
                                     <label for="float-input">Số điện thoại</label>
                                     <span class="p-float-label">
-                                        <input id="float-input" type="text" pInputText name="sodienthoai"
+                                        <input id="float-input" type="number" pInputText name="sodienthoai"
                                         [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" required
-                                        [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }">
+                                        [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                                     </span>
                                     <div *ngIf="f.submitted && sodienthoai.invalid">
                                         <div *ngIf="sodienthoai.errors?.['required']">

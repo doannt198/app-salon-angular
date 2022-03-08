@@ -104,9 +104,9 @@
                     <div class="input-title">
                     Số điện thoại
                     <div class="input-text">
-                        <input type="text" pInputText name="sodienthoai"
+                        <input type="number" pInputText name="sodienthoai"
                         [(ngModel)]="infobooking.sodienthoai" #sodienthoai="ngModel" required
-                        [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }"> 
+                        [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"> 
                     </div>
                     <div *ngIf="f.submitted && sodienthoai.invalid">
                         <div *ngIf="sodienthoai.errors?.['required']">

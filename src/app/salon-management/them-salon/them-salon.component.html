@@ -51,9 +51,9 @@
                     Số điện thoại:
                 </div>
                 <div class="info-input">
-                    <input type="text" pInputText name="sodienthoai"
+                    <input type="number" pInputText name="sodienthoai"
                     [(ngModel)]="infosalon.sodienthoai" #sodienthoai="ngModel" required
-                    [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }">
+                    [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 </div>
                 <div *ngIf="f.submitted && sodienthoai.invalid">
                     <div *ngIf="sodienthoai.errors?.['required']">

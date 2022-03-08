@@ -87,12 +87,15 @@
                         Số điện thoại
                     </div>
                     <div class="input-text">
-                        <input type="text" pInputText name="sodienthoai"
-                        [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" required>
+                        <input type="number" pInputText name="sodienthoai"
+                        [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" maxlength="10" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" ng-pattern="/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/" >
                     </div>
                     <div *ngIf="f.submitted && sodienthoai.invalid">
                         <div *ngIf="sodienthoai.errors?.['required']">
                             <small>Trường này không được để trống</small>
+                        </div>
+                        <div *ngIf="sodienthoai.errors?.['ng-pattern']">
+                            <small>Số điện thoại không hợp lệ</small>
                         </div>
                     </div>
                     <div class="input-title">

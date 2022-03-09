@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/services/customer.service';
 import {MenuItem} from 'primeng/api'
+import { Customer } from '../model/customer.model';
 @Component({
   selector: 'app-customer-management',
   templateUrl: './customer-management.component.html',
@@ -9,7 +10,7 @@ import {MenuItem} from 'primeng/api'
 export class CustomerManagementComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
-  datakhachhang:any=[]
+  datakhachhang:Customer[]=[];
   constructor(private customer :CustomerService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,9 @@ export class CustomerManagementComponent implements OnInit {
     this.getCustomer();
   }
   getCustomer(){
-      this.customer.getCustomer().subscribe(response=>this.datakhachhang=response)
+      this.customer.getCustomer(1,10)
+      .subscribe((response:any)=> {
+        this.datakhachhang=response.data;
+      })
   }
 }

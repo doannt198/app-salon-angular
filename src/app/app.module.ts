@@ -53,6 +53,8 @@ import { QuanLySalonComponent } from './salon-management/quan-ly-salon/quan-ly-s
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {ToastModule} from 'primeng/toast';
+import { HttpClientModule, HttpClient } from '@angular/common/http'
+import {PaginatorModule} from 'primeng/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,7 +112,10 @@ import {ToastModule} from 'primeng/toast';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    ToastModule
+    ToastModule,
+    HttpClientModule,
+    HttpClientModule,
+    PaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

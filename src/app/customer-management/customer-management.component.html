@@ -70,29 +70,28 @@
                                 <th>Loại hình</th>
                                 <th>Chức năng</th>
                             </tr>
-                            <tr *ngFor="let item of datakhachhang">
+                            <tr *ngFor="let item of datakhachhang  ">
                                 <th>
                                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                                 </th>
                                 <th>
-                                    {{item.id}}
+                                    {{item?.code}}
                                 </th>
                                 <th>
-                                    {{item.name}}
+                                    {{item?.name}}
                                 </th>
                                 <th>
-                                    {{item.phone}}
+                                   {{item?.mobile}}
                                 </th>
                                 <th>
-                                    {{item.email}}
+                                    {{item?.email}}
                                 </th>
                                 <th>
-                                    {{item.andress}}
+                                    {{item?.address}}
                                 </th>
                                 <th>
                                     Online
                                 </th>
-                                
                                 <th>
                                     <button pButton type="button" label="Chi tiết" routerLink="/customer-detail"></button>
                                 </th>

@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Customer } from 'src/app/model/customer.model';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'Application/json' })
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
- 
-  constructor() { }
 
-  getCustomer(){
-      return of(
-        [
-            { id: 'JGD345VE', name: 'Nguyễn Hoàng Yến', phone: '034 034 3947', email: 'Hoangyen9983@gmail.com', andress: '13 Pháo Đài Láng, Đống Đa, Hà Nội ', status: true },
-            { id: 'JGD345VE', name: 'Võ Thanh Mai', phone: '034 846 5874', email: 'Thanhmai223@gmail.com', andress: '13 Pháo Đài Láng, Đống Đa, Hà Nội ', status: true },
-            { id: 'JGD345VE', name: 'Nguyễn Thị Hoàn', phone: '039 948 7647', email: 'Moandla3333@gmail.com', andress: '13 Pháo Đài Láng, Đống Đa, Hà Nội ', status: true },
-            { id: 'JGD345VE', name: 'Võ Yến Nhi', phone: '034 309 8463', email: 'Yen23nhi@gmail.com', andress: '13 Pháo Đài Láng, Đống Đa, Hà Nội ', status: true },
-            { id: 'JGD345VE', name: 'Đặng Thị Kim Yến', phone: '034 098 8988', email: 'Kimyen0176@gmail.com', andress: '13 Pháo Đài Láng, Đống Đa, Hà Nội ', status: true },
-            { id: 'JGD345VE', name: 'Nguyễn Phương Trinh', phone: '034 093 8764', email: 'Trinh09121998', andress: '13 Pháo Đài Láng, Đống Đa, Hà Nội ', status: true },
-          ]
+  constructor(private httpClient:HttpClient) { }
+
+  getCustomer(PageIndex:number=1,PageSize:number=10):Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(`http://103.81.87.134:5002/api/Customer/getCustomer?PageIndex=${PageIndex}&PageSize=${PageSize}`).pipe(
       )
   }
 }

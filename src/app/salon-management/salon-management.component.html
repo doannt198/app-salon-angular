@@ -25,7 +25,7 @@
                             <div class="search">
                                 <span class="p-input-icon-right">
                                     <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search">
+                                    <input type="text" pInputText placeholder="Search" name="Search" [(ngModel)] = "query.Search">
                                 </span>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                 <div class="col-12">
                                     <div class="restoredata">
                                         <p-button icon="pi pi-sync" iconPos="left"></p-button>
-                                        <button pButton type="button" label="Lấy giá trị"></button>
+                                        <button pButton type="button" label="Lấy giá trị" (click)="getSalon()"></button>
                                     </div>
                                 </div>
                             </div>
@@ -63,8 +63,8 @@
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
-                                <th> Mã Khách hàng</th>
-                                <th>Tên khách hàng </th>
+                                <th> Mã Salon</th>
+                                <th>Tên Salon </th>
                                 <th>Số điện thoại </th>
                                 <th>Email</th>
                                 <th>Địa chỉ</th>
@@ -79,7 +79,7 @@
                                     {{item.id}}
                                 </th>
                                 <th>
-                                    {{item.namesalon}}
+                                    {{item.name}}
                                 </th>
                                 <th>
                                     {{item.phone}}
@@ -145,6 +145,7 @@
                         </ng-template>
                     </p-table>
                 </div>
+                <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
             </div>
         </div>
     </div>

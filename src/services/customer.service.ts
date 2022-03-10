@@ -15,8 +15,8 @@ export class CustomerService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getCustomer(PageIndex:number=1,PageSize:number=10):Observable<Customer[]> {
-    return this.httpClient.get<Customer[]>(`http://103.81.87.134:5002/api/Customer/getCustomer?PageIndex=${PageIndex}&PageSize=${PageSize}`).pipe(
+  getCustomer(queryString:string):Observable<any> {
+    return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Customer/getCustomer?${queryString}`).pipe(
       )
   }
 }

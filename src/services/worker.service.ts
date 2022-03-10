@@ -1,22 +1,17 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-
+import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'Application/json' })
+}
 @Injectable({
   providedIn: 'root'
 })
 export class WorkerService {
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { }
 
-  getWorker() {
-    return of([
-      { id: 'JGD345VE', name: 'Nguyễn Hoàng Yến', phone: '034 034 3947', email: 'Hoagyen0387@gmailcomm', andress: 'Số 195, nguyễn khang, yên hoà, cầu giấy ', status: "đang hoạt động" },
-      { id: 'JGD345VE', name: 'Võ Thanh Mai', phone: '034 846 5874', email: 'Hoagyen0387@gmailcomm', andress: 'Số 195, nguyễn khang, yên hoà, cầu giấy ', status: "đang hoạt động" },
-      { id: 'JGD345VE', name: 'Nguyễn Thị Hoàn ', phone: '039 948 7647', email: 'Hoagyen0387@gmailcomm', andress: 'Số 195, nguyễn khang, yên hoà, cầu giấy ', status: "đang hoạt động" },
-      { id: 'JGD345VE', name: 'Võ Yến Nhi', phone: '034 309 8463', email: 'Hoagyen0387@gmailcomm', andress: 'Số 195, nguyễn khang, yên hoà, cầu giấy', status: "đang hoạt động" },
-      { id: 'JGD345VE', name: 'Đặng Thị Kim Yến', phone: '034 098 8988', email: 'Hoagyen0387@gmailcomm', andress: 'Số 195, nguyễn khang, yên hoà, cầu giấy', status: "đang hoạt động" },
-      { id: 'JGD345VE', name: 'Nguyễn Phương Trình', phone: '034 093 8764', email: 'Hoagyen0387@gmailcomm', andress: 'Số 195, nguyễn khang, yên hoà, cầu giấy ', status: "đang hoạt động" },
-    ]
-    )
-  }
+  getWorker(queryString:any):Observable<any> {
+    return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Technician/LstTechnicianWithLocal?${queryString}`).pipe(
+    )}
 }

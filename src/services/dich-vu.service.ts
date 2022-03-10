@@ -7,11 +7,11 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class VoucherService {
+export class DichVuService {
 
-  constructor(private httpClient:HttpClient) { }
-
-  getVoucher(queryString:any):Observable<any> {
-    return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Voucher/getVoucher?${queryString}`).pipe(
-    )}
+  constructor( private httpClient:HttpClient) { }
+  getDichVu(queryString:any):Observable<any> {
+    return this.httpClient.get<any>(`http://103.81.87.134:5002/api/category/getService?${queryString}`).pipe(
+      )
+  }
 }

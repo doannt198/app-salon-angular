@@ -14,31 +14,35 @@
         <div class="customer-detail-info">
             <div class="customer-info--common">
                 <div class="title-line">
-                    <span>Khai báo thông tin chung</span>
+                    <span>Thông tin chung</span>
                 </div>
                 <div class="form-data">
-                    <div class="lable"> Mã khách hàng:</div>
-                    <div class="value"> KH0001</div>
+                    <div class="lable"> Mã Voucher:</div>
+                    <div class="value"> {{detail?.code}}</div>
                 </div>
                 <div class="form-data">
-                    <div class="lable"> Tên khách hàng:</div>
-                    <div class="value"> Nguyễn Văn A</div>
+                    <div class="lable"> Tên Voucher:</div>
+                    <div class="value"> {{detail?.name}}</div>
                 </div>
                 <div class="form-data">
-                    <div class="lable"> Đia chỉ:</div>
-                    <div class="value"> Chung cư K35 Tân Mai</div>
+                    <div class="lable"> Mã Salon:</div>
+                    <div class="value"> {{detail?.salonId}}</div>
                 </div>
                 <div class="form-data">
-                    <div class="lable"> Email:</div>
-                    <div class="value"> abc@gmail.com</div>
+                    <div class="lable"> Tên Salon:</div>
+                    <div class="value"> {{detail?.salonName}}</div>
                 </div>
                 <div class="form-data">
-                    <div class="lable"> Số điện thoại:</div>
-                    <div class="value"> 0913456235</div>
+                    <div class="lable"> Ngày bắt đầu:</div>
+                    <div class="value"> {{detail?.beginAt}}</div>
                 </div>
                 <div class="form-data">
-                    <div class="lable"> Ngày sinh:</div>
-                    <div class="value"> 22/11/2022</div>
+                    <div class="lable"> Ngày kết thúc:</div>
+                    <div class="value"> {{detail?.endAt}}</div>
+                </div>
+                <div class="form-data">
+                    <div class="lable"> Giảm giá:</div>
+                    <div class="value"> {{detail?.percentRatio}} %</div>
                 </div>
             </div>
         </div>
@@ -57,14 +61,3 @@
         </div>
     </div>
 </div>
-<p-toast position="top-right"  [baseZIndex]="5000">
-    <ng-template let-message pTemplate="message">
-        <div class="p-flex p-flex-column" style="flex: 1">
-            <div class="p-text-center">
-                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                <h4>{{message.summary}}</h4>
-                <p>{{message.detail}}</p>
-            </div>
-        </div>
-    </ng-template>
-</p-toast>

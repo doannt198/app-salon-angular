@@ -8,6 +8,8 @@ import {MenuItem} from 'primeng/api';
 export class VoucherDetailComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
+  id:number=0;
+  detail:any
   constructor() { }
 
   ngOnInit(): void {
@@ -15,6 +17,7 @@ export class VoucherDetailComponent implements OnInit {
       {label: 'Thông tin',routerLink:'/them-voucher'},
       {label: 'Gán dữ liệu',routerLink:'/gan-du-lieu-voucher'},
   ];
+  
   }
 
 }

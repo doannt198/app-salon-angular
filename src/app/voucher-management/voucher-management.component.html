@@ -25,11 +25,11 @@
                                 <div class="grid">
                                     <div class="col-6">
                                         <label for="icon">Từ ngày</label>
-                                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                                        <p-calendar [showIcon]="true" inputId="icon"[(ngModel)]="query.from" dateFormat="dd.mm.yy" ></p-calendar>
                                     </div>
                                     <div class="col-6">
                                         <label for="icon">Đến ngày</label>
-                                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                                        <p-calendar [showIcon]="true" inputId="icon" [(ngModel)]="query.to" dateFormat="dd.mm.yy"></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                             <div class="search">
                                 <span class="p-input-icon-right">
                                     <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search">
+                                    <input type="text" pInputText placeholder="Search" [(ngModel)]="query.Search">
                                 </span>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                                 <div class="col-12">
                                     <div class="restoredata">
                                         <p-button icon="pi pi-sync" iconPos="left"></p-button>
-                                        <button pButton type="button" label="Lấy giá trị"></button>
+                                        <button pButton type="button" label="Lấy giá trị" (click)="getVoucher()"></button>
                                     </div>
                                 </div>
                             </div>
@@ -94,74 +94,35 @@
                                  <img [src]= "'../../assets/img/'+item.img" alt="">
                                 </th>
                                 <th>
-                                    {{item.idvoucher}}
+                                    {{item?.code}}
                                 </th>
                                 <th>
-                                    {{item.namevoucher}}
+                                    {{item?.name}}
                                 </th>
                                 <th>
-                                    {{item.salon}}
+                                    {{item?.salonName}}
                                 </th>
                                 <th>
-                                    {{item.contents}}
+                                    {{item?.content}}
                                 </th>
                                 <th>
-                                    {{item.startday}}
+                                    {{item?.beginAt}}
                                 </th>
                                 <th>
-                                    {{item.endday}}
+                                    {{item?.endAt}}
+                                </th>
+                                <th [style.color]="item.isActive? 'green':'red'" >
+                                    {{item.isActive?'Online':'Offline'}}
                                 </th>
                                 <th>
-                                    {{item.status}}
+                                    <button pButton type="button" label="Chi tiết" routerLink="/chi-tiet-voucher/{{item?.id}}"></button>
                                 </th>
-                                <th>
-                                    <button pButton type="button" label="Chi tiết" routerLink="/voucher-detail"></button>
-                                </th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-customer>
-                            <tr class="p-selectable-row">
-                                <td>
-                                    <p-tableCheckbox [value]="customer"></p-tableCheckbox>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Name</span>
-                                    {{customer.name}}
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Country</span>
-                                    <span class="image-text">{{customer.country.name}}</span>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Representative</span>
-                                    <span class="image-text">{{customer.representative.name}}</span>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Date</span>
-
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Status</span>
-                                    <span
-                                        [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Activity</span>
-
-                                </td>
-                                <td style="text-align: center">
-                                    <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"></button>
-                                </td>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="8">No customers found.</td>
                             </tr>
                         </ng-template>
                     </p-table>
                 </div>
             </div>
+            <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
         </div>
     </div>
 </div>

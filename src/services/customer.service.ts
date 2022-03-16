@@ -19,4 +19,8 @@ export class CustomerService {
     return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Customer/getCustomer?${queryString}`).pipe(
       )
   }
+  getCustomerdetail(id:number): Observable<any> {
+   
+    return this.httpClient.get<any>('http://103.81.87.134:5002/api/Customer/getCustomerbyId?Id='+id).pipe()
+  }
 }

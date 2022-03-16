@@ -38,7 +38,6 @@ export class VoucherManagementComponent implements OnInit {
         this.query.to = moment(this.query.to).format('YYYY-MM-DD HH:mm');
         }
       const params = queryString.stringify(this.query);
-      console.log(params)
       this.voucherService.getVoucher(params).subscribe(response => {
         this.datavoucher = response.data;
         if (this.datavoucher && this.datavoucher.length) {

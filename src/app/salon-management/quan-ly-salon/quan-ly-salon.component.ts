@@ -1,23 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api'
+import { Component, Input, OnInit } from '@angular/core';
+import {MenuItem} from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
+import { SalonService } from 'src/services/salon.service';
 @Component({
   selector: 'app-quan-ly-salon',
   templateUrl: './quan-ly-salon.component.html',
   styleUrls: ['./quan-ly-salon.component.scss']
 })
 export class QuanLySalonComponent implements OnInit {
-  items: MenuItem[];
-  activeItem: MenuItem;
+  @Input() salon_Technicians:'';
   status:string;
-  constructor() { }
+  id: number;
+  salons: any;
+  detail:any;
+  constructor(private salonService: SalonService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.items = [
-      {label: 'Thông tin', routerLink:'/them-salon'},
-      {label: 'Gán dữ liệu',routerLink:'/gan-du-lieu-salon' },
-      {label: 'Giới thiệu', routerLink:'/gioi-thieu-salon' },
-      {label: 'Quản lý Salon',routerLink:'/quan-ly-salon'}
-  ];
+    this.id = this.route.snapshot.params.id;
+    this.salonService.getSalonbyTech(this.id).subscribe((response: any) => {
+      this.salons = response.data;
+      console.log(this.salons)
+    })
   }
-
+  Getdetail(item: any){
+    this.detail = item;
+  }
 }

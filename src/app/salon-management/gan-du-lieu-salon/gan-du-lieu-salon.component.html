@@ -1,11 +1,35 @@
-<div class="menu-top">
-    <div class="option-left">
-        <a routerLink="/managementvoucher"><i class="pi pi-chevron-left"></i>Thêm Salon</a>
+<div class="assign-wrapper">
+    <div class="grid">
+        <div class="col-6">
+            <div class="assign-data">
+                <div class="title-line">
+                    <span>Gán dữ liệu</span>
+                </div>
+                <div class="assign-list">
+                    <div class="assign-item--left">
+                        <div class="assign-item">
+                            <div class="assign-item--left">Gán dữ liệu</div>
+                            <div class="assign-item--value">Dịch vụ</div>
+                        </div>
+                        <div class="assign-item--detail">
+                            <button pButton type="button" label="Chi tiết"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="assign-tree"> 
+               
+            </div>
+        </div>
     </div>
-    <div class="option-center">
-        <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+</div>
+<div class="button-action">
+    <div class="button-item">
+        <button pButton type="button" label="Hủy"></button>
     </div>
-    <div class="option-right">
-        <a routerLink="/managementvoucher"><i class="pi pi-times"></i></a>
+    <div class="button-item">
+        <button pButton type="button" label="Thêm"></button>
     </div>
 </div>

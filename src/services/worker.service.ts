@@ -14,4 +14,8 @@ export class WorkerService {
   getWorker(queryString:any):Observable<any> {
     return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Technician/LstTechnicianWithLocal?${queryString}`).pipe(
     )}
+    getWorkerdetail(id:number): Observable<any> {
+   
+      return this.httpClient.get<any>('http://103.81.87.134:5002/api/Technician/getTechnicianById?Id='+id)
+    }
 }

@@ -1,11 +1,16 @@
-<div class="menu-top">
-    <div class="option-left">
-        <a routerLink="/managementworker"><i class="pi pi-chevron-left"></i>Thêm Thợ</a>
+<div class="introduce-wraper">
+    <div class="title-line">
+    <span>Giới thiệu</span>    
     </div>
-    <div class="option-center">
-        <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+    <div class="introduce-editor view">
+        <p>{{description}}</p>
     </div>
-    <div class="option-right">
-        <a routerLink="/managementworker"><i class="pi pi-times"></i></a>
+</div>
+<div class="custom-actions">
+    <div class="btn-save">
+        <button pButton type="button" label="Sửa"></button>
+    </div>
+    <div class="btn-exit">
+        <button pButton type="button" label="Thoát"></button>
     </div>
 </div>

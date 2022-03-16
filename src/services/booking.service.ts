@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { }
 
   getBookings() {
       return of(
@@ -25,5 +26,8 @@ export class BookingService {
       return of(
         { id: 'JGD345VE', name: 'Nguyễn Hoàng Yến', phone: '034 034 3947', hairdresser: 'Đặng Kim Thanh', salon: 'Nails Room Mit’s House ', service: 'Nối mi. cắt móng, cắt tóc ', field: 'NAILS,HAIR' }
       )
+  }
+  getListBookingbyCustomer(queryString:any):Observable<any>{
+      return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Booking/getListBookingByIdCustomer?${queryString}`)
   }
 }

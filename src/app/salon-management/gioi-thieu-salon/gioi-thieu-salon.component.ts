@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api'
 @Component({
   selector: 'app-gioi-thieu-salon',
@@ -8,16 +8,9 @@ import {MenuItem} from 'primeng/api'
 export class GioiThieuSalonComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
+  @Input() description="";
   status:string;
   constructor() { }
-
   ngOnInit(): void {
-    this.items = [
-      {label: 'Thông tin', routerLink:'/them-salon'},
-      {label: 'Gán dữ liệu',routerLink:'/gan-du-lieu-salon' },
-      {label: 'Giới thiệu', routerLink:'/gioi-thieu-salon' },
-      {label: 'Quản lý Salon',routerLink:'/quan-ly-salon'}
-  ];
   }
-
 }

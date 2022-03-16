@@ -1,63 +1,35 @@
-<div class="menu-top">
-    <div class="option-left">
-        <a routerLink="/managementworker"><i class="pi pi-chevron-left"></i>Thêm Thợ</a>
-    </div>
-    <div class="option-center">
-        <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
-    </div>
-    <div class="option-right">
-        <a routerLink="/managementworker"><i class="pi pi-times"></i></a>
-    </div>
-</div>
-
-<div class="form">
-    <div class="form-add">
-        <div class="grid">
-            <div class="col-8">
-               <div class="grid">
-                   <div class="col-7">
-                        <div class="left">
-                         <h3>Gán dữ liệu</h3>
-                            <div class="title">   
-                                Tên vai trò
-                            </div>
-                            <input type="text" pInputText class="input-gan" />                                                                              
+<div class="assign-wrapper">
+    <div class="grid">
+        <div class="col-6">
+            <div class="assign-data">
+                <div class="title-line">
+                    <span>Gán dữ liệu</span>
+                </div>
+                <div class="assign-list">
+                    <div class="assign-item--left">
+                        <div class="assign-item">
+                            <div class="assign-item--left">Gán dữ liệu</div>
+                            <div class="assign-item--value">Dịch vụ</div>
                         </div>
-                   </div>
-                   <div class="col-5">
-                       <div class="right">
-                        <div class="field-checkbox">
-                            <p-checkbox name="group1" value="tongquan" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
-                            <label for="ny">Nail</label>
+                        <div class="assign-item--detail">
+                            <button pButton type="button" label="Chi tiết"></button>
                         </div>
-                        <div class="field-checkbox">
-                            <p-checkbox name="group1" value="quanlybooking" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
-                            <label for="sf">Hail</label>
-                        </div>
-                        <div class="field-checkbox">
-                            <p-checkbox name="group1" value="quanlykhachhang" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
-                            <label for="la">Lĩnh vực 2</label>
-                        </div>
-                        <div class="field-checkbox">
-                            <p-checkbox name="group1" value="quanlysalon" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
-                            <label for="ch">Lĩnh vực 3</label>
-                        </div>
-                        <div class="field-checkbox">
-                            <p-checkbox name="group1" value="quanlytho" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
-                            <label for="ch">Lĩnh vực 4</label>
-                        </div>
-                       </div>
-                   </div>
-               </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="assign-tree"> 
+                <p-tree [value]="treeData"></p-tree>
             </div>
         </div>
     </div>
 </div>
-<div class="button">
+<div class="button-action">
     <div class="button-item">
-        <button pButton type="button" label="Hủy"  ></button>
+        <button pButton type="button" label="Hủy"></button>
     </div>
     <div class="button-item">
-        <button pButton type="button" label="Thêm"  ></button>
+        <button pButton type="button" label="Thêm"></button>
     </div>
 </div>

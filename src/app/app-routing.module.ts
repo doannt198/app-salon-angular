@@ -1,4 +1,4 @@
-import { VoucherDetailComponent } from './voucher-management/voucher-detail/voucher-detail.component';
+
 import { WorkerDetailComponent } from './worker-management/worker-detail/worker-detail.component';
 import { SalonDetailComponent } from './salon-management/salon-detail/salon-detail.component';
 import { CustomerDetailComponent } from './customer-management/customer-detail/customer-detail.component';
@@ -25,18 +25,28 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReportComponent } from './report/report.component';
 import { ManagerBookingComponent } from './manager-booking/manager-booking.component';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { GanDuLieuVoucherComponent } from './voucher-management/gan-du-lieu-voucher/gan-du-lieu-voucher.component';
 import { GanDuLieuThoComponent } from './worker-management/gan-du-lieu-tho/gan-du-lieu-tho.component';
 import { GioiThieuThoComponent } from './worker-management/gioi-thieu-tho/gioi-thieu-tho.component';
 import { QuanLySalonThoComponent } from './worker-management/quan-ly-salon-tho/quan-ly-salon-tho.component';
-import { QuanLySalonComponent} from './salon-management/quan-ly-salon/quan-ly-salon.component'
-const routes: Routes = [ 
+import { QuanLySalonComponent } from './salon-management/quan-ly-salon/quan-ly-salon.component';
+import { DichVuComponent } from '../app/linh-vuc-dich-vu/dich-vu/dich-vu.component';
+import { NotificationManagementComponent } from '../app/notification-management/notification-management.component';
+import { ThemThongBaoComponent } from '../app/notification-management/them-thong-bao/them-thong-bao.component'
+import { VoucherDetailComponent } from './voucher-management/voucher-detail/voucher-detail.component';
+import { ChiTietVoucherComponent } from './voucher-management/chi-tiet-voucher/chi-tiet-voucher.component'
+import { QuanTriAppComponent } from './quan-tri-app/quan-tri-app.component';
+import { QuanLyDanhGiaComponent } from './quan-ly-danh-gia/quan-ly-danh-gia.component';
+import { QuanLyForumComponent } from './quan-ly-forum/quan-ly-forum.component';
+
+const routes: Routes = [
   { path: '', redirectTo: '/report', pathMatch: 'full' },
   { path: 'report', component: ReportComponent },
   { path: 'managerbooking', component: ManagerBookingComponent },
   { path: 'managementcustomer', component: CustomerManagementComponent },
   { path: 'managementworker', component: WorkerManagementComponent },
+  { path: 'notificationmanagement', component: NotificationManagementComponent },
   { path: 'managementvoucher', component: VoucherManagementComponent },
   { path: 'managementsalon', component: SalonManagementComponent },
   { path: 'linhvuc-dichvu', component: LinhVucDichVuComponent },
@@ -51,20 +61,26 @@ const routes: Routes = [
   { path: 'them-salon', component: ThemSalonComponent },
   { path: 'gan-du-lieu-salon', component: GanDuLieuSalonComponent },
   { path: 'gioi-thieu-salon', component: GioiThieuSalonComponent },
-  { path: 'quan-ly-salon', component: QuanLySalonComponent},
+  { path: 'quan-ly-salon', component: QuanLySalonComponent },
   { path: 'them-voucher', component: ThemVoucherComponent },
   { path: 'gan-du-lieu-voucher', component: GanDuLieuVoucherComponent },
   { path: 'them-tho', component: ThemThoComponent },
   { path: 'them-voucher', component: ThemVoucherComponent },
   { path: 'booking-detail', component: BookingDetailComponent },
-  { path: 'customer-detail', component: CustomerDetailComponent },
-  { path: 'salon-detail', component: SalonDetailComponent },
-  { path: 'worker-detail', component: WorkerDetailComponent },
+  { path: 'customer-detail/:id', component: CustomerDetailComponent },
+  { path: 'salon-detail/:id', component: SalonDetailComponent },
+  { path: 'worker-detail/:id', component: WorkerDetailComponent },
+  { path: 'gan-du-lieu-tho', component: GanDuLieuThoComponent },
+  { path: 'gioi-thieu-tho', component: GioiThieuThoComponent },
+  { path: 'chi-tiet-voucher/:id', component: ChiTietVoucherComponent },
+  { path: 'quan-ly-salon-tho', component: QuanLySalonThoComponent },
   { path: 'voucher-detail', component: VoucherDetailComponent },
-  { path: 'gan-du-lieu-tho', component: GanDuLieuThoComponent},
-  { path: 'gioi-thieu-tho', component:GioiThieuThoComponent},
-  { path: 'quan-ly-salon-tho',  component:QuanLySalonThoComponent},
-  {path:'**', component:PageNotFoundComponent}
+  { path: 'them-thong-bao', component: ThemThongBaoComponent },
+  { path: 'dich-vu', component: DichVuComponent },
+  { path: 'quan-tri-app', component: QuanTriAppComponent },
+  { path: 'quan-ly-danh-gia', component: QuanLyDanhGiaComponent },
+  { path: 'quan-ly-forum', component: QuanLyForumComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

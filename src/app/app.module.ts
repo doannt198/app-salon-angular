@@ -53,8 +53,17 @@ import { QuanLySalonComponent } from './salon-management/quan-ly-salon/quan-ly-s
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {ToastModule} from 'primeng/toast';
+import {TabViewModule} from 'primeng/tabview';
 import { HttpClientModule, HttpClient } from '@angular/common/http'
 import {PaginatorModule} from 'primeng/paginator';
+import { DichVuComponent } from './linh-vuc-dich-vu/dich-vu/dich-vu.component';
+import { NotificationManagementComponent } from './notification-management/notification-management.component';
+import { ThemThongBaoComponent } from './notification-management/them-thong-bao/them-thong-bao.component';
+import { ChiTietVoucherComponent } from './voucher-management/chi-tiet-voucher/chi-tiet-voucher.component';
+import { QuanTriAppComponent } from './quan-tri-app/quan-tri-app.component';
+import { QuanLyDanhGiaComponent } from './quan-ly-danh-gia/quan-ly-danh-gia.component';
+import { QuanLyForumComponent } from './quan-ly-forum/quan-ly-forum.component';
+import {TreeModule} from 'primeng/tree';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,7 +100,15 @@ import {PaginatorModule} from 'primeng/paginator';
     VoucherDetailComponent,
     PageNotFoundComponent,
     GanDuLieuVoucherDetailComponent,
-    QuanLySalonComponent
+    QuanLySalonComponent,
+    DichVuComponent,
+    NotificationManagementComponent,
+    ThemThongBaoComponent,
+    ChiTietVoucherComponent,
+    QuanTriAppComponent,
+    QuanLyDanhGiaComponent,
+    QuanLyForumComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -115,7 +132,10 @@ import {PaginatorModule} from 'primeng/paginator';
     ToastModule,
     HttpClientModule,
     HttpClientModule,
-    PaginatorModule
+    PaginatorModule,
+    TabViewModule,
+    CommonModule,
+    TreeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

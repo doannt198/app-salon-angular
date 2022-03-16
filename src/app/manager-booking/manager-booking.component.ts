@@ -4,7 +4,6 @@ import { BookingService } from 'src/services/booking.service';
 interface City {
   name: string
 }
-
 @Component({
   selector: 'app-manager-booking',
   templateUrl: './manager-booking.component.html',
@@ -30,18 +29,15 @@ export class ManagerBookingComponent implements OnInit {
       { name: 'Hoàn thành' }
     ];
   }
-
   ngOnInit(): void {
     this.getBookings();
   }
-
   getBookings() {
     this.bookingService.getBookings()
-    .subscribe(
-      response => {
-        this.databooking = response;
-      }
-    )
+      .subscribe(
+        response => {
+          this.databooking = response;
+        }
+      )
   }
-
 }

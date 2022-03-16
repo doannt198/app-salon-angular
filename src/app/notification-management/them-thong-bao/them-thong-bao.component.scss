@@ -1,0 +1,85 @@
+.option-left{
+    padding: 30px;  
+}
+.option-left a{
+    text-decoration: none;
+}
+.option-right{
+    float: right;
+    padding: 30px;
+}
+.them-body{
+   
+    height:100vh;
+  
+}
+.chung{
+   
+}
+.dt-mot{
+    width: 500px;
+    height: 500px;
+    border: 1px solid green;
+}
+.info-common{
+    background: #fff;
+    box-shadow: 4px 4px 20px rgb(0 0 0 / 3%);
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.title-line{
+    padding: 20px;
+}
+.title-line span{
+    font-size: 20px;
+    font-weight: bold;
+    color:#1b1b1c;
+}
+.form-item{
+    padding: 20px;
+}
+input{
+    width: 100%;
+}
+textarea{
+    width: 100%;
+    height: 100px;
+}
+::ng-deep{
+    .p-calendar{
+        width: 100%;
+    }
+    .p-dropdown{
+        width: 100%;
+    }
+}
+.lable{
+    margin: 20px 0;
+}
+.info-customer{
+    border: 1px solid gray;
+    height: 468px;
+    border-radius:5px
+}
+.noidung{
+    margin-top: 100px;
+}
+.btn-action{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}
+.btn-exit{
+    margin-right: 20px;
+}
+.lable-required::after{
+    content: "*";
+    color: red;
+}
+.lable-required{
+    margin: 20px 0;
+}
+small{
+    color: red;
+}

@@ -1,10 +1,69 @@
-.menu-top{
-    margin-top: 50px;
+.assign-wrapper{
+    max-width: 1090px;
+    min-height: 500px;
+    background: #fff;
+    box-shadow: 4px 4px 20px rgb(0 0 0 / 3%);
+    border-radius: 5px;
+    margin: 0 auto;
+
+    padding: 30px;
+}
+.button-action{
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 50px;
+    justify-content: flex-end;
+    margin-top: 50px
 }
-a{
-    text-decoration: none;
-    color: black;
+.button-item{
+    margin-right: 50px;
 }
+.title-line{
+    font-size: 15px;
+    font-weight: 700;
+    color:#1b1b1c;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+.assign-item-view{
+    height: 55px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+}
+.assign-item--label{
+    color:#9ea1a5;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.assign-item--value{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.assign-item--left{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.assign-tree{
+    border:1px solid #cecece;
+    box-sizing: border-box;
+    padding: 25px; 
+    height: 425px;
+}
+.item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.trang-thai-hien-thi{
+    margin-top: 160px;
+}
+.radio-group{
+    display: flex;
+    justify-content: space-between;
+}
+

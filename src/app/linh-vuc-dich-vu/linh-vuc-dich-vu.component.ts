@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import {MenuItem} from 'primeng/api'
+import {LinhvucService} from '../../services/linhvuc.service';
 interface City {
   name: string
 }
@@ -15,15 +17,8 @@ export class LinhVucDichVuComponent implements OnInit {
   items: SelectItem[];
   items1: MenuItem[];
   activeItem: MenuItem;
-  datadichvu = [
-    { index: 1, iddichvu: 'LVNAILS', namedichvu: 'NAILS', status: true },
-    { index: 2, iddichvu: 'LVHAIR', namedichvu: 'NAILS', status: false },
-    { index: 3, iddichvu: 'LVNAILS', namedichvu: 'NAILS', status: true },
-    { index: 4, iddichvu: 'LVNAILS', namedichvu: 'HAIR', status: false },
-    { index: 5, iddichvu: 'LVHAIR', namedichvu: 'HAIR', status: true },
-    { index: 6, iddichvu: 'JGD345VE', namedichvu: 'HAIR', status: true },
-  ]
-  constructor() { }
+  datalinhvuc:any=[]
+  constructor( private linhvucservice: LinhvucService) { }
 
   ngOnInit(): void {
     this.items = [];
@@ -37,10 +32,16 @@ export class LinhVucDichVuComponent implements OnInit {
 
     ];
     this.items1 = [
-      {label: 'Lĩnh vực'},
-      {label: 'Dịch vụ'},
+      {label: 'Lĩnh vực', routerLink:'/linhvuc-dichvu'},
+      {label: 'Dịch vụ' , routerLink:'/dich-vu'},
   ];
     this.activeItem = this.items[0];
+    this.getLinhVuc();
   }
-
+  getLinhVuc(){
+    this.linhvucservice.getLinhVuc().subscribe(response => {
+      
+      this.datalinhvuc = response.data;
+    })
+  }
 }

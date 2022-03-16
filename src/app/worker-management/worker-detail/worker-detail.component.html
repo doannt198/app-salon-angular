@@ -1,1 +1,165 @@
-<p>worker-detail works!</p>
+<div class="menu-top">
+    <div class="option-left">
+        <a routerLink="/managementworker"><i class="pi pi-chevron-left"></i>Chi tiết Thợ</a>
+    </div>
+    <div class="option-center">
+        <p-tabView (onChange)="handleChange($event)">
+            <p-tabPanel header="Thông tin">
+            </p-tabPanel>
+            <p-tabPanel header="Gán dữ liệu">
+            </p-tabPanel>
+            <p-tabPanel header="Giới thiệu">
+            </p-tabPanel>
+            <p-tabPanel header="Quản lý Salon">
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+    
+    <div class="option-right">
+        <a routerLink="/managementworker"><i class="pi pi-times"></i></a>
+    </div>
+</div>
+
+<div *ngIf="index === 0">
+    <form name="form" >
+        <div class="form-info">
+            <div class="grid">
+                <div class="col-7">
+                    <div class="title-line">
+                        Thông tin chung
+                    </div>
+                    <div class="info-item">
+                        <div class="lable-required">
+                            Mã thợ:
+                        </div>
+                        <div class="info-input">
+                           {{detail?.code}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable-required">
+                            Tên thợ:
+                        </div>
+                        <div class="info-input">
+                           {{detail?.name}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable-required">
+                            Số điện thoại:
+                        </div>
+                        <div class="info-input">
+                         {{detail?.phone}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable-required">
+                            Email:
+                        </div>
+                        <div class="info-input">
+                        {{detail?.email}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable">
+                            Latitude
+                        </div>
+                        <div class="info-input">
+                         {{detail?.latitude}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable">
+                            Longtitude
+                        </div>
+                        <div class="info-input">
+                           {{detail?.longitude}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable">
+                           Tỉnh/Thành phố
+                        </div>
+                        <div class="info-input">
+                         {{detail?.province}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable">
+                           Quận/Huyện
+                        </div>
+                        <div class="info-input">
+                         {{detail?.district}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable">
+                           Phường/Xã
+                        </div>
+                        <div class="info-input">
+                          {{detail?.ward}}
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="lable">
+                           Địa chỉ cụ thể
+                        </div>
+                        <div class="info-input">
+                           {{detail?.address}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="info-image"> 
+                        <div class="title">
+                            Ảnh bìa
+                        </div>
+                        <div class="image-cover">
+                            <img [src]="'http://103.81.87.134:5002'+detail?.coverImage.path" alt="hình cover">
+                        </div>
+                    </div>
+                    <div class="info-image"> 
+                        <div class="title-avatar">  
+                            Ảnh avatar
+                        </div>
+                        <div class="image-url">
+                            <img [src]="'http://103.81.87.134:5002'+detail?.image.path" alt="hình đại diện">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cai-dat-trang-thai">
+                <div class="title">
+                    Cài đặt trạng thái
+                </div>
+                <div class="radio">
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="city" value="checkin" [(ngModel)]="status" inputId="status3"></p-radioButton>
+                        <label for="city3">Hoạt động </label>
+                    </div>
+                    <div class="p-field-radiobutton">
+                        <p-radioButton name="city" value="dahuy" [(ngModel)]="status"inputId="status4"></p-radioButton>
+                        <label for="city4">Dừng hoạt động</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="worker-action">
+            <div class="btn-save">
+                <button pButton type="button" label="Thoát" routerLink="/managementworker"></button>
+            </div>
+            <div class="btn-exit">
+                <button pButton type="submit" label="Lưu"></button>
+            </div>
+        </div>
+    </form>
+</div>   
+<div *ngIf="index === 1">
+    <app-gan-du-lieu-tho [services] = "detail.technician_Services" ></app-gan-du-lieu-tho>
+</div>
+<div *ngIf="index === 2">
+    <app-gioi-thieu-tho [description]="detail?.description"></app-gioi-thieu-tho>
+</div>
+<div *ngIf="index === 3">
+    <app-quan-ly-salon-tho></app-quan-ly-salon-tho>
+</div>

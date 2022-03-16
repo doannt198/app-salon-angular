@@ -10,7 +10,14 @@
                         <button pButton type="button" label="Thêm khách hàng" icon="pi pi-plus" routerLink="/them-khach-hang"></button>
                     </div>
                     <div class="left-title">
-                        <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+                        <p-tabView (onChange)="handleChange($event)">
+                            <p-tabPanel header="Tất cả">
+                            </p-tabPanel>
+                            <p-tabPanel header="Online">
+                            </p-tabPanel>
+                            <p-tabPanel header="Office">
+                            </p-tabPanel>
+                        </p-tabView>
                      </div> 
                 </div>
             </div>
@@ -24,7 +31,7 @@
                             <div class="search">
                                 <span class="p-input-icon-right">
                                     <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search">
+                                    <input type="text" pInputText placeholder="Search" [(ngModel)] = "query.Search">
                                 </span>
                             </div>
                         </div>
@@ -33,7 +40,7 @@
                                 <div class="col-12">
                                     <div class="restoredata">
                                         <p-button icon="pi pi-sync" iconPos="left"></p-button>
-                                        <button pButton type="button" label="Lấy giá trị"></button>
+                                        <button pButton type="button" label="Lấy giá trị" (click)=" getCustomer()"></button>
                                     </div>
                                 </div>
                             </div>
@@ -89,23 +96,23 @@
                                 <th>
                                     {{item?.address}}
                                 </th>
-                                <th>
-                                    Online
+                                <th [style.color]="item?.isOnline?'green':'red'">
+                                    {{item?.isOnline?'Online':'Offine'}}
                                 </th>
                                 <th>
-                                    <button pButton type="button" label="Chi tiết" routerLink="/customer-detail"></button>
+                                    <button pButton type="button" label="Chi tiết" routerLink="/customer-detail/{{item?.id}}"></button>
                                 </th>
                             </tr>
                         </ng-template>
-                        
                         <ng-template pTemplate="emptymessage">
                             <tr>
                                 <td colspan="8">No customers found.</td>
-                            </tr>
+                            </tr>   
                         </ng-template>
                     </p-table>
                 </div>
             </div>
+            <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 2, 5, 10,20,30]"></p-paginator>
         </div>
     </div>
 </div>

@@ -1,0 +1,122 @@
+<div class="them-thong-bao">
+    <div class="grid">
+        <div class="col-6">
+            <div class="option-left">
+                <a routerLink="/notificationmanagement"><i class="pi pi-chevron-left"></i>Thêm thông báo</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="option-right">
+                <a routerLink="/notificationmanagement"><i class="pi pi-times"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<form class="them-body" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="grid">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="grid">
+                <div class="col-4">
+                    <div class="info-common">
+                        <div class="title-line">
+                            <span>Chọn đối tượng</span>
+                        </div>
+                        <div class="form-item">
+                            <div class="lable-required">Tiêu đề</div>
+                            <div class="input-item">
+                                <input type="text" pInputText="tieude" name="tieude" [(ngModel)]="infothongbao.tieude" #tieude="ngModel" required
+                                [ngClass]="{ 'is-invalid': f.submitted && tieude.invalid }" >
+                            </div>
+                            <div *ngIf="f.submitted && tieude.invalid">
+                                <div *ngIf="tieude.errors?.['required']">
+                                    <small>Trường này không được để trống</small>
+                                </div>
+                            </div>
+                            <div class="lable-required">Mô tả</div>
+                            <div class="input-item">
+                                <textarea pInputTextarea name="mota" [(ngModel)]="infothongbao.mota" #mota="ngModel" required
+                                [ngClass]="{ 'is-invalid': f.submitted && mota.invalid }" placeholder="Nhập nội dung..."></textarea>
+                            </div>
+                            <div *ngIf="f.submitted && mota.invalid">
+                                <div *ngIf="mota.errors?.['required']">
+                                    <small>Trường này không được để trống</small>
+                                </div>
+                            </div>
+                            <div class="lable-required">Thời gian áp dụng</div>
+                            <div class="input-item">
+                                <p-calendar [showIcon]="true" inputId="thơigianapdung" name="thoigianapdung" [(ngModel)]="infothongbao.thoigianapdung" #thoigianapdung="ngModel" [required]="true"
+                                [ngClass]="{ 'is-invalid': f.submitted && thoigianapdung.invalid }"></p-calendar>
+                            </div>
+                            <div *ngIf="f.submitted && thoigianapdung.invalid">
+                                <div *ngIf="thoigianapdung.errors?.['required']">
+                                    <small>Trường này không được để trống</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="info-customer">
+                        <div class="title-line">
+                            <span>Chọn đối tượng</span>
+                        </div>
+                        <div class="form-item">
+                            <div class="lable">Đối tượng</div>
+                            <div class="input-item">
+                                <p-dropdown [options]="items"  >
+                                </p-dropdown>
+                            </div>
+                            <div class="lable-required">Phạm vi gửi</div>
+                            <div class="input-item">
+                                <p-dropdown [options]="phamvi"  [editable]="true" name="phamvigui"
+                                [(ngModel)]="infothongbao.phamvigui" #phamvigui="ngModel" [required]="true"
+                                [ngClass]="{ 'is-invalid': f.submitted && phamvigui.invalid }" >
+                                </p-dropdown>
+                            </div>
+                            <div *ngIf="f.submitted && phamvigui.invalid">
+                                <div *ngIf="phamvigui.errors?.required">
+                                    <small>Trường này không được để trống</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="info-content">
+                        <div class="title-line">
+                            <span>Nội dung thông báo</span>
+                        </div>
+                        <textarea class="noidung"pInputTextarea name="noidungthongbao" [(ngModel)]="infothongbao.noidungthongbao" #noidungthongbao="ngModel" required
+                        [ngClass]="{ 'is-invalid': f.submitted && noidungthongbao.invalid }" placeholder="Nhập nội dung..."></textarea>
+                        </div>
+                        <div *ngIf="f.submitted && noidungthongbao.invalid">
+                            <div *ngIf="noidungthongbao.errors?.required">
+                                <small>Trường này không được để trống</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-action">
+                    <div class="btn-exit">
+                        <button pButton type="button" label="Thoát" routerLink="/notificationmanagement"></button>
+                    </div>
+                    <div class="btn-add">
+                        <button pButton type="submit" label="Thêm"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+</form>
+<p-toast position="top-right"  [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

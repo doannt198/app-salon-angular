@@ -1,0 +1,48 @@
+.left{
+    margin-top: 170px;
+    margin-left: 20px;
+}
+.left-button{
+    margin-top: 20px;
+}
+.add-booking{
+    display: flex; 
+}
+.left-title{
+     padding: 20px;
+}
+.left-dropdown{
+    padding: 20px;
+}
+
+.right-title{
+    margin-top: 65px;
+}
+.date{
+    margin-top: 20px;
+}
+.search{
+    margin-top: 35px;
+}
+.restoredata{
+    display: flex;
+    margin-top: 35px;
+    justify-content: space-around;
+}
+
+.sort-columnd{
+  float: right;
+}
+
+
+::ng-deep {
+    .p-calendar {
+        height: 40px;
+    }
+}
+.right-body{
+    margin-top: 20px;
+}
+.right-title{
+    margin-top: 155px;
+}

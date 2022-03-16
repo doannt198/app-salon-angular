@@ -89,25 +89,23 @@
                         <ng-template pTemplate="header">
                             <tr>
                                 <th>STT</th>
-                                <th> Mã booking</th>
+                                <th> Mã lĩnh vực</th>
                                 <th>Tên lĩnh vực </th>
                                 <th>Trạng thái</th>
                             </tr>
-                            <tr *ngFor="let item of datadichvu">
+                            <tr *ngFor="let item of datalinhvuc">
                                 <th>
-                                    {{item.index}}
+                                    {{item?.id}}
                                 </th>
                                 <th>
-                                    {{item.iddichvu}}
+                                    {{item?.code}}
                                 </th>
                                 <th>
-                                    {{item.namedichvu}} 
+                                    {{item?.name}} 
                                 </th>
-                                <th>
-                                    {{item.status ? "Đang hoạt động " :" Dừng hoạt động"}}
+                                <th [style.color]="item?.isActive? 'green':'red'">
+                                    {{item?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
                                 </th>
-                               
-                              
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="body" let-customer>

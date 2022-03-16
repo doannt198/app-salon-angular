@@ -47,11 +47,9 @@
             </div>
         </div>
         <div class="customer-detail-avatar">
-            <img src="../../../assets/img/img_4.png" alt="">
+            <img [src]="'http://103.81.87.134:5002/'+detail?.urlImage" alt="">
         </div>
     </div>
-    
-    
     <div class="customer-actions">
         <div class="btn-edit">
             <button pButton type="button" label="Chỉnh sửa"></button>

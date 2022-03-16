@@ -13,4 +13,10 @@ export class SalonService {
   getSalon(queryString: string): Observable<any> {
     return this.httpClient.get(`http://103.81.87.134:5002/api/Salon/LstSalonWithLocal?${queryString}`);
   }
+  getSalondetail(id:number):Observable<any>{
+    return this.httpClient.get<any>('http://103.81.87.134:5002/api/Salon/getSalonById?Id='+id).pipe()
+  }
+  getSalonbyTech(id:number):Observable<any>{
+    return this.httpClient.get<any>('http://103.81.87.134:5002/api/Salon/getSalonbytech?IdTech='+id).pipe()
+  }
 }

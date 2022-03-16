@@ -14,9 +14,6 @@
             padding:13px
         };
     }
-    &-center{
-        margin-top: -8px;
-    }
     &-right{
         display: flex;
     
@@ -31,5 +28,86 @@
       &-arrow{        
         margin-top:10px;
       }
+    }
+}
+.header-center{
+    margin-top: 7px;
+    margin-left: 180px;
+}
+.header {
+    &-wrapper {
+        width: 100%;
+        background: white;
+        height: 50px;
+        box-shadow: 0 0 5px #e7e1e1;
+    }
+    &-content {
+        justify-content: center;
+        display: flex;
+        padding: 0px;
+        height: 50px;
+    }
+    &-logo, &-user {
+        padding: 0px;
+        display: flex;
+        height: 50px;
+        align-items: center;
+    }
+    &-logo {
+        padding-left: 20px;
+    }
+    &-user {
+        justify-content: right;
+        padding-right: 20px;
+    }
+}
+.menu {
+    &-list {
+        display: flex;
+        gap: 5px;
+        align-items: end;
+        z-index: 99999999999;
+    }
+    &-item {
+        padding: 13px 40px;
+        min-width: 40px;
+        background: rgb(211, 211, 212);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        &.active {
+            background: #1f1700;
+            box-shadow: inset 0 2px 2px rgb(0 0 0 / 5%);
+            border-radius: 10px 10px 0 0;
+            color: white;
+        }
+        &.show-more {
+            position: relative;
+            .show-more {
+                &-list {
+                    padding-top: 10px;
+                    display: none;
+                    position: absolute;
+                }
+            }
+            &:hover {
+                .show-more {
+                    &-list {
+                        display: block;
+                        top: 20px;
+                        left: -20px;
+                        width: 150px;
+                    }
+                    &-item {
+                        background: white;
+                        padding: 5px 20px;
+                        &:hover {
+                            background: rgb(229, 229, 231);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

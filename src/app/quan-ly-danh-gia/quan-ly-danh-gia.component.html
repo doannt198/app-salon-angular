@@ -1,0 +1,117 @@
+<div class="booking-manager">
+    <div class="grid">
+        <div class="col-6">
+            <div class="left">
+                <div class="add-booking">
+                    <div class="left-title">
+                        <p>Trạng thái:</p>
+                    </div>
+                    <div class="left-dropdown">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="right">
+                <div class="right-title">Tìm kiếm theo tên__________________</div>
+                <div class="right-body">
+                    <div class="grid">
+                        <div class="col-4">
+                            <div class="date">
+                                <div class="grid">
+                                    <div class="col-6">
+                                        <label for="icon">Từ ngày</label>
+                                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="icon">Đến ngày</label>
+                                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="search">
+                                <span class="p-input-icon-right">
+                                    <i class="pi pi-search"></i>
+                                    <input type="text" pInputText placeholder="Search">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="grid">
+                                <div class="col-12">
+                                    <div class="restoredata">
+                                        <p-button icon="pi pi-sync" iconPos="left"></p-button>
+                                        <button pButton type="button" label="Lấy giá trị"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 booking-body">
+            <div class="booking-sort">
+                <div class="grid">
+                    <div class="col-6">
+                        Đã chọn (0,0) | Xuất Excel
+                    </div>
+                    <div class="col-6 ">
+                        <div class="sort-columnd">
+                            Tìm theo cột
+                            <i class="pi pi-sort-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-12">
+                    <p-table>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th></th>
+                                <th> Mã booking</th>
+                                <th>Tên Salon </th>
+                                <th>Tên thợ </th>
+                                <th>Đánh giá Salon</th>
+                                <th>Đánh giá thợ</th>
+                                <th>Nội dung</th>
+                                <th>Chức năng</th>
+                            </tr>
+                            <tr *ngFor="let item of datafeedback">
+                                <th>
+                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                </th>
+                                <th>
+                                    {{item?.booking?.code}}
+                                </th>
+                                <th>
+                                    {{item?.nameSalon}}
+                                </th>
+                                <th>
+                                    {{item?.nameTech}}
+                                </th>
+                                <th>
+                                    <p-rating [(ngModel)]="item.salonRate" [cancel]="false"></p-rating>
+                                </th>
+                                <th>
+                                    <p-rating [(ngModel)]="item.technicianRate" [cancel]="false"></p-rating>
+                                </th>
+                                <th>
+                                </th>
+                                <th>
+                                    <button pButton type="button" label="Chi tiết"></button>
+                                </th>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+            <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
+        </div>
+    </div>
+</div>

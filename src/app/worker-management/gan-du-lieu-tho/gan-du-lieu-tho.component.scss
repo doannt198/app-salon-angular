@@ -1,54 +1,14 @@
+.assign-wrapper{
+    max-width: 1090px;
+    height: 500px;
+    background: #fff;
+    box-shadow: 4px 4px 20px rgb(0 0 0 / 3%);
+    border-radius: 5px;
+    margin: 0 auto;
 
-.menu-top{
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 50px;
+    padding: 30px;
 }
-.them-linh-vuc{
-    margin-top: 50px;
-}
-.option{
-    margin-left: 100px;
-}
-.thong-tin{
-    width: 120px;
-    border-bottom: 3px solid black;
-    font-size: 30px;
-}
-.form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.form-add{
-  width: 800px;
-  height: 600px;
-  display: flex;
-  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.03);
-  border:1px solid rgb(233, 226, 226);
-  padding: 30px;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 25px;
-}
-.input-top{
-    margin-top: 25px;
-}
-.input-bottom{
-    margin-top: 25px;
-}
-.setup{
-    margin-top: 150px;
-}
-.setup-radio{
-    display: flex;
-    margin-top: 10px;
-}
-.field-radiobutton{
-    margin-left: 20px;
-}
-.button{
+.button-action{
     display: flex;
     justify-content: flex-end;
     margin-top: 50px
@@ -56,16 +16,40 @@
 .button-item{
     margin-right: 50px;
 }
-.form{
-    margin-top: 30px;
+.title-line{
+    font-size: 15px;
+    font-weight: 700;
+    color:#1b1b1c;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
 }
-.option-close{
-    float: right;
+.assign-item-view{
+    height: 55px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
 }
-.input-gan{
-    margin-top: 10px;
+.assign-item--label{
+    color:#9ea1a5;
+    font-size: 12px;
+    margin-bottom: 5px;
 }
-a{
-    text-decoration: none;
-    color: black;
+.assign-item--value{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.assign-item--left{
+    display: flex;
+    justify-content: space-between;
+}
+.assign-tree{
+    border:1px solid #cecece;
+    box-sizing: border-box;
+    padding: 25px;
+    
 }

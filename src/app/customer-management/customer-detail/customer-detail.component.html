@@ -16,32 +16,32 @@
                 </div>
                 <div class="form-data">
                     <div class="lable"> Mã khách hàng:</div>
-                    <div class="value"> KH0001</div>
+                    <div class="value">{{detail?.code}}</div>
                 </div>
                 <div class="form-data">
                     <div class="lable"> Tên khách hàng:</div>
-                    <div class="value"> Nguyễn Văn A</div>
+                    <div class="value"> {{detail?.name}}</div>
                 </div>
                 <div class="form-data">
                     <div class="lable"> Đia chỉ:</div>
-                    <div class="value"> Chung cư K35 Tân Mai</div>
+                    <div class="value"> {{detail?.address}}</div>
                 </div>
                 <div class="form-data">
                     <div class="lable"> Email:</div>
-                    <div class="value"> abc@gmail.com</div>
+                    <div class="value">{{detail?.email}}</div>
                 </div>
                 <div class="form-data">
                     <div class="lable"> Số điện thoại:</div>
-                    <div class="value"> 0913456235</div>
+                    <div class="value"> {{detail?.mobile}}</div>
                 </div>
                 <div class="form-data">
                     <div class="lable"> Ngày sinh:</div>
-                    <div class="value"> 22/11/2022</div>
+                    <div class="value"> {{detail?.birthday}}</div>
                 </div>
             </div>
         </div>
         <div class="customer-detail-avatar">
-            <img src="../../../assets/img/hinh-dai-dien.jpg" alt="">
+            <img [src]="'http://103.81.87.134:5002/'+detail?.avatar" alt="">
         </div>
     </div>
     <div class="col-12 booking-body">
@@ -68,28 +68,26 @@
                             <th>Thành tiền(đ)</th>
                             <th>Trạng thái</th>
                         </tr>
-                        <tr >
-
+                        <tr *ngFor="let item of data">
                             <th>
-                               
+                                {{item?.id}}
                             </th>
                             <th>
-                             
+                                {{item?.code}}
                             </th>
                             <th>
-                               
+                                {{item?.technician?.name}}
                             </th>
                             <th>
-                               
+                               {{item?.service}}
                             </th>
                             <th>
-                              
+                                {{item?.checkInTime}} 
+                            <th>
+                                {{item?.totalPrice}}
                             </th>
                             <th>
-                           
-                            </th>
-                            <th>
-                               
+                                {{item?.status}}
                             </th>
                         </tr>
                     </ng-template>
@@ -102,7 +100,7 @@
             <button pButton type="button" label="Chỉnh sửa"></button>
         </div>
         <div class="btn-exit">
-            <button pButton type="button" label="Thoát"></button>
+            <button pButton type="button" label="Thoát" routerLink="/managementcustomer"></button>
         </div>
     </div>
 </div>

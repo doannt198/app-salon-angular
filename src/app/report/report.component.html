@@ -25,31 +25,31 @@
                         <div class="statistical-top-name"> Thống kê</div>
                         <div class="statistical-top-month"> Tháng 8</div>
                     </div>
-                    <div class="statistical-bottom">
-                        <div class="statistical-item" *ngFor="let item of thongke ">
+                    <div class="statistical-bottom" >
+                        <div class="statistical-item" >
                             <div class="statistical-item-img">
                                 <img src="../../assets/img/gio_hang.png" alt="">
                             </div>
                             <div class="statistical-item-right">
-                                <div class="statistical-item-name">{{item.donhang}}</div>
+                                <div class="statistical-item-name">{{datareport.countBooking}}</div>
                              <div class="statistical-item-description">Đơn hàng </div>
                             </div>
                         </div>
-                        <div class="statistical-item" *ngFor="let item of thongke ">
+                        <div class="statistical-item" >
                             <div class="statistical-item-img">
                                 <img src="../../assets/img/user.png" alt="">
                             </div>
                             <div class="statistical-item-right">
-                                <div class="statistical-item-name">{{item.khachhang}}</div>
+                                <div class="statistical-item-name">{{datareport.customer}}</div>
                              <div class="statistical-item-description">Khách hàng  </div>
                             </div>
                         </div>
-                        <div class="statistical-item" *ngFor="let item of thongke ">
+                        <div class="statistical-item"  >
                             <div class="statistical-item-img">
                                 <img src="../../assets/img/gio_hang.png" alt="">
                             </div>
                             <div class="statistical-item-right">
-                                <div class="statistical-item-name">{{item.doanhthu}}</div>
+                                <div class="statistical-item-name">{{datareport.turnover}}</div>
                              <div class="statistical-item-description">Doanh thu </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                     <div class="grid">
                         <div class="col-12">
                             <div class="chart-img">
-                                <p-chart type="bar" width="600px" height="300px"  [data]="data" [options]="chartOptions" ></p-chart>
+                                <p-chart type="bar" width="700px" height="300px"  [data]="data" [options]="chartOptions" ></p-chart>
                             </div>
                         </div>
                     </div>

@@ -6,8 +6,23 @@
         <div class="header-left__logo">Logo</div>
     </div>
     <div class="header-center">
-        <p-tabMenu [model]="items" [activeItem]="items[0]"></p-tabMenu>
-        
+            <div class="menu-list">
+                <ng-container *ngFor="let menu of menus">
+                    <div class="menu-item" [ngClass]="{active: selectedMenu.routerLink === menu.routerLink}" *ngIf="menu.visible" (click)="selectMenu(menu)">
+                        {{menu?.label}}
+                    </div>
+                </ng-container>
+                <div class="menu-item show-more" *ngIf="menus.length > 5">
+                    <i class="pi pi-ellipsis-h"></i>
+                    <div class="show-more-list">
+                        <ng-container *ngFor="let menu of menus">
+                            <div class="show-more-item" [ngClass]="{active: selectedMenu.routerLink === menu.routerLink}" *ngIf="!menu.visible" (click)="selectMoreMenu(menu)">
+                                {{menu?.label}}
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
     </div>
     <div class="header-right">
         <div class="img"><img src="../assets/img/menu-right.png" alt=""></div>

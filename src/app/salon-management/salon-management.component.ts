@@ -11,12 +11,12 @@ import * as queryString from 'query-string';
 export class SalonManagementComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
-  val2: number = 3;
+  val2: number;
   datasalon: any = [];
   totalRecord = 0;
   query = {
     PageIndex: 1,
-    PageSize: 1,
+    PageSize: 10,
     Search: '',
     isActive: false
   };
@@ -41,10 +41,20 @@ export class SalonManagementComponent implements OnInit {
         }
       })
   }
-
   paginate(event: any): void {
     this.query.PageIndex = event.first + 1;
     this.query.PageSize = event.rows;
+    this.getSalon();
+  }
+  handleChange(e: any) {
+    // var index = e.index;
+    if (e.index === 1) {
+      this.query.isActive = true;
+    } else if (e.index === 2) {
+      this.query.isActive = false;
+    } else {
+      this.query.isActive;
+    }
     this.getSalon();
   }
 }

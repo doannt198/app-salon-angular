@@ -1,10 +1,40 @@
-.menu-top{
-    margin-top: 50px;
+.introduce-wraper{
+    max-width: 1090px;
+    padding:30px;
+    margin:0 auto;
+    background: #fff;
+    box-shadow:  4px 4px 20px rgb(0 0 0 / 3%);
+    border-radius: 5px;
+
+}
+.title-line span{
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+.introduce-editor{
+    margin: 0 auto;
+    padding: 15px ;
+    max-width: 1030px;
+    min-height: 369px;
+    background: #fff;
+    border: 1px solid #cecece;
+    box-sizing:border-box;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 3%);
+    border-radius: 6px;
+    font-size:12px;
+    color:#182537;
+    margin-top: 20px;
+}
+.custom-actions{
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 50px;
+    justify-content: flex-end;
+    margin-right: 400px;
+    margin-top: 100px;
 }
-a{
-   text-decoration: none;
-   color: black;
+.btn-save{
+ margin-left: 30px;
 }
+.btn-exit{
+margin-left: 30px;
+}
+

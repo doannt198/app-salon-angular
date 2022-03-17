@@ -13,7 +13,7 @@ export class WorkerManagementComponent implements OnInit {
   val2= 4;
   dataworker: any = [];
   totalRecord=0;
-  query = {
+  query:any= {
     PageIndex: 1,
     PageSize: 10,
     Search:'',

@@ -24,5 +24,4 @@ export class GanDuLieuComponent implements OnInit {
   ];
     this.activeItem = this.items[0];
   }
-
 }

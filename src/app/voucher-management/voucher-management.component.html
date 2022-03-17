@@ -10,7 +10,14 @@
                         <button pButton type="button" label="Thêm Voucher" icon="pi pi-plus" routerLink="/them-voucher"></button>
                     </div>
                     <div class="left-title">
-                        <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+                        <p-tabView (onChange)="handleChange($event)">
+                            <p-tabPanel header="Tất cả">
+                            </p-tabPanel>
+                            <p-tabPanel header="Home">
+                            </p-tabPanel>
+                            <p-tabPanel header="Salon">
+                            </p-tabPanel>
+                        </p-tabView>
                     </div>
                 </div>
             </div>

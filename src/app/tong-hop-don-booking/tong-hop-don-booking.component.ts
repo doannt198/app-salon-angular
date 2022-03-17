@@ -31,8 +31,12 @@ export class TongHopDonBookingComponent implements OnInit {
     ];
     this.cities2 = [
       { name: 'Tất cả ' },
-      { name: 'Hoàn thành' },
+      { name: 'Chờ duyệt ' },
+      { name: 'Xác nhận' },
+      { name: 'Check in' },
+      { name: 'Check out' },
       { name: 'Đã hủy' },
+      { name: 'Hoàn thành' }
     ];
     this.cities3 = [
       { name: 'Tất cả ' },

@@ -64,6 +64,13 @@ import { QuanTriAppComponent } from './quan-tri-app/quan-tri-app.component';
 import { QuanLyDanhGiaComponent } from './quan-ly-danh-gia/quan-ly-danh-gia.component';
 import { QuanLyForumComponent } from './quan-ly-forum/quan-ly-forum.component';
 import {TreeModule} from 'primeng/tree';
+import { GanDuLieuThemComponent } from './salon-management/them-salon/gan-du-lieu-them/gan-du-lieu-them.component';
+import { GioiThieuThemComponent } from './salon-management/them-salon/gioi-thieu-them/gioi-thieu-them.component';
+import { QuanLySalonThemComponent } from './salon-management/them-salon/quan-ly-salon-them/quan-ly-salon-them.component';
+import { GioiThieuThoThemThoComponent } from './worker-management/them-tho/gioi-thieu-tho-them-tho/gioi-thieu-tho-them-tho.component';
+import { GanDuLieuThoThemThoComponent } from './worker-management/them-tho/gan-du-lieu-tho-them-tho/gan-du-lieu-tho-them-tho.component';
+import { QuanLySalonThemThoComponent } from './worker-management/them-tho/quan-ly-salon-them-tho/quan-ly-salon-them-tho.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,7 +115,12 @@ import {TreeModule} from 'primeng/tree';
     QuanTriAppComponent,
     QuanLyDanhGiaComponent,
     QuanLyForumComponent,
-  
+    GanDuLieuThemComponent,
+    GioiThieuThemComponent,
+    QuanLySalonThemComponent,
+    GioiThieuThoThemThoComponent,
+    GanDuLieuThoThemThoComponent,
+    QuanLySalonThemThoComponent,
   ],
   imports: [
     BrowserModule,

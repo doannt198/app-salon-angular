@@ -14,12 +14,14 @@ export class VoucherManagementComponent implements OnInit {
   val2: number = 3;
   datavoucher:any=[];
   totalRecord=0;
-  query={
+  query:any={
     PageIndex:1,
     PageSize:10,
     from:'',
     to:'',
-    Search:''
+    Search:'',
+    IsShowInSalon:'',
+    IsShowInHome:''
   }
   constructor(private voucherService:VoucherService) { }
 
@@ -48,6 +50,22 @@ export class VoucherManagementComponent implements OnInit {
     paginate(event: any): void {
       this.query.PageIndex = event.first + 1;
       this.query.PageSize = event.rows;
+      this.getVoucher();
+    }
+
+    handleChange(e: any) {
+      // var index = e.index;
+    console.log(e)
+      if (e.index === 1) {
+        this.query.IsShowInHome = true;
+        this.query.IsShowInSalon = false;
+      } else if (e.index === 2) {
+        this.query.IsShowInSalon = true;
+        this.query.IsShowInHome = false;
+      } else {
+        this.query.IsShowInSalon = "";
+        this.query.IsShowInHome = "";
+      } 
       this.getVoucher();
     }
   }

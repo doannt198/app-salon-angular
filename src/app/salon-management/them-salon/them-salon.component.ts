@@ -29,15 +29,15 @@ export class ThemSalonComponent implements OnInit {
   constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
-    this.items = [
-      {label: 'Thông tin', routerLink:'/them-salon'},
-      {label: 'Gán dữ liệu',routerLink:'/gan-du-lieu-salon' },
-      {label: 'Giới thiệu', routerLink:'/gioi-thieu-salon' },
-      {label: 'Quản lý Salon',routerLink:'/quan-ly-salon'}
-  ];
+    
   this.primengConfig.ripple = true;
 }
 onSubmit(){
   this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
+}
+index = 0;
+handleChange(e: any) {
+  this.index = e.index;
+  console.log(e)
 }
 }

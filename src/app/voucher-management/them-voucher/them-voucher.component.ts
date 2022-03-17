@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api';
-import {MessageService} from 'primeng/api';
+import { MenuItem } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-them-voucher',
@@ -24,13 +24,18 @@ export class ThemVoucherComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      {label: 'Thông tin', routerLink:'/them-voucher'},
-      {label: 'Gán dữ liệu', routerLink:'/gan-du-lieu-voucher'},
-  ];
+      { label: 'Thông tin', routerLink: '/them-voucher' },
+      { label: 'Gán dữ liệu', routerLink: '/gan-du-lieu-voucher' },
+    ];
     this.activeItem = this.items[0];
     this.primengConfig.ripple = true;
   }
-  onSubmit(){
-    this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
+  onSubmit() {
+    this.messageService.add({ severity: 'success', summary: 'Thành công', detail: 'Lưu thành công' });
+  }
+  index=0;
+  handleChange(e: any) {
+    this.index = e.index;
+    console.log(e)
   }
 }

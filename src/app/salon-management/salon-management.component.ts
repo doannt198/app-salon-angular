@@ -14,7 +14,7 @@ export class SalonManagementComponent implements OnInit {
   val2: number;
   datasalon: any = [];
   totalRecord = 0;
-  query = {
+  query:any = {
     PageIndex: 1,
     PageSize: 10,
     Search: '',
@@ -53,7 +53,7 @@ export class SalonManagementComponent implements OnInit {
     } else if (e.index === 2) {
       this.query.isActive = false;
     } else {
-      this.query.isActive;
+      this.query.isActive="";
     }
     this.getSalon();
   }

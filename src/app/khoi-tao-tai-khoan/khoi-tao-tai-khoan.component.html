@@ -34,7 +34,7 @@
                         <p>Trạng thái:</p>
                     </div>
                     <div class="left-dropdown">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedStatus" optionValue="value" optionLabel="name" >
                         </p-dropdown>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                                 <th>
                                 {{item?.timedangky}}
                                 </th>
-                                <th>
+                                <th [style.color]="item?.status?'green':'red'">
                                     {{item?.status ? "Đang hoạt động" :"Dừng hoạt động"}}
                                 </th>
                             </tr>

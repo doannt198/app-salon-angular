@@ -37,12 +37,12 @@
                         <p>Trạng thái:</p>
                     </div>
                     <div class="left-dropdown">
-                        <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name" [showClear]="true" ></p-dropdown>
+                        <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name" [showClear]="true" (onChange)="handleChange($event)"></p-dropdown>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-6 flex justify-content-end">
             <div class="right">
                 <div class="right-title">Tìm kiếm theo tên__________________</div>
                 <div class="right-body">
@@ -72,7 +72,7 @@
             <div class="booking-sort">
                 <div class="grid">
                     <div class="col-6">
-                        Đã chọn (0,0) | Xuất Excel
+                        Đã chọn (0,0) |  <button pButton type="button" label="Xuất Excel" (click)="exportexcel()"></button>
                     </div>
                     <div class="col-6 ">
                         <div class="sort-columnd">
@@ -84,7 +84,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="datadichvuFilter">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th>STT</th>
@@ -92,26 +92,23 @@
                                 <th>Tên lĩnh vực </th>
                                 <th>Trạng thái</th>
                             </tr>
-                            <tr *ngFor="let item of datadichvu">
-                                <th>
-                                    {{item?.id}}
-                                </th>
-                                <th>
-                                    {{item?.code}}
-                                </th>
-                                <th>
-                                    {{item?.name}} 
-                                </th>
-                                <th [style.color]="item.isActive? 'green':'red'">
-                                    {{item.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
-                                </th>
-                            </tr>
                         </ng-template>
-                        
-                                <td style="text-align: center">
-                                    <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"></button>
-                                </td>
-                       
+                            <ng-template pTemplate="body" let-datadichvuFilter>
+                                <tr>
+                                    <td>
+                                        {{datadichvuFilter?.id}}
+                                    </td>
+                                    <td>
+                                        {{datadichvuFilter?.code}}
+                                    </td>
+                                    <td>
+                                        {{datadichvuFilter?.name}} 
+                                    </td>
+                                    <td [style.color]="datadichvuFilter?.isActive? 'green':'red'">
+                                        {{datadichvuFilter?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
+                                    </td>
+                                </tr>
+                            </ng-template>
                         <ng-template pTemplate="emptymessage">
                             <tr>
                                 <td colspan="8">No customers found.</td>

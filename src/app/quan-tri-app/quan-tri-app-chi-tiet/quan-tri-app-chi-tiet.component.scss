@@ -1,0 +1,71 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+   margin-top: 50px;
+}
+.left{
+ display: flex;
+ margin-left: 20px ;
+}
+.left .arow{
+    margin: 0  20px;
+}
+.left .arow i{
+    font-size: 20px;
+}
+.left span{
+    font-size: 20px;
+}
+.center{
+
+}
+.right{
+margin-right: 20px;
+}
+.info-wrapper{
+    max-width: 1090px;
+    padding: 30px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 4px 4px 20px rgb(0 0 0 / 3%);
+    border-radius: 5px;
+    padding-bottom: 100px;
+}
+.title-line{
+    margin-bottom: 30px;
+}
+.title-line .name{
+    font-size: 40px;
+    font-weight: 700;
+    color:#1b1b1c;
+}
+.info-common{
+    padding-right: 90px;
+}
+.info-image{
+ margin-top: 20px;
+ 
+}
+.form-data{
+    display: flex;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 0;
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 20px;
+}
+.custom-actions{
+    display: flex;
+    margin-right: 500px;
+    margin-top: 60px;
+    justify-content: flex-end;
+}
+.custom-actions .btn-exit{
+    margin-left: 20px;
+}
+.left{
+    cursor: pointer;
+}
+.right{
+    cursor: pointer;
+}

@@ -24,7 +24,6 @@ export class AddLinhVucComponent implements OnInit {
   onSubmit(){
     this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
     /* alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model)); */
-
   }
-
+  
 }

@@ -70,7 +70,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="datafeedback">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -82,30 +82,33 @@
                                 <th>Nội dung</th>
                                 <th>Chức năng</th>
                             </tr>
-                            <tr *ngFor="let item of datafeedback">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                    {{item?.booking?.code}}
-                                </th>
-                                <th>
-                                    {{item?.nameSalon}}
-                                </th>
-                                <th>
-                                    {{item?.nameTech}}
-                                </th>
-                                <th>
-                                    <p-rating [(ngModel)]="item.salonRate" [cancel]="false"></p-rating>
-                                </th>
-                                <th>
-                                    <p-rating [(ngModel)]="item.technicianRate" [cancel]="false"></p-rating>
-                                </th>
-                                <th>
-                                </th>
-                                <th>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-datafeedback>
+                            <tr>
+                                <td>
+                                    <p-tableCheckbox [value]="datafeedback"></p-tableCheckbox>
+                                </td>
+                                <td>
+                                    {{datafeedback?.booking?.code}}
+                                </td>
+                                <td>
+                                    {{datafeedback?.nameSalon}}
+                                </td>
+                                <td>
+                                    {{datafeedback?.nameTech}}
+                                </td>
+                                <td>
+                                    <p-rating [(ngModel)]="datafeedback.salonRate" [cancel]="false"></p-rating>
+                                </td>
+                                <td >
+                                    <p-rating [(ngModel)]="datafeedback.technicianRate" [cancel]="false"></p-rating>
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <td>
                                     <button pButton type="button" label="Chi tiết"></button>
-                                </th>
+                                </td>
                             </tr>
                         </ng-template>
                     </p-table>

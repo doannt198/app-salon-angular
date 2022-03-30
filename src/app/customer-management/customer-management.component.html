@@ -65,7 +65,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="datakhachhang">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -77,31 +77,35 @@
                                 <th>Loại hình</th>
                                 <th>Chức năng</th>
                             </tr>
-                            <tr *ngFor="let item of datakhachhang  ">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                    {{item?.code}}
-                                </th>
-                                <th>
-                                    {{item?.name}}
-                                </th>
-                                <th>
-                                   {{item?.mobile}}
-                                </th>
-                                <th>
-                                    {{item?.email}}
-                                </th>
-                                <th>
-                                    {{item?.address}}
-                                </th>
-                                <th [style.color]="item?.isOnline?'green':'red'">
-                                    {{item?.isOnline?'Online':'Offine'}}
-                                </th>
-                                <th>
-                                    <button pButton type="button" label="Chi tiết" routerLink="/customer-detail/{{item?.id}}"></button>
-                                </th>
+                           
+                        </ng-template>
+                        <ng-template pTemplate="body" let-datakhachhang >
+                            <tr class="p-selectable-row">
+                                <td>
+                                    <p-tableCheckbox [value]="datakhachhang "></p-tableCheckbox>
+                                </td>
+                                <td>
+                                    {{datakhachhang?.code}}
+                                </td>
+                                <td>
+                                    {{datakhachhang?.name}}
+                                </td>
+                                <td>
+                                    {{datakhachhang?.mobile}}
+                                </td>
+                                <td>
+                                    {{datakhachhang?.email}}
+                                </td>
+                                <td>
+                                    {{datakhachhang?.address}}
+                                </td>
+                                <td [style.color]="datakhachhang?.isOnline?'green':'red'">
+                                    {{datakhachhang?.isOnline?'Online':'Offine'}}
+                                </td>
+                                <td >
+                                    <button pButton type="button" label="Chi tiết" routerLink="/customer-detail/{{datakhachhang?.id}}"></button>
+                                </td>
+                                
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="emptymessage">

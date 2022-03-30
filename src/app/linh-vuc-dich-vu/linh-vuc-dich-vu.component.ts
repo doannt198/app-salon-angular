@@ -33,7 +33,6 @@ export class LinhVucDichVuComponent implements OnInit {
   }
   getLinhVuc(){
     this.linhvucservice.getLinhVuc().subscribe(response => {
-      
       this.datalinhvuc = response.data;
     })
   }

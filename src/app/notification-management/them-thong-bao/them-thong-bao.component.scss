@@ -13,9 +13,6 @@
     height:100vh;
   
 }
-.chung{
-   
-}
 .dt-mot{
     width: 500px;
     height: 500px;
@@ -82,4 +79,7 @@ textarea{
 }
 small{
     color: red;
+}
+textarea{
+    resize: none;
 }

@@ -3,7 +3,7 @@
         <div class="col-6">
             <div class="left">
                 <div class="left-title">
-                    Danh sách khách hàng
+                    Danh sách thợ
                 </div>
                 <div class="add-booking">
                     <div class="left-button">
@@ -65,7 +65,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="dataworker">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -78,34 +78,36 @@
                                 <th>Đánh giá trung bình </th>
                                 <th>Chức năng</th>
                             </tr>
-                            <tr *ngFor="let item of dataworker">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                    {{item?.code}}
-                                </th>
-                                <th>
-                                    {{item?.name}}
-                                </th>
-                                <th>
-                                    {{item?.phone}}
-                                </th>
-                                <th>
-                                    {{item?.email}}
-                                </th>
-                                <th>
-                                    {{item?.address}}
-                                </th>
-                                <th [style.color]="item?.isActive?'green':'red'">
-                                    {{item?.isActive?'Online':'Offline'}}
-                                </th>
-                                <th>
-                                    <p-rating [(ngModel)]="item.rate" [cancel]="false"></p-rating>
-                                </th>
-                                <th>
-                                    <button pButton type="button" label="Chi tiết" routerLink="/worker-detail/{{item?.id}}"></button>
-                                </th>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-dataworker>
+                            <tr>
+                                <td>
+                                   <p-tableCheckbox [value]="dataworker"></p-tableCheckbox>
+                                </td>
+                                <td>
+                                    {{dataworker?.code}}
+                                </td>
+                                <td>
+                                    {{dataworker?.name}}
+                                </td>
+                                <td>
+                                    {{dataworker?.phone}}
+                                </td>
+                                <td>
+                                    {{dataworker?.email}}
+                                </td>
+                                <td >
+                                    {{dataworker?.address}}
+                                </td>
+                                <td [style.color]="dataworker?.isActive?'green':'red'">
+                                    {{dataworker?.isActive?'Online':'Offline'}}
+                                </td>
+                                <td >
+                                    <p-rating [(ngModel)]="dataworker.rate" [cancel]="false"></p-rating>
+                                </td>
+                                <td >
+                                    <button pButton type="button" label="Chi tiết" routerLink="/worker-detail/{{dataworker?.id}}"></button>
+                                </td>
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="emptymessage">

@@ -3,11 +3,12 @@
         <div class="col-6">
             <div class="left">
                 <div class="left-title">
-                    Danh sách khách hàng
+                    Danh sách Voucher
                 </div>
                 <div class="add-booking">
                     <div class="left-button">
-                        <button pButton type="button" label="Thêm Voucher" icon="pi pi-plus" routerLink="/them-voucher"></button>
+                        <button pButton type="button" label="Thêm Voucher" icon="pi pi-plus"
+                            routerLink="/them-voucher"></button>
                     </div>
                     <div class="left-title">
                         <p-tabView (onChange)="handleChange($event)">
@@ -32,11 +33,13 @@
                                 <div class="grid">
                                     <div class="col-6">
                                         <label for="icon">Từ ngày</label>
-                                        <p-calendar [showIcon]="true" inputId="icon"[(ngModel)]="query.from" dateFormat="dd.mm.yy" ></p-calendar>
+                                        <p-calendar [showIcon]="true" inputId="icon" [(ngModel)]="query.from"
+                                            dateFormat="dd.mm.yy"></p-calendar>
                                     </div>
                                     <div class="col-6">
                                         <label for="icon">Đến ngày</label>
-                                        <p-calendar [showIcon]="true" inputId="icon" [(ngModel)]="query.to" dateFormat="dd.mm.yy"></p-calendar>
+                                        <p-calendar [showIcon]="true" inputId="icon" [(ngModel)]="query.to"
+                                            dateFormat="dd.mm.yy"></p-calendar>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +57,8 @@
                                 <div class="col-12">
                                     <div class="restoredata">
                                         <p-button icon="pi pi-sync" iconPos="left"></p-button>
-                                        <button pButton type="button" label="Lấy giá trị" (click)="getVoucher()"></button>
+                                        <button pButton type="button" label="Lấy giá trị"
+                                            (click)="getVoucher()"></button>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +83,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]=" datavoucher">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -93,43 +97,47 @@
                                 <th>Trạng thái</th>
                                 <th>Chức năng</th>
                             </tr>
-                            <tr *ngFor="let item of datavoucher">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                 <img [src]= "'../../assets/img/'+item.img" alt="">
-                                </th>
-                                <th>
-                                    {{item?.code}}
-                                </th>
-                                <th>
-                                    {{item?.name}}
-                                </th>
-                                <th>
-                                    {{item?.salonName}}
-                                </th>
-                                <th>
-                                    {{item?.content}}
-                                </th>
-                                <th>
-                                    {{item?.beginAt}}
-                                </th>
-                                <th>
-                                    {{item?.endAt}}
-                                </th>
-                                <th [style.color]="item.isActive? 'green':'red'" >
-                                    {{item.isActive?'Online':'Offline'}}
-                                </th>
-                                <th>
-                                    <button pButton type="button" label="Chi tiết" routerLink="/chi-tiet-voucher/{{item?.id}}"></button>
-                                </th>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-datavoucher>
+                            <tr>
+                                <td>
+                                    <p-tableCheckbox [value]="datavoucher"></p-tableCheckbox>
+                                </td>
+                                <td>
+                                    <img [src]="'../../assets/img/'+datavoucher.img" alt="">
+                                </td>
+                                <td>
+                                    {{datavoucher?.code}}
+                                </td>
+                                <td>
+                                    {{datavoucher?.name}}
+                                </td>
+                                <td>
+                                    {{datavoucher?.salonName}}
+                                </td>
+                                <td>
+                                    {{datavoucher?.content}}
+                                </td>
+                                <td>
+                                    {{datavoucher?.beginAt}}
+                                </td>
+                                <td>
+                                    {{datavoucher?.endAt}}
+                                </td>
+                                <td [style.color]="datavoucher.isActive? 'green':'red'">
+                                    {{datavoucher.isActive?'Online':'Offline'}}
+                                </td>
+                                <td>
+                                    <button pButton type="button" label="Chi tiết"
+                                        routerLink="/chi-tiet-voucher/{{datavoucher?.id}}"></button>
+                                </td>
                             </tr>
                         </ng-template>
                     </p-table>
                 </div>
             </div>
-            <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
+            <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord"
+                [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
         </div>
     </div>
 </div>

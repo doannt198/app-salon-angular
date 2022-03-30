@@ -19,7 +19,7 @@ export class NotificationManagementComponent implements OnInit {
   totalRecord=0;
   query={
     Search:'',
-    type:'',
+    type:'All',
     PageIndex:1,
     PageSize:10,
   }

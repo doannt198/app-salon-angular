@@ -1,11 +1,9 @@
-.app-wrapper{
 
-}
 .app-header{
-    margin-top: 20px;
-    margin-bottom: 60px;
-    font-size: 30px;
-    color: #9ea1a5;
+margin-top: 20px;
+margin-bottom: 60px;
+font-size: 30px;
+color: #9ea1a5;
 }
 .app-list{
 display: flex;
@@ -14,12 +12,12 @@ gap:20px;
 justify-content: center;
 }
 .app-item{
-
+  cursor: pointer;
 }
 .app-item-name{
 font-size: 18px;
 font-weight: 700;
 color: black;
-margin-top: 10px;
+margin-top: 10px;   
 text-align: center;
 }

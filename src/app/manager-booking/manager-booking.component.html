@@ -7,13 +7,15 @@
                 </div>
                 <div class="add-booking">
                     <div class="left-button">
-                        <button pButton type="button" label="Thêm booking" icon="pi pi-plus" routerLink="/them-booking" class="btn-addbooking"></button>
+                        <button pButton type="button" label="Thêm booking" icon="pi pi-plus" routerLink="/them-booking"
+                            class="btn-addbooking"></button>
                     </div>
                     <div class="left-title">
                         <p>Trạng thái:</p>
                     </div>
                     <div class="left-dropdown">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name" [showClear]="true"
+                            placeholder="Chọn trạng thái">
                         </p-dropdown>
                     </div>
                 </div>
@@ -76,7 +78,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="databooking">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -89,68 +91,36 @@
                                 <th>Lĩnh vực</th>
                                 <th>Chức năng</th>
                             </tr>
-                            <tr *ngFor="let item of databooking">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                    {{item?.id}}
-                                </th>
-                                <th>
-                                    {{item?.name}}
-                                </th>
-                                <th>
-                                    {{item?.phone}}
-                                </th>
-                                <th>
-                                    {{item?.hairdresser}}
-                                </th>
-                                <th>
-                                    {{item?.salon}}
-                                </th>
-                                <th>
-                                    {{item?.service}}
-                                </th>
-                                <th>
-                                    {{item?.field}}
-                                </th>
-                                <th>
-                                    <button pButton type="button" label="Chi tiết" routerLink="/booking-detail"></button>
-                                </th>
-                            </tr>
                         </ng-template>
-                        <ng-template pTemplate="body" let-customer>
+                        <ng-template pTemplate="body" let-databooking>
                             <tr class="p-selectable-row">
                                 <td>
-                                    <p-tableCheckbox [value]="customer"></p-tableCheckbox>
+                                    <p-tableCheckbox [value]="databooking"></p-tableCheckbox>
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Name</span>
-                                    {{customer.name}}
+                                    {{databooking.id}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Country</span>
-                                    <span class="image-text">{{customer.country.name}}</span>
+                                    {{databooking?.name}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Representative</span>
-                                    <span class="image-text">{{customer.representative.name}}</span>
+                                    {{databooking?.phone}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Date</span>
-
+                                    {{databooking?.hairdresser}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Status</span>
-                                    <span
-                                        [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
+                                    {{databooking?.salon}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Activity</span>
-
+                                    {{databooking?.service}}
                                 </td>
-                                <td style="text-align: center">
-                                    <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"></button>
+                                <td >
+                                    {{databooking?.field}}
+                                </td>
+                                <td >
+                                    <button pButton type="button" label="Chi tiết"
+                                    routerLink="/booking-detail"></button>
                                 </td>
                             </tr>
                         </ng-template>

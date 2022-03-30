@@ -6,9 +6,13 @@
             </div>
         </div>
         <div class="option">
-            <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+            <p-tabView (onChange)="handleChange($event)">
+                <p-tabPanel header="Thông tin">
+                </p-tabPanel>
+                <p-tabPanel header="Gán dữ liệu">
+                </p-tabPanel>
+            </p-tabView>
         </div>
-
         <div class="col-4">
             <div class="option-close">
                 <a routerLink="/khoitao-taikhoan"><i class="pi pi-times"></i></a>
@@ -16,98 +20,105 @@
         </div>
     </div>
 </div>
-<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-    <div class="form">
-        <div class="form-add">
-            <div class="grid">
-                <div class="col-8">
-                    <div class="title">
-                        Thông tin chung
-                    </div>
-                    <div class="input">
-                        <div class="grid">
-                            <div class="col-8">
-                                <div class="input-top">
-                                    <label class="float-input">Tên nhân viên</label>
-                                    <span class="p-float-label">
-                                        <input id="float-input" type="text" pInputText name="tennhanvien"
-                                            [(ngModel)]="infokhachhang.tennhanvien" #tennhanvien="ngModel" required
-                                            [ngClass]="{ 'is-invalid': f.submitted && tennhanvien.invalid }">
-                                    </span>
-                                    <div *ngIf="f.submitted && tennhanvien.invalid">
-                                        <div *ngIf="tennhanvien.errors?.['required']">
-                                            <small>Trường này không được để trống</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="input-bottom">
-                                    <label class="float-input">Email dùng làm tài khoản đăng nhập</label>
-                                    <span class="p-float-label">
-                                        <input id="float-input" type="text" pInputText name="email"
-                                            [(ngModel)]="infokhachhang.email" #email="ngModel" required email
-                                            [ngClass]="{ 'is-invalid': f.submitted && email.invalid }">
-                                    </span>
-                                    <div *ngIf="f.submitted && email.invalid">
-                                        <div *ngIf="email.errors?.['required']">
-                                            <small>Trường này không được để trống</small>
-                                        </div>
-                                        <div *ngIf="email.errors?.['email']">
-                                            <small>Sai định dạng email</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="input-top">
-                                    <label class="float-input">Mật khẩu</label>
-                                    <span class="p-float-label">
-                                        <input id="float-input" type="password" pInputText name="matkhau"
-                                        [(ngModel)]="infokhachhang.matkhau" #matkhau="ngModel" required
-                                        [ngClass]="{ 'is-invalid': f.submitted && matkhau.invalid }">
-                                    </span>
-                                    <div *ngIf="f.submitted && matkhau.invalid">
-                                        <div *ngIf="matkhau.errors?.['required']">
-                                            <small>Trường này không được để trống</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="input-bottom">
-                                    <label class="float-input">Số điện thoại</label>
-                                    <span class="p-float-label">
-                                        <input id="float-input" type="number" pInputText name="sodienthoai"
-                                        [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" required
-                                        [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                    </span>
-                                    <div *ngIf="f.submitted && sodienthoai.invalid">
-                                        <div *ngIf="sodienthoai.errors?.['required']">
-                                            <small>Trường này không được để trống</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <img src="../../../assets/img/hinh-dai-dien.png" alt="">
-                                <div class="button-delete-img">
-                                    <a>Sửa</a> | <a>Xóa</a>
-                                </div>
-                            </div>
+<div *ngIf="index===0">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="form">
+            <div class="form-add">
+                <div class="grid">
+                    <div class="col-8">
+                        <div class="title">
+                            Thông tin chung
                         </div>
-                        <div class="setup">
-                            <div class="title-trangthai">Cài đặt trạng thái</div>
-                            <div class="setup-radio">
-                                <div class="field-radiobutton">
-                                    <p-radioButton name="trangthai" value="hoatdong" [(ngModel)]="infokhachhang.trangthai" #trangthai="ngModel" required  [ngClass]="{ 'is-invalid': f.submitted && trangthai.invalid }" > 
-                                    </p-radioButton>
-                                    <label for="city1">Hoạt động</label>
+                        <div class="input">
+                            <div class="grid">
+                                <div class="col-8">
+                                    <div class="input-top">
+                                        <label class="float-input">Tên nhân viên</label>
+                                        <span class="p-float-label">
+                                            <input id="float-input" type="text" pInputText name="tennhanvien"
+                                                [(ngModel)]="infokhachhang.tennhanvien" #tennhanvien="ngModel" required
+                                                [ngClass]="{ 'is-invalid': f.submitted && tennhanvien.invalid }">
+                                        </span>
+                                        <div *ngIf="f.submitted && tennhanvien.invalid">
+                                            <div *ngIf="tennhanvien.errors?.['required']">
+                                                <small>Trường này không được để trống</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-bottom">
+                                        <label class="float-input">Email dùng làm tài khoản đăng nhập</label>
+                                        <span class="p-float-label">
+                                            <input id="float-input" type="text" pInputText name="email"
+                                                [(ngModel)]="infokhachhang.email" #email="ngModel" required email
+                                                [ngClass]="{ 'is-invalid': f.submitted && email.invalid }">
+                                        </span>
+                                        <div *ngIf="f.submitted && email.invalid">
+                                            <div *ngIf="email.errors?.['required']">
+                                                <small>Trường này không được để trống</small>
+                                            </div>
+                                            <div *ngIf="email.errors?.['email']">
+                                                <small>Sai định dạng email</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-top">
+                                        <label class="float-input">Mật khẩu</label>
+                                        <span class="p-float-label">
+                                            <input id="float-input" type="password" pInputText name="matkhau"
+                                                [(ngModel)]="infokhachhang.matkhau" #matkhau="ngModel" required
+                                                [ngClass]="{ 'is-invalid': f.submitted && matkhau.invalid }">
+                                        </span>
+                                        <div *ngIf="f.submitted && matkhau.invalid">
+                                            <div *ngIf="matkhau.errors?.['required']">
+                                                <small>Trường này không được để trống</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-bottom">
+                                        <label class="float-input">Số điện thoại</label>
+                                        <span class="p-float-label">
+                                            <input id="float-input" type="number" pInputText name="sodienthoai"
+                                                [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" required
+                                                [ngClass]="{ 'is-invalid': f.submitted && sodienthoai.invalid }"
+                                                maxlength="10"
+                                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                        </span>
+                                        <div *ngIf="f.submitted && sodienthoai.invalid">
+                                            <div *ngIf="sodienthoai.errors?.['required']">
+                                                <small>Trường này không được để trống</small>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="field-radiobutton">
-                                    <p-radioButton name="trangthai" value="dunghoatdong" #trangthai="ngModel" required  [ngClass]="{ 'is-invalid': f.submitted && trangthai.invalid }"
-                                        [(ngModel)]="infokhachhang.trangthai"> 
-                                    </p-radioButton>
-                                    <label for="city2">Dừng hoạt động</label>
+                                <div class="col-4">
+                                    <img src="../../../assets/img/hinh-dai-dien.png" alt="">
+                                    <div class="button-delete-img">
+                                        <a>Sửa</a> | <a>Xóa</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div *ngIf="f.submitted && trangthai.invalid">
-                                <div *ngIf="trangthai.errors?.['required']">
-                                    <small>Trường này không được để trống</small>
+                            <div class="setup">
+                                <div class="title-trangthai">Cài đặt trạng thái</div>
+                                <div class="setup-radio">
+                                    <div class="field-radiobutton">
+                                        <p-radioButton name="trangthai" value="hoatdong"
+                                            [(ngModel)]="infokhachhang.trangthai" #trangthai="ngModel" required
+                                            [ngClass]="{ 'is-invalid': f.submitted && trangthai.invalid }">
+                                        </p-radioButton>
+                                        <label for="city1">Hoạt động</label>
+                                    </div>
+                                    <div class="field-radiobutton">
+                                        <p-radioButton name="trangthai" value="dunghoatdong" #trangthai="ngModel"
+                                            required [ngClass]="{ 'is-invalid': f.submitted && trangthai.invalid }"
+                                            [(ngModel)]="infokhachhang.trangthai">
+                                        </p-radioButton>
+                                        <label for="city2">Dừng hoạt động</label>
+                                    </div>
+                                </div>
+                                <div *ngIf="f.submitted && trangthai.invalid">
+                                    <div *ngIf="trangthai.errors?.['required']">
+                                        <small>Trường này không được để trống</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -115,24 +126,27 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="button">
-        <div class="button-item">
-            <button pButton type="button" label="Hủy" routerLink="/khoitao-taikhoan"></button>
-        </div>
-        <div class="button-item">
-            <button pButton type="submit" label="Lưu"></button>
-        </div>
-    </div>
-</form>
-<p-toast position="top-right"  [baseZIndex]="5000">
-    <ng-template let-message pTemplate="message">
-        <div class="p-flex p-flex-column" style="flex: 1">
-            <div class="p-text-center">
-                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                <h4>{{message.summary}}</h4>
-                <p>{{message.detail}}</p>
+        <div class="button">
+            <div class="button-item">
+                <button pButton type="button" label="Hủy" routerLink="/khoitao-taikhoan"></button>
+            </div>
+            <div class="button-item">
+                <button pButton type="submit" label="Lưu"></button>
             </div>
         </div>
-    </ng-template>
-</p-toast>
+    </form>
+    <p-toast position="top-right" [baseZIndex]="5000">
+        <ng-template let-message pTemplate="message">
+            <div class="p-flex p-flex-column" style="flex: 1">
+                <div class="p-text-center">
+                    <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                    <h4>{{message.summary}}</h4>
+                    <p>{{message.detail}}</p>
+                </div>
+            </div>
+        </ng-template>
+    </p-toast>
+</div>
+<div *ngIf="index===1">
+    <app-gan-du-lieu></app-gan-du-lieu>
+</div>

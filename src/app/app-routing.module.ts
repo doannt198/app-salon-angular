@@ -39,6 +39,7 @@ import { ChiTietVoucherComponent } from './voucher-management/chi-tiet-voucher/c
 import { QuanTriAppComponent } from './quan-tri-app/quan-tri-app.component';
 import { QuanLyDanhGiaComponent } from './quan-ly-danh-gia/quan-ly-danh-gia.component';
 import { QuanLyForumComponent } from './quan-ly-forum/quan-ly-forum.component';
+import { QuanTriAppChiTietComponent } from './quan-tri-app/quan-tri-app-chi-tiet/quan-tri-app-chi-tiet.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/report', pathMatch: 'full' },
@@ -80,6 +81,7 @@ const routes: Routes = [
   { path: 'quan-tri-app', component: QuanTriAppComponent },
   { path: 'quan-ly-danh-gia', component: QuanLyDanhGiaComponent },
   { path: 'quan-ly-forum', component: QuanLyForumComponent },
+  { path: 'quan-tri-app-chi-tiet', component: QuanTriAppChiTietComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({

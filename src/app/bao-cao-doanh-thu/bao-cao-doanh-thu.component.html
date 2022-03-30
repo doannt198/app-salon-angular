@@ -64,7 +64,7 @@
         <div class="col-12 booking-body">
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="databooking">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -75,28 +75,31 @@
                                 <th>Loại booking</th>
                                 <th>Thành tiền</th>
                             </tr>
-                            <tr *ngFor="let item of databooking">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                    {{item?.id}}
-                                </th>
-                                <th>
-                                    {{item?.name}}
-                                </th>
-                                <th>
-                                   {{item?.hairdresser}}
-                                </th>
-                                <th>
-                                {{item?.checkinday}}
-                                </th>
-                                <th [ngStyle]="{color:item.typebooking ? 'green':'red'}">
-                                {{item?.typebooking ? "Online":"Office"}}
-                                </th>
-                                <th>
-                                    {{item?.price}}
-                                </th>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-databooking>
+                            <tr class="p-selectable-row">
+                                <td>
+                                    <p-tableCheckbox [value]="databooking"></p-tableCheckbox>
+                                </td>
+                                <td>
+                                    {{databooking?.id}}
+                                </td>
+                                <td>
+                                   
+                                    {{databooking?.name}}
+                                </td>
+                                <td>
+                                    {{databooking?.hairdresser}}
+                                </td>
+                                <td>
+                                    {{databooking?.checkinday}}
+                                </td>
+                                <td [ngStyle]="{color:databooking.typebooking ? 'green':'red'}">
+                                    {{databooking.typebooking ? "Online":"Office"}}
+                                </td>
+                                <td >
+                                    {{databooking?.price}}
+                                </td>
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="emptymessage">

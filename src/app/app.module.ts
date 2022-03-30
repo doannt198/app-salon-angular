@@ -52,10 +52,10 @@ import { GanDuLieuVoucherDetailComponent } from './voucher-management/gan-du-lie
 import { QuanLySalonComponent } from './salon-management/quan-ly-salon/quan-ly-salon.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {ToastModule} from 'primeng/toast';
-import {TabViewModule} from 'primeng/tabview';
+import { ToastModule } from 'primeng/toast';
+import { TabViewModule } from 'primeng/tabview';
 import { HttpClientModule, HttpClient } from '@angular/common/http'
-import {PaginatorModule} from 'primeng/paginator';
+import { PaginatorModule } from 'primeng/paginator';
 import { DichVuComponent } from './linh-vuc-dich-vu/dich-vu/dich-vu.component';
 import { NotificationManagementComponent } from './notification-management/notification-management.component';
 import { ThemThongBaoComponent } from './notification-management/them-thong-bao/them-thong-bao.component';
@@ -63,13 +63,16 @@ import { ChiTietVoucherComponent } from './voucher-management/chi-tiet-voucher/c
 import { QuanTriAppComponent } from './quan-tri-app/quan-tri-app.component';
 import { QuanLyDanhGiaComponent } from './quan-ly-danh-gia/quan-ly-danh-gia.component';
 import { QuanLyForumComponent } from './quan-ly-forum/quan-ly-forum.component';
-import {TreeModule} from 'primeng/tree';
+import { TreeModule } from 'primeng/tree';
 import { GanDuLieuThemComponent } from './salon-management/them-salon/gan-du-lieu-them/gan-du-lieu-them.component';
 import { GioiThieuThemComponent } from './salon-management/them-salon/gioi-thieu-them/gioi-thieu-them.component';
 import { QuanLySalonThemComponent } from './salon-management/them-salon/quan-ly-salon-them/quan-ly-salon-them.component';
 import { GioiThieuThoThemThoComponent } from './worker-management/them-tho/gioi-thieu-tho-them-tho/gioi-thieu-tho-them-tho.component';
 import { GanDuLieuThoThemThoComponent } from './worker-management/them-tho/gan-du-lieu-tho-them-tho/gan-du-lieu-tho-them-tho.component';
 import { QuanLySalonThemThoComponent } from './worker-management/them-tho/quan-ly-salon-them-tho/quan-ly-salon-them-tho.component';
+import { EditorModule } from 'primeng/editor';
+import { QuanTriAppChiTietComponent } from './quan-tri-app/quan-tri-app-chi-tiet/quan-tri-app-chi-tiet.component';
+import { ThongTinPhienBanComponent } from './quan-tri-app/thong-tin-phien-ban/thong-tin-phien-ban.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +124,8 @@ import { QuanLySalonThemThoComponent } from './worker-management/them-tho/quan-l
     GioiThieuThoThemThoComponent,
     GanDuLieuThoThemThoComponent,
     QuanLySalonThemThoComponent,
+    QuanTriAppChiTietComponent,
+    ThongTinPhienBanComponent,
   ],
   imports: [
     BrowserModule,
@@ -147,7 +152,8 @@ import { QuanLySalonThemThoComponent } from './worker-management/them-tho/quan-l
     PaginatorModule,
     TabViewModule,
     CommonModule,
-    TreeModule
+    TreeModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,66 @@
+<div class="header">
+    <div class="left" routerLink="/quan-tri-app">
+        <div class="arow"><i class="pi pi-chevron-left"></i></div>
+        <div class="back-title">
+            <span>Quản trị app</span>
+        </div>
+    </div>
+    <div class="center">
+        <p-tabView (onChange)="handleChange($event)" >
+            <p-tabPanel header="Công ty phát triển">
+            </p-tabPanel>
+            <p-tabPanel header="Quản trị app">
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+    <div class="right" routerLink="/quan-tri-app">
+        <i class="pi pi-times"></i>
+    </div>
+</div>
+<div *ngIf="index===0">
+    <div class="info-wrapper">
+        <div class="title-line">
+            <span class="name">Công ty phát triển</span>
+        </div>
+        <div class="info-content">
+            <div class="grid">
+                <div class="col-8">
+                    <div class="info-common">
+                        <div class="form-data">
+                            <div class="label">Tên công ty:</div>
+                            <div class="value">Công ty Cooftechh</div>
+                        </div>
+                        <div class="form-data">
+                            <div class="label">Địa chỉ:</div>
+                            <div class="value">Cầu giấy</div>
+                        </div>
+                        <div class="form-data">
+                            <div class="label">Email:</div>
+                            <div class="value">Cooftech@gmail.com</div>
+                        </div>
+                        <div class="form-data">
+                            <div class="label">Số điện thoại:</div>
+                            <div class="value">0971452786</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="info-image">
+                        <img src="../../../assets/img/hinh-dai-dien.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="custom-actions">
+        <div class="btn-edit">
+            <button pButton type="button" label="Sửa" ></button>
+        </div>
+        <div class="btn-exit">
+            <button pButton type="button" label="Thoát" ></button>
+        </div>
+    </div>
+</div>
+<div *ngIf="index===1">
+   <app-thong-tin-phien-ban></app-thong-tin-phien-ban>
+</div>

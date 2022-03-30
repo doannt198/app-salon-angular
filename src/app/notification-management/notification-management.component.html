@@ -65,7 +65,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="datathongbao">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -76,31 +76,32 @@
                                 <th>Trạng thái</th>
                                 <th>Chức năng</th>
                             </tr>
-                            <tr *ngFor="let item of datathongbao">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                    {{item?.title}}
-                                </th>
-                                <th>
-                                    {{item?.content}}
-                                </th>
-                                <th>
-                                    {{item?.createdAt}}
-                                </th>
-                                <th>
-                                    {{item?.type}}
-                                </th>
-                                <th [style.color]="item?.isActive?'green':'red'">
-                                    {{item?.isActive? 'Chưa xóa':'Đã xóa'}}
-                                </th>
-                                <th>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-datathongbao>
+                            <tr>
+                                <td>
+                                    <p-tableCheckbox [value]="datathongbao"></p-tableCheckbox>
+                                </td>
+                                <td>
+                                    {{datathongbao?.title}}
+                                </td>
+                                <td>
+                                    {{datathongbao?.content}}
+                                </td>
+                                <td>
+                                    {{datathongbao?.createdAt}}
+                                </td>
+                                <td>
+                                    {{datathongbao?.type}}
+                                </td>
+                                <td [style.color]="datathongbao?.isActive?'green':'red'">
+                                    {{datathongbao?.isActive? 'Chưa xóa':'Đã xóa'}}
+                                </td>
+                                <td>
                                     <button pButton type="button" label="Chi tiết" ></button>
-                                </th>
+                                </td>
                             </tr>
                         </ng-template>
-                        
                         <ng-template pTemplate="emptymessage">
                             <tr>
                                 <td colspan="8">No customers found.</td>

@@ -71,7 +71,7 @@
             <div class="booking-sort">
                 <div class="grid">
                     <div class="col-6">
-                        Đã chọn (0,0) | Xuất Excel
+                        Đã chọn (0,0) |  <button pButton type="button" label="Xuất excel" (click)="exportexcel()"></button>
                     </div>
                     <div class="col-6 ">
                         <div class="sort-columnd">
@@ -83,7 +83,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="datataikhoan">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -94,62 +94,30 @@
                                 <th>Đăng ký lúc</th>
                                 <th>Trạng thái</th>
                             </tr>
-                            <tr *ngFor="let item of datataikhoan">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                    {{item?.hoten}}
-                                </th>
-                                <th>
-                                    {{item?.email}}
-                                </th>
-                                <th>
-                                   {{item?.phone}}
-                                </th>
-                                <th>
-                                {{item?.vaitro}}
-                                </th>
-                                <th>
-                                {{item?.timedangky}}
-                                </th>
-                                <th [style.color]="item?.status?'green':'red'">
-                                    {{item?.status ? "Đang hoạt động" :"Dừng hoạt động"}}
-                                </th>
-                            </tr>
                         </ng-template>
-                        <ng-template pTemplate="body" let-customer>
+                        <ng-template pTemplate="body" let-datataikhoan>
                             <tr class="p-selectable-row">
                                 <td>
-                                    <p-tableCheckbox [value]="customer"></p-tableCheckbox>
+                                    <p-tableCheckbox [value]="datataikhoan"></p-tableCheckbox>
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Name</span>
-                                    {{customer.name}}
+                                    {{datataikhoan?.hoten}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Country</span>
-                                    <span class="image-text">{{customer.country.name}}</span>
+                                   
+                                    {{datataikhoan?.email}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Representative</span>
-                                    <span class="image-text">{{customer.representative.name}}</span>
+                                    {{datataikhoan?.phone}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Date</span>
-
+                                    {{datataikhoan?.vaitro}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Status</span>
-                                    <span
-                                        [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
+                                    {{datataikhoan?.timedangky}}
                                 </td>
-                                <td>
-                                    <span class="p-column-title">Activity</span>
-
-                                </td>
-                                <td style="text-align: center">
-                                    <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"></button>
+                                <td [style.color]="datataikhoan?.status?'green':'red'">
+                                    {{datataikhoan?.status ? "Đang hoạt động" :"Dừng hoạt động"}}
                                 </td>
                             </tr>
                         </ng-template>

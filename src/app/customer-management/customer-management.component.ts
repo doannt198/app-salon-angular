@@ -34,7 +34,6 @@ export class CustomerManagementComponent implements OnInit {
     const params = queryString.stringify(this.query);
     this.customer.getCustomer(params)
       .subscribe(response => {
-        console.log(response)
         this.datakhachhang = response.data
         if (this.datakhachhang && this.datakhachhang.length) {
           this.totalRecord = this.datakhachhang[0].totalRecord;

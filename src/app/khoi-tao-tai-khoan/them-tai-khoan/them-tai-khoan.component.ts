@@ -24,15 +24,15 @@ export class ThemTaiKhoanComponent implements OnInit {
   constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
-    this.items = [
-      {label: 'Thông tin' ,routerLink:'/them-tai-khoan'},
-      {label: 'Gán dữ liệu', routerLink:'/gan-du-lieu'}
-  ];
-    this.activeItem = this.items[0];
     this.primengConfig.ripple = true;
   }
   onSubmit(){
     this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
     /* alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model)); */
+  }
+  index = 0;
+  handleChange(e: any) {
+    this.index = e.index;
+    console.log(e)
   }
 }

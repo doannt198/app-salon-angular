@@ -9,13 +9,16 @@ const httpOptions = {
 })
 export class VoucherService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  getVoucher(queryString:any):Observable<any> {
+  getVoucher(queryString: any): Observable<any> {
     return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Voucher/getVoucher?${queryString}`)
-   }
-    getVoucherdetail(id:number): Observable<any> {
-   
-      return this.httpClient.get<any>('http://103.81.87.134:5002/api/Voucher/getVoucherbyId?Id='+id).pipe()
-    }
+  }
+  getVoucherdetail(id: number): Observable<any> {
+
+    return this.httpClient.get<any>('http://103.81.87.134:5002/api/Voucher/getVoucherbyId?Id=' + id).pipe()
+  }
+  addVoucher(newVoucher: any): Observable<any> {
+    return this.httpClient.post<any>('http://103.81.87.134:5002/api/Voucher/addVoucher', newVoucher)
+  }
 }

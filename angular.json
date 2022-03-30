@@ -36,21 +36,25 @@
             "styles": [
               "src/styles.scss",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/lara-light-indigo/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeng/resources/themes/saga-green/theme.css",
               "node_modules/primeflex/primeflex.css",
               "node_modules/chart.js/dist/Chart.js",
-              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css" 
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/quill/dist/quill.js"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "2mb"
+                  "maximumWarning": "4mb",
+                    "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",

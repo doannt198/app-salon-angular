@@ -3,7 +3,7 @@
         <div class="col-6">
             <div class="left">
                 <div class="left-title">
-                    Danh sách khách hàng
+                    Danh sách Salon
                 </div>
                 <div class="add-booking">
                     <div class="left-button">
@@ -67,7 +67,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="datasalon">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th></th>
@@ -80,38 +80,37 @@
                                 <th>Đánh giá trung bình</th>
                                 <th>Chức năng</th>
                             </tr>
-                            <tr *ngFor="let item of datasalon">
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th>
-                                    {{item?.id}}
-                                </th>
-                                <th>
-                                    {{item?.name}}
-                                </th>
-                                <th>
-                                    {{item?.phone}}
-                                </th>
-                                <th>
-                                    {{item?.email}}
-                                </th>
-                                <th>
-                                    {{item?.address}}
-                                </th>
-                                <th>
-                                
-                                </th>
-                                <th [style.color]="item?.isActive?'green':'red'">
-                                    {{item?.isActive?'Đang hoạt động':'Dừng hoạt động'}}
-                                </th>
-                                <th>
-                                    <p-rating [(ngModel)]="item.rate" [cancel]="false"></p-rating>
-                                </th>
-
-                                <th>
-                                    <button pButton type="button" label="Chi tiết" routerLink="/salon-detail/{{item?.id}}"></button>
-                                </th>
+                            
+                        </ng-template>
+                        <ng-template pTemplate="body" let-datasalon>
+                            <tr>
+                                <td>
+                                   <p-tableCheckbox [value]="datasalon"></p-tableCheckbox>
+                                </td>
+                                <td>
+                                    {{datasalon?.id}}
+                                </td>
+                                <td>
+                                    {{datasalon?.name}}
+                                </td>
+                                <td>
+                                    {{datasalon?.phone}}
+                                </td>
+                                <td>
+                                    {{datasalon?.email}}
+                                </td>
+                                <td >
+                                    {{datasalon?.address}}
+                                </td>
+                                <td [style.color]="datasalon?.isActive?'green':'red'">
+                                    {{datasalon?.isActive?'Đang hoạt động':'Dừng hoạt động'}}
+                                </td>
+                                <td >
+                                    <p-rating [(ngModel)]="datasalon.rate" [cancel]="false"></p-rating>
+                                </td>
+                                <td >
+                                    <button pButton type="button" label="Chi tiết" routerLink="/salon-detail/{{datasalon?.id}}"></button>
+                                </td>
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="emptymessage">

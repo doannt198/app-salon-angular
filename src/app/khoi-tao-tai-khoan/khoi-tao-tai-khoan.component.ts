@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import { FilterService, SelectItem } from 'primeng/api';
 import { MenuItem } from 'primeng/api';
+import { ExportFileService } from 'src/services/export-file.service';
 import { KhoitaotaikhoanService } from 'src/services/khoitaotaikhoan.service';
-
 interface Status {
   name: string,
   value: any
@@ -19,7 +19,10 @@ export class KhoiTaoTaiKhoanComponent implements OnInit {
   items1: MenuItem[];
   activeItem: MenuItem;
   datataikhoan: any = [];
-  constructor(private khoitaotaikhoan: KhoitaotaikhoanService) { }
+  constructor(
+    private khoitaotaikhoan: KhoitaotaikhoanService,
+    private fileService: ExportFileService
+  ) { }
   ngOnInit(): void {
     this.items = [];
     for (let i = 0; i < 10000; i++) {
@@ -39,5 +42,19 @@ export class KhoiTaoTaiKhoanComponent implements OnInit {
   }
   getKhoitao() {
     this.khoitaotaikhoan.getKhoitaotaikhoan().subscribe(reponse => { this.datataikhoan = reponse })
+  }
+
+  exportexcel() {
+    let dataExport: any = [];
+    this.datataikhoan.forEach((account: any) => {
+      let data: any = {};
+      data['Email'] = account.email;
+      data['Họ và tên'] = account.hoten;
+      data['Điện thoại'] = account.phone;
+      data['Vai trò '] = account.vaitro;
+      data['Đăng ký lúc '] = account.timedangky;
+      dataExport.push(data);
+    })
+    this.fileService.exportAsExcelFile(dataExport, 'Danh sách chi tiết thợ ' + new Date());
   }
 }

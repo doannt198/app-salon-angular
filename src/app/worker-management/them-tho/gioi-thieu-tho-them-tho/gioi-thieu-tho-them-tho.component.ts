@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gioi-thieu-tho-them-tho.component.scss']
 })
 export class GioiThieuThoThemThoComponent implements OnInit {
-
+  text:string;
   constructor() { }
 
   ngOnInit(): void {

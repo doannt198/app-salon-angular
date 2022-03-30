@@ -100,8 +100,6 @@ export class ReportComponent implements OnInit {
         const params = queryString.stringify(this.query);
         this.ReportService.getReport(params).subscribe(response => {
           this.datareport = response.data;
-          console.log(this.datareport)
         })
       }
-    
 }

@@ -72,7 +72,7 @@
             <div class="booking-sort">
                 <div class="grid">
                     <div class="col-6">
-                        Đã chọn (0,0) | Xuất Excel
+                        Đã chọn (0,0) | <button pButton type="button" label="Xuất Excel"></button>
                     </div>
                     <div class="col-6 ">
                         <div class="sort-columnd">
@@ -84,61 +84,28 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table>
+                    <p-table [value]="datalinhvuc">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th>STT</th>
                                 <th> Mã lĩnh vực</th>
                                 <th>Tên lĩnh vực </th>
                                 <th>Trạng thái</th>
-                            </tr>
-                            <tr *ngFor="let item of datalinhvuc">
-                                <th>
-                                    {{item?.id}}
-                                </th>
-                                <th>
-                                    {{item?.code}}
-                                </th>
-                                <th>
-                                    {{item?.name}} 
-                                </th>
-                                <th [style.color]="item?.isActive? 'green':'red'">
-                                    {{item?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
-                                </th>
-                            </tr>
+                            </tr> 
                         </ng-template>
-                        <ng-template pTemplate="body" let-customer>
-                            <tr class="p-selectable-row">
+                        <ng-template pTemplate="body" let-datalinhvuc>
+                            <tr>
                                 <td>
-                                    <p-tableCheckbox [value]="customer"></p-tableCheckbox>
+                                    {{datalinhvuc?.id}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Name</span>
-                                    {{customer.name}}
+                                    {{datalinhvuc?.code}}
                                 </td>
                                 <td>
-                                    <span class="p-column-title">Country</span>
-                                    <span class="image-text">{{customer.country.name}}</span>
+                                    {{datalinhvuc?.name}} 
                                 </td>
-                                <td>
-                                    <span class="p-column-title">Representative</span>
-                                    <span class="image-text">{{customer.representative.name}}</span>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Date</span>
-
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Status</span>
-                                    <span
-                                        [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
-                                </td>
-                                <td>
-                                    <span class="p-column-title">Activity</span>
-
-                                </td>
-                                <td style="text-align: center">
-                                    <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"></button>
+                                <td [style.color]="datalinhvuc?.isActive? 'green':'red'">
+                                    {{datalinhvuc?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
                                 </td>
                             </tr>
                         </ng-template>

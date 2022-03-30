@@ -17,10 +17,7 @@ export class ManagerBookingComponent implements OnInit {
   constructor(
     private bookingService: BookingService
   ) {
-    this.items = [];
-    for (let i = 0; i < 10000; i++) {
-      this.items.push({ label: 'Item ' + i, value: 'Item ' + i });
-    }
+    
     this.cities = [
       { name: 'Tất cả' },
       { name: 'Chờ duyệt ' },

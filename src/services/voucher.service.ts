@@ -16,7 +16,7 @@ export class VoucherService {
   }
   getVoucherdetail(id: number): Observable<any> {
 
-    return this.httpClient.get<any>('http://103.81.87.134:5002/api/Voucher/getVoucherbyId?Id=' + id).pipe()
+    return this.httpClient.get<any>('http://103.81.87.134:5002/api/Voucher/getVoucherbyId?Id=' + id)
   }
   addVoucher(newVoucher: any): Observable<any> {
     return this.httpClient.post<any>('http://103.81.87.134:5002/api/Voucher/addVoucher', newVoucher)

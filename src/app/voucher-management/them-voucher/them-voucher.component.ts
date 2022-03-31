@@ -74,9 +74,10 @@ export class ThemVoucherComponent implements OnInit {
     bodyFormData.append('IsShowInSalon', !this.infovoucher.IsShowInHome)
     bodyFormData.append('IsShowInHome', this.infovoucher.IsShowInHome)
     bodyFormData.append('VoucherServicesModel', [])
-    this.voucherService.addVoucher(bodyFormData).subscribe(response => {
-      alert('thanh cong')
-    })
+    console.log(bodyFormData)
+    /* this.voucherService.addVoucher(bodyFormData).subscribe(response => {
+      console.log(response)
+    }) */
   }
 
   handleChange(e: any) {

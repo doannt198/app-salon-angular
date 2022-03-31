@@ -1,21 +1,19 @@
 <div class="menu-top">
-    
-            <div class="option-left">
-                <a routerLink="/managementvoucher"><i class="pi pi-chevron-left"></i>Thêm Voucher</a>
-            </div>
-            <div class="option-center">
-                <p-tabView (onChange)="handleChange($event)">
-                    <p-tabPanel header="Thông tin">
-                        
-                    </p-tabPanel>
-                    <p-tabPanel header="Gán dữ liệu ">
-                        
-                    </p-tabPanel>
-                </p-tabView>
-            </div>
-            <div class="option-right">
-                <a routerLink="/managementvoucher"><i class="pi pi-times"></i></a>
-            </div>
+
+    <div class="option-left">
+        <a routerLink="/managementvoucher"><i class="pi pi-chevron-left"></i>Thêm Voucher</a>
+    </div>
+    <div class="option-center">
+        <p-tabView (onChange)="handleChange($event)">
+            <p-tabPanel header="Thông tin">
+            </p-tabPanel>
+            <p-tabPanel header="Gán dữ liệu ">
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+    <div class="option-right">
+        <a routerLink="/managementvoucher"><i class="pi pi-times"></i></a>
+    </div>
 </div>
 <div *ngIf="index===0">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
@@ -29,9 +27,8 @@
                         Mã voucher
                     </div>
                     <div class="info-input">
-                        <input type="text" pInputText name="Code"
-                        [(ngModel)]="infovoucher.Code" #Code="ngModel" required
-                        [ngClass]="{ 'is-invalid': f.submitted && Code.invalid }"> 
+                        <input type="text" pInputText name="Code" [(ngModel)]="infovoucher.Code" #Code="ngModel"
+                            required [ngClass]="{ 'is-invalid': f.submitted && Code.invalid }">
                     </div>
                     <div *ngIf="f.submitted && Code.invalid">
                         <div *ngIf="Code.errors?.['required']">
@@ -44,9 +41,8 @@
                         Tên Voucher
                     </div>
                     <div class="info-input">
-                        <input type="text" pInputText name="Name"
-                        [(ngModel)]="infovoucher.Name" #Name="ngModel" required
-                        [ngClass]="{ 'is-invalid': f.submitted && Name.invalid }" > 
+                        <input type="text" pInputText name="Name" [(ngModel)]="infovoucher.Name" #Name="ngModel"
+                            required [ngClass]="{ 'is-invalid': f.submitted && Name.invalid }">
                     </div>
                     <div *ngIf="f.submitted && Name.invalid">
                         <div *ngIf="Name.errors?.['required']">
@@ -59,9 +55,8 @@
                         Salon
                     </div>
                     <div class="info-input">
-                        <input type="text" pInputText name="SalonId"
-                        [(ngModel)]="infovoucher.SalonId" #SalonId="ngModel" required
-                        [ngClass]="{ 'is-invalid': f.submitted && SalonId.invalid }"> 
+                        <input type="text" pInputText name="SalonId" [(ngModel)]="infovoucher.SalonId"
+                            #SalonId="ngModel" required [ngClass]="{ 'is-invalid': f.submitted && SalonId.invalid }">
                     </div>
                     <div *ngIf="f.submitted && SalonId.invalid">
                         <div *ngIf="SalonId.errors?.['required']">
@@ -73,8 +68,9 @@
                     <div class="label">
                         Nội dung
                     </div>
-                    <div class="info-input"> 
-                        <textarea pInputTextarea name="ContentContent" [(ngModel)]="infovoucher.noidung" #Content="ngModel" ></textarea>
+                    <div class="info-input">
+                        <textarea pInputTextarea name="ContentContent" [(ngModel)]="infovoucher.noidung"
+                            #Content="ngModel"></textarea>
                     </div>
                 </div>
                 <div class="info-item-chia">
@@ -85,8 +81,8 @@
                             </div>
                             <div class="info-input">
                                 <p-calendar [showIcon]="true" inputId="startday" name="BeginAt"
-                                [(ngModel)]="infovoucher.BeginAt" #BeginAt="ngModel" [required]="true"
-                                [ngClass]="{ 'is-invalid': f.submitted && BeginAt.invalid }" ></p-calendar>
+                                    [(ngModel)]="infovoucher.BeginAt" #BeginAt="ngModel" [required]="true"
+                                    [ngClass]="{ 'is-invalid': f.submitted && BeginAt.invalid }"></p-calendar>
                             </div>
                             <div *ngIf="f.submitted && BeginAt.invalid">
                                 <div *ngIf="BeginAt.errors?.required">
@@ -99,8 +95,9 @@
                                 Ngày kết thúc:
                             </div>
                             <div class="info-input">
-                                <p-calendar [showIcon]="true" inputId="endday" name="EndAt" [(ngModel)]="infovoucher.EndAt" #EndAt="ngModel" [required]="true"
-                                [ngClass]="{ 'is-invalid': f.submitted && EndAt.invalid }"></p-calendar> 
+                                <p-calendar [showIcon]="true" inputId="endday" name="EndAt"
+                                    [(ngModel)]="infovoucher.EndAt" #EndAt="ngModel" [required]="true"
+                                    [ngClass]="{ 'is-invalid': f.submitted && EndAt.invalid }"></p-calendar>
                             </div>
                             <div *ngIf="f.submitted && EndAt.invalid">
                                 <div *ngIf="EndAt.errors?.required">
@@ -115,10 +112,10 @@
                         Giảm(%)
                     </div>
                     <div class="info-input">
-                        <input type="number" pInputText  name="PercentRatio"
-                        [(ngModel)]="infovoucher.PercentRatio" #PercentRatio="ngModel" required
-                        [ngClass]="{ 'is-invalid': f.submitted && PercentRatio.invalid }" maxLength="2" 
-                        style="margin-bottom: 20px;"> 
+                        <input type="number" pInputText name="PercentRatio" [(ngModel)]="infovoucher.PercentRatio"
+                            #PercentRatio="ngModel" required
+                            [ngClass]="{ 'is-invalid': f.submitted && PercentRatio.invalid }" maxLength="2"
+                            style="margin-bottom: 20px;">
                     </div>
                     <div *ngIf="f.submitted && PercentRatio.invalid">
                         <div *ngIf="PercentRatio.errors?.['required']">
@@ -134,27 +131,26 @@
         </div>
         <div class="custom-actions">
             <div class="btn-exit">
-                <button pButton type="button" label="Hủy" ></button>
+                <button pButton type="button" label="Hủy"></button>
             </div>
             <div class="btn-tieptuc">
                 <button pButton type="submit" label="Lưu"></button>
             </div>
         </div>
-        </form>
-        <p-toast position="top-right"  [baseZIndex]="5000">
-            <ng-template let-message pTemplate="message">
-                <div class="p-flex p-flex-column" style="flex: 1">
-                    <div class="p-text-center">
-                        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                        <h4>{{message.summary}}</h4>
-                        <p>{{message.detail}}</p>
-                    </div>
+    </form>
+    <p-toast position="top-right" [baseZIndex]="5000">
+        <ng-template let-message pTemplate="message">
+            <div class="p-flex p-flex-column" style="flex: 1">
+                <div class="p-text-center">
+                    <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                    <h4>{{message.summary}}</h4>
+                    <p>{{message.detail}}</p>
                 </div>
-            </ng-template>
-        </p-toast>
+            </div>
+        </ng-template>
+    </p-toast>
 </div>
 <div *ngIf="index===1">
     <app-gan-du-lieu-voucher>
-        
     </app-gan-du-lieu-voucher>
 </div>

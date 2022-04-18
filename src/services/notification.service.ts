@@ -5,7 +5,7 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'Application/json' })
 }
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  
 })
 export class NotificationService {
 

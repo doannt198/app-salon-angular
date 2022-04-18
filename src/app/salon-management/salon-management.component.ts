@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { SalonService } from 'src/services/salon.service';
 import * as queryString from 'query-string';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-salon-management',
   templateUrl: './salon-management.component.html',
@@ -20,9 +20,15 @@ export class SalonManagementComponent implements OnInit {
     Search: '',
     isActive: false
   };
-  constructor(private salonservice: SalonService) { }
+  constructor(private salonservice: SalonService,
+    private spinner: NgxSpinnerService,
+    ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
     this.items = [
       { label: 'Tất cả' },
       { label: 'Đang hoạt động' },

@@ -3,6 +3,7 @@ import {MenuItem} from 'primeng/api'
 import { VoucherService } from 'src/services/voucher.service';
 import * as queryString from 'query-string';
 import * as moment from 'moment';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-voucher-management',
   templateUrl: './voucher-management.component.html',
@@ -23,7 +24,9 @@ export class VoucherManagementComponent implements OnInit {
     IsShowInSalon:'',
     IsShowInHome:''
   }
-  constructor(private voucherService:VoucherService) { }
+  constructor(private voucherService:VoucherService,
+    private spinner: NgxSpinnerService
+    ) { }
 
   ngOnInit(): void {
     this.items = [
@@ -35,6 +38,7 @@ export class VoucherManagementComponent implements OnInit {
     this.getVoucher();
   }
     getVoucher(){
+      this.spinner.show();
       if (typeof this.query.from !== 'string' && typeof this.query.to !== 'string') {
         this.query.from = moment(this.query.from).format('YYYY-MM-DD HH:mm');
         this.query.to = moment(this.query.to).format('YYYY-MM-DD HH:mm');
@@ -46,6 +50,9 @@ export class VoucherManagementComponent implements OnInit {
           this.totalRecord = this.datavoucher[0].totalRecord;
         }
       })
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
     }
     paginate(event: any): void {
       this.query.PageIndex = event.first + 1;

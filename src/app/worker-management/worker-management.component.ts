@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api'
 import { WorkerService } from 'src/services/worker.service';
 import * as queryString from 'query-string';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-worker-management',
   templateUrl: './worker-management.component.html',
@@ -19,9 +20,15 @@ export class WorkerManagementComponent implements OnInit {
     Search:'',
     isActive:true
   };
-  constructor(private workerService: WorkerService) { }
+  constructor(private workerService: WorkerService,
+    private spinner: NgxSpinnerService,
+    ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
     this.items = [
       { label: 'Tất cả' },
       { label: 'Đang hoạt động' },

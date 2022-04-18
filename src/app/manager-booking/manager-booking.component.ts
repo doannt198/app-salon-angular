@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { BookingService } from 'src/services/booking.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 interface City {
   name: string
 }
@@ -14,8 +15,11 @@ export class ManagerBookingComponent implements OnInit {
   selectedCity2: City;
   items: SelectItem[];
   databooking: any = [];
+  spinnerType:string;
+  spinnerName:string;
   constructor(
-    private bookingService: BookingService
+    private bookingService: BookingService,
+    private spinner: NgxSpinnerService,
   ) {
     
     this.cities = [
@@ -25,9 +29,14 @@ export class ManagerBookingComponent implements OnInit {
       { name: 'Đã hủy' },
       { name: 'Hoàn thành' }
     ];
+ 
   }
   ngOnInit(): void {
-    this.getBookings();
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
+    this.getBookings(); 
   }
   getBookings() {
     this.bookingService.getBookings()

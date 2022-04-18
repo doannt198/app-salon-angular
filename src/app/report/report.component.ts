@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReportService } from 'src/services/report.service';
 import * as queryString from 'query-string';
 import * as moment from 'moment';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
     selector: 'app-report',
     templateUrl: './report.component.html',
@@ -17,9 +18,17 @@ export class ReportComponent implements OnInit {
         status: 'checkout'
     }
     datareport: any=[];
-    constructor(private ReportService: ReportService) { }
+    constructor(private ReportService: ReportService,
+    private spinner: NgxSpinnerService
+        ) { }
 
     ngOnInit(): void {
+        this.spinner.show();
+
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 1000);
         this.data = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [{

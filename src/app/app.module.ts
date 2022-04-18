@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -73,6 +73,7 @@ import { QuanLySalonThemThoComponent } from './worker-management/them-tho/quan-l
 import { EditorModule } from 'primeng/editor';
 import { QuanTriAppChiTietComponent } from './quan-tri-app/quan-tri-app-chi-tiet/quan-tri-app-chi-tiet.component';
 import { ThongTinPhienBanComponent } from './quan-tri-app/thong-tin-phien-ban/thong-tin-phien-ban.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -153,8 +154,10 @@ import { ThongTinPhienBanComponent } from './quan-tri-app/thong-tin-phien-ban/th
     TabViewModule,
     CommonModule,
     TreeModule,
-    EditorModule
+    EditorModule,
+    NgxSpinnerModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

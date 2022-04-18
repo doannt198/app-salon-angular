@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { lastIndexOf } from '../helpers/function';
-
+import { NgxSpinner, NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
   items: MenuItem[];
   menus: MenuItem[];
   selectedMenu: MenuItem;
-  constructor(private router: Router) { 
+  constructor(private router: Router,
+    private spinner: NgxSpinnerService) { 
     this.menus = [
       { label: 'Báo cáo', routerLink: '/report', visible: false },
       { label: 'Quản lý booking', routerLink: '/managerbooking', visible: false },
@@ -24,8 +25,6 @@ export class HeaderComponent implements OnInit {
       { label: 'Quản trị App', routerLink: '/quan-tri-app', visible: false },
       { label: 'Quản lý đánh giá', routerLink: '/quan-ly-danh-gia', visible: false },
       { label: 'Quản lý Forum', routerLink: '/quan-ly-forum', visible: false },
-
-
     ];
     this.selectedMenu = this.menus[0];
   }
@@ -34,6 +33,7 @@ export class HeaderComponent implements OnInit {
     this.initMenuTop();
   }
   initMenuTop() {
+    this.spinner.show();
     const index = this.menus.findIndex((_) => {
         return this.router.url.includes(_.routerLink)
       }
@@ -50,10 +50,15 @@ export class HeaderComponent implements OnInit {
         e.visible = false
       }
     })
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
   };
   selectMenu(menu: MenuItem) {
     this.selectedMenu = menu;
     this.router.navigateByUrl(menu.routerLink);
+
   }
   selectMoreMenu (menu: MenuItem) {
     const index = lastIndexOf(this.menus, 'visible', true);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { FeedbackService} from '../../services/feedback.service';
 import * as queryString from 'query-string';
+import { NgxSpinnerService } from 'ngx-spinner';
 interface City {
   name: string
 }
@@ -20,7 +21,9 @@ export class QuanLyDanhGiaComponent implements OnInit {
     PageSize: 5,
   };
   datafeedback: any = [];
-  constructor(private FeedbackServices: FeedbackService) {
+  constructor(private FeedbackServices: FeedbackService,
+    private spinner: NgxSpinnerService,
+    ) {
     this.items = [];
     for (let i = 0; i < 10000; i++) {
       this.items.push({ label: 'Item ' + i, value: 'Item ' + i });
@@ -35,6 +38,10 @@ export class QuanLyDanhGiaComponent implements OnInit {
     ];
   }
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
     this.getFeedback();
   }
   getFeedback(){

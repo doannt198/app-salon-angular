@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/services/customer.service';
 import {MenuItem} from 'primeng/api'
-import { Customer } from '../model/customer.model';
 import * as queryString from 'query-string';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 @Component({
   selector: 'app-customer-management',
   templateUrl: './customer-management.component.html',
@@ -19,9 +20,15 @@ export class CustomerManagementComponent implements OnInit {
     Search: '',
     isOnline: false
   };
-  constructor(private customer :CustomerService) { }
-
+  constructor(
+    private customer :CustomerService,
+    private spinner: NgxSpinnerService) { 
+    }
   ngOnInit(): void {
+    this.spinner.show();
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 1000);
     this.items = [
       {label: 'Tất cả'},
       {label: 'Online'},

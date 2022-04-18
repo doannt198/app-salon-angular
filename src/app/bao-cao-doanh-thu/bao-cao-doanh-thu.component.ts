@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import {MenuItem} from 'primeng/api'
-import { BaocaobookingService } from 'src/services/baocaobooking.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { BaocaodoanhthuService } from 'src/services/baocaodoanhthu.service';
 interface Status{
   name: string
@@ -22,9 +22,15 @@ export class BaoCaoDoanhThuComponent implements OnInit {
   items1: MenuItem[];
   activeItem: MenuItem;
   databooking:any= [];
-  constructor(private baocaodoanhthu:BaocaodoanhthuService) { }
+  constructor(private baocaodoanhthu:BaocaodoanhthuService,
+    private spinner: NgxSpinnerService
+    ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
     this.cities1 = [
       { name: 'Tuần này' },
       { name: 'Tháng này' },

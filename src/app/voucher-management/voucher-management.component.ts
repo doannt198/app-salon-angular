@@ -55,7 +55,7 @@ export class VoucherManagementComponent implements OnInit {
       }, 1000);
     }
     paginate(event: any): void {
-      this.query.PageIndex = event.first + 1;
+      this.query.PageIndex = event.page + 1;
       this.query.PageSize = event.rows;
       this.getVoucher();
     }

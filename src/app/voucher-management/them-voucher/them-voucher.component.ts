@@ -28,7 +28,7 @@ export class ThemVoucherComponent implements OnInit {
     Image: null,
     PercentRatio: '',
     BeginAt: null,
-    EndAt:  null,
+    EndAt: null,
     IsShowInSalon: false,
     IsShowInHome: true,
     VoucherServicesModel: []
@@ -37,7 +37,7 @@ export class ThemVoucherComponent implements OnInit {
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
     private voucherService: VoucherService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.items = [
@@ -47,20 +47,19 @@ export class ThemVoucherComponent implements OnInit {
     this.activeItem = this.items[0];
     this.primengConfig.ripple = true;
   }
-  onFileChanged(event:any){
+  onFileChanged(event: any) {
     this.file = event.target.files[0]
     const reader = new FileReader()
     reader.readAsDataURL(this.file)
-    reader.onload = (e:any) => {
+    reader.onload = (e: any) => {
       this.imageUrl = e.target.result
     }
   }
   onSubmit(f: any) {
-    var bodyFormData:any = new FormData()
-    if(this.file)
-    {
+    var bodyFormData: any = new FormData()
+    if (this.file) {
       bodyFormData.append('Image', this.file)
-    }else{
+    } else {
       bodyFormData.append('Image', null)
     }
     bodyFormData.append('Code', this.infovoucher.Code)
@@ -74,14 +73,12 @@ export class ThemVoucherComponent implements OnInit {
     bodyFormData.append('IsShowInSalon:', !this.infovoucher.IsShowInHome)
     bodyFormData.append('IsShowInHome:', this.infovoucher.IsShowInHome)
     bodyFormData.append('VoucherServicesModel', [])
-     this.voucherService.addVoucher(bodyFormData).subscribe(response => {
+    this.voucherService.addVoucher(bodyFormData).subscribe(response => {
       console.log(response)
-    }) 
-    this.messageService.add({severity:'success', summary:'Thông báo', detail:'Thêm Voucher thành công'});
+    })
+    this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Thêm Voucher thành công' });
   }
-
   handleChange(e: any) {
     this.index = e.index;
-
   }
 }

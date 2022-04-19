@@ -1,6 +1,6 @@
 import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
+import * as moment from 'moment';;
 import { MenuItem } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
@@ -47,21 +47,20 @@ export class ThemVoucherComponent implements OnInit {
     this.activeItem = this.items[0];
     this.primengConfig.ripple = true;
   }
-
-  onFileChanged(event: any) {
-    this.file = event.target.files[0];
+  onFileChanged(event:any){
+    this.file = event.target.files[0]
     const reader = new FileReader()
     reader.readAsDataURL(this.file)
-    reader.onload = (e: any) => {
-      this.imageUrl = e.target.result;
+    reader.onload = (e:any) => {
+      this.imageUrl = e.target.result
     }
   }
-
   onSubmit(f: any) {
-    var bodyFormData: any = new FormData()
-    if (this.file) {
-      bodyFormData.append('Image', this.file);
-    } else {
+    var bodyFormData:any = new FormData()
+    if(this.file)
+    {
+      bodyFormData.append('Image', this.file)
+    }else{
       bodyFormData.append('Image', null)
     }
     bodyFormData.append('Code', this.infovoucher.Code)
@@ -69,15 +68,16 @@ export class ThemVoucherComponent implements OnInit {
     bodyFormData.append('Content', this.infovoucher.Content)
     bodyFormData.append('SalonId', this.infovoucher.SalonId)
     bodyFormData.append('PercentRatio', this.infovoucher.PercentRatio)
-    bodyFormData.append('BeginAt', moment(this.infovoucher.BeginAt).format('YYYY-MM-DD HH:mm:SS'))
-    bodyFormData.append('EndAt', moment(this.infovoucher.EndAt).format('YYYY-MM-DD HH:mm:SS'))
-    bodyFormData.append('IsShowInSalon', !this.infovoucher.IsShowInHome)
-    bodyFormData.append('IsShowInHome', this.infovoucher.IsShowInHome)
+    bodyFormData.append('BeginAt', moment(this.infovoucher.BeginAt).format('YYYY/MM/DD HH:mm:SS'))
+    bodyFormData.append('EndAt', moment(this.infovoucher.EndAt).format('YYYY/MM/DD HH:mm:SS'))
+    bodyFormData.append('EndAt', moment(this.infovoucher.EndAt).format('YYYY/MM/DD HH:mm:SS'))
+    bodyFormData.append('IsShowInSalon:', !this.infovoucher.IsShowInHome)
+    bodyFormData.append('IsShowInHome:', this.infovoucher.IsShowInHome)
     bodyFormData.append('VoucherServicesModel', [])
-    console.log(bodyFormData)
      this.voucherService.addVoucher(bodyFormData).subscribe(response => {
       console.log(response)
     }) 
+    this.messageService.add({severity:'success', summary:'Thông báo', detail:'Thêm Voucher thành công'});
   }
 
   handleChange(e: any) {

@@ -21,4 +21,7 @@ export class VoucherService {
   addVoucher(newVoucher: any): Observable<any> {
     return this.httpClient.post<any>('http://103.81.87.134:5002/api/Voucher/addVoucher', newVoucher)
   }
+  deleteVoucher(id:any):Observable<any>{
+    return this.httpClient.put<any>(`http://103.81.87.134:5002/api/Voucher/actionVoucher?actionVoucher=Delete&Id=${id}`,{})
+  }
 }

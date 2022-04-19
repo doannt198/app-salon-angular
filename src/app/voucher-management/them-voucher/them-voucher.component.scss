@@ -75,3 +75,9 @@ textarea{
     content: "*";
     color: red;
 }
+::ng-deep{
+    .p-dropdown{
+        width: 100%;
+        margin-top: 20px;
+    }
+}

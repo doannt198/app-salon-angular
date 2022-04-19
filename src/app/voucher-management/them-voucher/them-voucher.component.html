@@ -42,7 +42,7 @@
                     </div>
                     <div class="info-input">
                         <input type="text" pInputText name="Name" [(ngModel)]="infovoucher.Name" #Name="ngModel"
-                            required [ngClass]="{ 'is-invalid': f.submitted && Name.invalid }">
+                            required [ngClass]="{ 'is-invalid': f.submitted && Name.invalid }" >
                     </div>
                     <div *ngIf="f.submitted && Name.invalid">
                         <div *ngIf="Name.errors?.['required']">
@@ -55,13 +55,7 @@
                         Salon
                     </div>
                     <div class="info-input">
-                        <input type="text" pInputText name="SalonId" [(ngModel)]="infovoucher.SalonId"
-                            #SalonId="ngModel" required [ngClass]="{ 'is-invalid': f.submitted && SalonId.invalid }">
-                    </div>
-                    <div *ngIf="f.submitted && SalonId.invalid">
-                        <div *ngIf="SalonId.errors?.['required']">
-                            <small>Trường này không được để trống</small>
-                        </div>
+                         <p-dropdown [options]="datasalon" name="infovoucher.SalonId" placeholder="Chọn Salon" optionLabel="name"  optionValue="id" [(ngModel)]="infovoucher.SalonId" #SalonId="ngModel"></p-dropdown>
                     </div>
                 </div>
                 <div class="info-item">
@@ -69,7 +63,7 @@
                         Nội dung
                     </div>
                     <div class="info-input">
-                        <textarea pInputTextarea name="ContentContent" [(ngModel)]="infovoucher.noidung"
+                        <textarea pInputTextarea name="Content" [(ngModel)]="infovoucher.Content"
                             #Content="ngModel"></textarea>
                     </div>
                 </div>

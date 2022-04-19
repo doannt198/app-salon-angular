@@ -16,7 +16,7 @@
                     Tên salon
                     </div>
                     <div class="input-text">
-                        <p-dropdown [options]="cities"  optionLabel="name" [(ngModel)]="infobooking.tensalon" [editable]="true" name="tensalon"
+                        <p-dropdown [options]="cities"  optionLabel="name" [editable]="true" name="tensalon"
                         [(ngModel)]="infobooking.tensalon" #tensalon="ngModel" [required]="true"
                         [ngClass]="{ 'is-invalid': f.submitted && tensalon.invalid }"></p-dropdown>
                     </div>

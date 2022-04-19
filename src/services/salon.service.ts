@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SalonService {
-
+  
   constructor(
     private httpClient:HttpClient
   ) { }

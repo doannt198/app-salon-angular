@@ -74,7 +74,7 @@ import { EditorModule } from 'primeng/editor';
 import { QuanTriAppChiTietComponent } from './quan-tri-app/quan-tri-app-chi-tiet/quan-tri-app-chi-tiet.component';
 import { ThongTinPhienBanComponent } from './quan-tri-app/thong-tin-phien-ban/thong-tin-phien-ban.component';
 import { NgxSpinnerModule } from "ngx-spinner";
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -156,6 +156,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     TreeModule,
     EditorModule,
     NgxSpinnerModule,
+    ConfirmDialogModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

@@ -5,7 +5,8 @@ import { MenuItem } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { VoucherService } from 'src/services/voucher.service';
-
+import { SalonService } from 'src/services/salon.service';
+import * as queryString from 'query-string';
 @Component({
   selector: 'app-them-voucher',
   templateUrl: './them-voucher.component.html',
@@ -19,12 +20,13 @@ export class ThemVoucherComponent implements OnInit {
   activeItem: MenuItem;
   voucher: any = [];
   index = 0;
+  datasalon:any = [];
   infovoucher: any = {
     Id: '',
     Code: '',
     Name: '',
     Content: '',
-    SalonId: 0,
+    SalonId: '',
     Image: null,
     PercentRatio: '',
     BeginAt: null,
@@ -33,13 +35,20 @@ export class ThemVoucherComponent implements OnInit {
     IsShowInHome: true,
     VoucherServicesModel: []
   };
+  query:any = {
+    PageIndex: 1,
+    PageSize: 10,
+    Search: ''
+  };
   constructor(
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
-    private voucherService: VoucherService
+    private voucherService: VoucherService,
+    private salonservice :SalonService
   ) { }
 
   ngOnInit(): void {
+    this.getSalon();
     this.items = [
       { label: 'Thông tin', routerLink: '/them-voucher' },
       { label: 'Gán dữ liệu', routerLink: '/gan-du-lieu-voucher' },
@@ -80,5 +89,14 @@ export class ThemVoucherComponent implements OnInit {
   }
   handleChange(e: any) {
     this.index = e.index;
+    console.log(this.index);
+  }
+  getSalon() {
+    const params = queryString.stringify(this.query);
+    this.salonservice.getSalon(params)
+      .subscribe(response => {
+        this.datasalon = response.data;
+        console.log(this.datasalon)
+      })
   }
 }

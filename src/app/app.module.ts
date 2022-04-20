@@ -75,6 +75,7 @@ import { QuanTriAppChiTietComponent } from './quan-tri-app/quan-tri-app-chi-tiet
 import { ThongTinPhienBanComponent } from './quan-tri-app/thong-tin-phien-ban/thong-tin-phien-ban.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ChiTietThongBaoComponent } from './notification-management/chi-tiet-thong-bao/chi-tiet-thong-bao.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -127,6 +128,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     QuanLySalonThemThoComponent,
     QuanTriAppChiTietComponent,
     ThongTinPhienBanComponent,
+    ChiTietThongBaoComponent,
   ],
   imports: [
     BrowserModule,

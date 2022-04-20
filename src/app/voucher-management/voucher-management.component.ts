@@ -5,7 +5,6 @@ import * as queryString from 'query-string';
 import * as moment from 'moment';
 import { NgxSpinnerService } from "ngx-spinner";
 import { MessageService } from 'primeng/api';
-import { PrimeNGConfig } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
 @Component({
   selector: 'app-voucher-management',

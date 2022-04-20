@@ -3,7 +3,6 @@ import { CustomerService } from 'src/services/customer.service';
 import {MenuItem} from 'primeng/api'
 import * as queryString from 'query-string';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { finalize } from 'rxjs';
 @Component({
   selector: 'app-customer-management',
   templateUrl: './customer-management.component.html',
@@ -13,12 +12,13 @@ export class CustomerManagementComponent implements OnInit {
   items: MenuItem[];
   activeItem: MenuItem;
   datakhachhang:any=[];
+  datatotalRecord:any;
   totalRecord = 0;
   query: any = {
     PageIndex: 1,
     PageSize: 20,
     Search: '',
-    isOnline: false
+    isOnline:''
   };
   constructor(
     private customer :CustomerService,

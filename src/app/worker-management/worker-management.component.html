@@ -110,15 +110,15 @@
                                 </td>
                             </tr>
                         </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="8">No customers found.</td>
-                            </tr>
-                        </ng-template>
                     </p-table>
                 </div>
             </div>
-            <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
+            <div class="piginator flex justify-content-between">
+                <div class="piginator-tong">
+                    Tổng số: <b>{{totalRecord}}</b> bản ghi
+                </div>
+                <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
+            </div>
         </div>
     </div>
 </div>

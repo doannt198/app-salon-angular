@@ -17,5 +17,5 @@ export class QuanTriAppComponent implements OnInit {
       this.spinner.hide();
     }, 1000);
   }
-
+  
 }

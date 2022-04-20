@@ -54,4 +54,9 @@ export class NotificationManagementComponent implements OnInit {
       }
     })
   }
+  paginate(event: any): void {
+    this.query.PageIndex = event.page + 1
+    this.query.PageSize = event.rows;
+    this.getNotification();
+  }
 }

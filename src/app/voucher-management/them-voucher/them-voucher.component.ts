@@ -78,7 +78,6 @@ export class ThemVoucherComponent implements OnInit {
     bodyFormData.append('PercentRatio', this.infovoucher.PercentRatio)
     bodyFormData.append('BeginAt', moment(this.infovoucher.BeginAt).format('YYYY/MM/DD HH:mm:SS'))
     bodyFormData.append('EndAt', moment(this.infovoucher.EndAt).format('YYYY/MM/DD HH:mm:SS'))
-    bodyFormData.append('EndAt', moment(this.infovoucher.EndAt).format('YYYY/MM/DD HH:mm:SS'))
     bodyFormData.append('IsShowInSalon:', !this.infovoucher.IsShowInHome)
     bodyFormData.append('IsShowInHome:', this.infovoucher.IsShowInHome)
     bodyFormData.append('VoucherServicesModel', [])
@@ -89,14 +88,12 @@ export class ThemVoucherComponent implements OnInit {
   }
   handleChange(e: any) {
     this.index = e.index;
-    console.log(this.index);
   }
   getSalon() {
     const params = queryString.stringify(this.query);
     this.salonservice.getSalon(params)
       .subscribe(response => {
         this.datasalon = response.data;
-        console.log(this.datasalon)
       })
   }
 }

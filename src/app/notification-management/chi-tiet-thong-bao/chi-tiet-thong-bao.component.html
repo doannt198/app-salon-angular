@@ -1,0 +1,85 @@
+<!-- Tiêu đề
+<div class="tieu-de">{{detailNoti?.title}}</div>
+Mô tả
+<div class="mo-ta">
+    {{detailNoti?.description}}
+</div>
+thời gian áp dụng
+<div class="thoi-gian-ap-dung">
+    {{detailNoti?.createdAt}}
+</div>
+Đối tượng
+<div class="doi-tuong">
+    {{detailNoti?.type}}
+</div>
+Phạm vi gửi
+<div class="pham-vi-gui">  Khách hàng</div>
+Người gửi
+<div class="nguoi-gui"> {{detailNoti?.timeApply}}</div>
+Nội dung thông báo
+<div class="noi-dung-thong-bao">
+    {{detailNoti?.content}}
+</div>
+<div class="list" *ngFor="let item of detailuser">
+    <div class="list-item">{{item?.fullName}}</div>
+</div> -->
+<div class="deltai">
+    <div class="deltai-header ">
+        <div class="deltai-left flex justify-content-between">
+            <div class="option-left">
+                <a routerLink="/notificationmanagement"><i class="pi pi-chevron-left"></i>Chi tiết thông báo</a>
+            </div>
+            <div class="option-right">
+                <a routerLink="/notificationmanagement"><i class="pi pi-times"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="notification-detail">
+        <div class="notification-info-wrapper">
+            <div class="notification-info-container">
+                <div class="info-common">
+                    <div class="title-line"><span>Chọn đối tượng</span></div>
+                    <div class="info-common--content">
+                        <div class="form-data">
+                            <div class="label">Tiêu đề:</div>
+                            <div class="value">{{detailNoti?.title}}</div>
+                        </div>
+                        <div class="form-data">
+                            <div class="label">Mô tả</div>
+                            <div class="value"> {{detailNoti?.description}}</div>
+                        </div>
+                        <div class="form-data">
+                            <div class="label">Thời gian áp dụng: </div>
+                            <div class="value"> {{detailNoti?.createdAt}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-customer">
+                    <div class="title-line"><span>Chọn đối tượng</span></div>
+                    <div class="info-common--content">
+                        <div class="form-data">
+                            <div class="lable">Đối tượng</div> 
+                            <div class="value">{{detailNoti?.type}}</div> 
+                        </div>
+                        <div class="form-data">
+                            <div class="lable">Phạm vi gửi:</div> 
+                            <div class="value">Khách hàng</div> 
+                        </div>
+                        <div class="form-data">
+                            <div class="lable">Người gửi</div> 
+                            <div class="value">🥲🥲🥲🥲,Hotsuma@gmail.com,JLA@gmail.com</div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="info-content">
+                    <div class="title-line">Nội dung thông báo</div>
+                    <div class="info-content--view">{{detailNoti?.content}} </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notification-actions">
+        <div class="button-default">Sửa</div>
+        <div class="button-primary" routerLink="/notificationmanagement"> Thoát</div>
+    </div>
+</div>

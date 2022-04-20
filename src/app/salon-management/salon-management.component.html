@@ -80,12 +80,12 @@
                                 <th>Đánh giá trung bình</th>
                                 <th>Chức năng</th>
                             </tr>
-                            
+
                         </ng-template>
                         <ng-template pTemplate="body" let-datasalon>
                             <tr>
                                 <td>
-                                   <p-tableCheckbox [value]="datasalon"></p-tableCheckbox>
+                                    <p-tableCheckbox [value]="datasalon"></p-tableCheckbox>
                                 </td>
                                 <td>
                                     {{datasalon?.id}}
@@ -99,26 +99,27 @@
                                 <td>
                                     {{datasalon?.email}}
                                 </td>
-                                <td >
+                                <td>
                                     {{datasalon?.address}}
                                 </td>
-                                <td [style.color]="datasalon?.isActive?'green':'red'">
+                                <td [style.color]="datasalon?.isActive?'green':'red'" style="font-weight: bold;">
                                     {{datasalon?.isActive?'Đang hoạt động':'Dừng hoạt động'}}
                                 </td>
-                                <td >
+                                <td>
                                     <p-rating [(ngModel)]="datasalon.rate" [cancel]="false"></p-rating>
                                 </td>
-                                <td >
-                                    <button pButton type="button" label="Chi tiết" routerLink="/salon-detail/{{datasalon?.id}}"></button>
+                                <td>
+                                    <button pButton type="button" label="Chi tiết"
+                                    routerLink="/salon-detail/{{datasalon?.id}}"></button>
                                 </td>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="8">No customers found.</td>
                             </tr>
                         </ng-template>
                     </p-table>
+                </div>
+            </div>
+            <div class="piginator flex justify-content-between">
+                <div class="piginator-tong">
+                    Tổng số: <b>{{totalRecord}}</b> bản ghi
                 </div>
                 <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord"
                     [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>

@@ -18,7 +18,7 @@ export class SalonManagementComponent implements OnInit {
     PageIndex: 1,
     PageSize: 10,
     Search: '',
-    isActive: false
+    isActive: ''
   };
   constructor(private salonservice: SalonService,
     private spinner: NgxSpinnerService,
@@ -48,7 +48,7 @@ export class SalonManagementComponent implements OnInit {
       })
   }
   paginate(event: any): void {
-    this.query.PageIndex = event.first + 1;
+    this.query.PageIndex = event.page + 1;
     this.query.PageSize = event.rows;
     this.getSalon();
   }

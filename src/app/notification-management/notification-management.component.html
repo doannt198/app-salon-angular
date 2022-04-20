@@ -1,4 +1,3 @@
-
 <div class="booking-manager">
     <div class="grid">
         <div class="col-6">
@@ -8,13 +7,14 @@
                 </div>
                 <div class="add-booking">
                     <div class="left-button">
-                        <button pButton type="button" label="Thêm thông báo" icon="pi pi-plus" routerLink="/them-thong-bao" class="btn-addbooking"></button>
+                        <button pButton type="button" label="Thêm thông báo" icon="pi pi-plus"
+                            routerLink="/them-thong-bao" class="btn-addbooking"></button>
                     </div>
                     <div class="left-title">
                         <p>Trạng thái:</p>
                     </div>
                     <div class="left-dropdown">
-                        <p-dropdown [options]="cities"  [(ngModel)]="query.type"  optionLabel="name" optionValue="value">
+                        <p-dropdown [options]="cities" [(ngModel)]="query.type" optionLabel="name" optionValue="value">
                         </p-dropdown>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                             <div class="search">
                                 <span class="p-input-icon-right">
                                     <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search"  >
+                                    <input type="text" pInputText placeholder="Search">
                                 </span>
                             </div>
                         </div>
@@ -40,7 +40,8 @@
                                 <div class="col-12">
                                     <div class="restoredata">
                                         <p-button icon="pi pi-sync" iconPos="left"></p-button>
-                                        <button pButton type="button" label="Lấy giá trị" (click)="getNotification()" ></button>
+                                        <button pButton type="button" label="Lấy giá trị"
+                                            (click)="getNotification()"></button>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +72,7 @@
                                 <th></th>
                                 <th> Tiêu đề thông báo</th>
                                 <th>Mô tả thông báo </th>
-                                <th>Thời gian tạo  </th>
+                                <th>Thời gian tạo </th>
                                 <th>Đối tượng </th>
                                 <th>Trạng thái</th>
                                 <th>Chức năng</th>
@@ -89,7 +90,7 @@
                                     {{datathongbao?.content}}
                                 </td>
                                 <td>
-                                    {{datathongbao?.createdAt}}
+                                    {{datathongbao?.createdAt | date: 'dd/MM/yyyy' }}
                                 </td>
                                 <td>
                                     {{datathongbao?.type}}
@@ -98,17 +99,17 @@
                                     {{datathongbao?.isActive? 'Chưa xóa':'Đã xóa'}}
                                 </td>
                                 <td>
-                                    <button pButton type="button" label="Chi tiết" ></button>
+                                    <button pButton type="button" label="Chi tiết" routerLink="/notificationmanagement/chi-tiet-thong-bao/{{datathongbao?.id}}"></button>
                                 </td>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="8">No customers found.</td>
                             </tr>
                         </ng-template>
                     </p-table>
                 </div>
+            </div>
+            <div class="paginator flex justify-content-between">
+                <div class="paginator-name">Tổng số <b>{{totalRecord}}</b> bản ghi</div>
+                <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord"
+                    [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
             </div>
         </div>
     </div>

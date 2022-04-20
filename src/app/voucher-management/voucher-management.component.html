@@ -120,13 +120,13 @@
                                     {{datavoucher?.content}}
                                 </td>
                                 <td>
-                                    {{datavoucher?.beginAt}}
+                                    {{datavoucher?.beginAt | date: 'dd/MM/yyyy'}}
                                 </td>
                                 <td>
-                                    {{datavoucher?.endAt}}
+                                    {{datavoucher?.endAt | date: 'dd/MM/yyyy'}}
                                 </td>
                                 <td [style.color]="datavoucher.isActive? 'green':'red'">
-                                    {{datavoucher.isActive?'Online':'Offline'}}
+                                    {{datavoucher.isActive?'Đang hoạt động':'Dừng hoạt động'}}
                                 </td>
                                 <td>
                                     <button pButton type="button" label="Chi tiết"
@@ -139,9 +139,12 @@
                     </p-table>
                 </div>
             </div>
+            <div class="paginator flex justify-content-between">
+                <div class="paginator-name">Tổng số <b>{{totalRecord}}</b> bản ghi</div>
+            </div>
             <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord"
                 [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
-        </div>
+            </div>
     </div>
 </div>
 <p-confirmDialog icon="pi pi-exclamation-triangle"></p-confirmDialog>

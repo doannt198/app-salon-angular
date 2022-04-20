@@ -114,7 +114,10 @@
                     </p-table>
                 </div>
             </div>
-            <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
+            <div class="paginator flex justify-content-between">
+                <div class="paginator-name">Tổng số: <b>{{totalRecord}}</b> bản ghi</div>
+                <p-paginator [rows]="query.PageSize" (onPageChange)="paginate($event)" [totalRecords]="totalRecord" [rowsPerPageOptions]="[1, 5, 10,20,30]"></p-paginator>
+            </div>
         </div>
     </div>
 </div>

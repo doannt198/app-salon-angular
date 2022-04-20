@@ -10,9 +10,10 @@ const httpOptions = {
 export class NotificationService {
 
   constructor(private httpClient:HttpClient) { }
-
   getNotification(queryString:string):Observable<any> {
-    return this.httpClient.get<any>(`http://103.81.87.134:5002/api/report/getNotiall?${queryString}`).pipe(
-      )
+    return this.httpClient.get<any>(`http://103.81.87.134:5002/api/report/getNotiall?${queryString}`)
+  }
+  getDetailNotification(id:number):Observable<any>{
+    return this.httpClient.get<any>(`http://103.81.87.134:5002/api/report/getNotibyId?Id=${id}`)
   }
 }

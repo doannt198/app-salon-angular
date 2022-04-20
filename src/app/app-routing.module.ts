@@ -40,6 +40,7 @@ import { QuanTriAppComponent } from './quan-tri-app/quan-tri-app.component';
 import { QuanLyDanhGiaComponent } from './quan-ly-danh-gia/quan-ly-danh-gia.component';
 import { QuanLyForumComponent } from './quan-ly-forum/quan-ly-forum.component';
 import { QuanTriAppChiTietComponent } from './quan-tri-app/quan-tri-app-chi-tiet/quan-tri-app-chi-tiet.component';
+import { ChiTietThongBaoComponent } from './notification-management/chi-tiet-thong-bao/chi-tiet-thong-bao.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/report', pathMatch: 'full' },
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'managementcustomer', component: CustomerManagementComponent },
   { path: 'managementworker', component: WorkerManagementComponent },
   { path: 'notificationmanagement', component: NotificationManagementComponent },
+  { path: 'notificationmanagement/chi-tiet-thong-bao/:id', component: ChiTietThongBaoComponent },
   { path: 'managementvoucher', component: VoucherManagementComponent },
   { path: 'managementsalon', component: SalonManagementComponent },
   { path: 'linhvuc-dichvu', component: LinhVucDichVuComponent },
@@ -81,7 +83,7 @@ const routes: Routes = [
   { path: 'quan-tri-app', component: QuanTriAppComponent },
   { path: 'quan-ly-danh-gia', component: QuanLyDanhGiaComponent },
   { path: 'quan-ly-forum', component: QuanLyForumComponent },
-  { path: 'quan-tri-app-chi-tiet', component: QuanTriAppChiTietComponent },
+  { path: 'quan-tri-app-chi-tiet/:type', component: QuanTriAppChiTietComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({

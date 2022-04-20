@@ -28,25 +28,25 @@
                     <div class="info-common">
                         <div class="form-data">
                             <div class="label">Tên công ty:</div>
-                            <div class="value">Công ty Cooftechh</div>
+                            <div class="value">{{detail?.nameCompany}}</div>
                         </div>
                         <div class="form-data">
                             <div class="label">Địa chỉ:</div>
-                            <div class="value">Cầu giấy</div>
+                            <div class="value">{{detail?.address}}</div>
                         </div>
                         <div class="form-data">
                             <div class="label">Email:</div>
-                            <div class="value">Cooftech@gmail.com</div>
+                            <div class="value">{{detail?.email}}</div>
                         </div>
                         <div class="form-data">
                             <div class="label">Số điện thoại:</div>
-                            <div class="value">0971452786</div>
+                            <div class="value">{{detail?.mobile}}</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="info-image">
-                        <img src="../../../assets/img/hinh-dai-dien.png" alt="">
+                    <div class="info-image" style="width:210px; height: 200px; border: 1px dashed gray;">
+                        <img [src]="'http://103.81.87.134:5002/'+detail?.imageUrl" alt="img" style="width:200px; height: 200px;">
                     </div>
                 </div>
             </div>

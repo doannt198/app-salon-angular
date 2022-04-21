@@ -20,9 +20,13 @@ export class ChiTietThongBaoComponent implements OnInit {
     this.id = this.router.snapshot.params.id;
     this.getDetail(this.id);
   }
-  getDetail(id:number):void{
-    this.notiService.getDetailNotification(id).subscribe(response=>
-     this.detailNoti=response.data
+  getDetail(id:number){
+    this.notiService.getDetailNotification(id).subscribe(res=>
+    {
+      this.detailNoti=res.data
+      this.detailuser=this.detailNoti.users.map((t:any)=>t.fullName)
+    }
     )
+    
   }
 }

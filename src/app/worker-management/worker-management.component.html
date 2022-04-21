@@ -100,7 +100,7 @@
                                     {{dataworker?.address}}
                                 </td>
                                 <td [style.color]="dataworker?.isActive?'green':'red'">
-                                    {{dataworker?.isActive?'Online':'Offline'}}
+                                    {{dataworker?.isActive?'Đang hoạt động':'Dừng hoạt động'}}
                                 </td>
                                 <td >
                                     <p-rating [(ngModel)]="dataworker.rate" [cancel]="false"></p-rating>

@@ -12,68 +12,41 @@ export class ReportComponent implements OnInit {
 
     data: any;
     chartOptions: any;
+    datachars:any
     query = {
-        from: '2021-11-01',
-        to: '2022-02-01',
+        from: '2022-04-01',
+        to: '2022-04-30',
         status: 'checkout'
     }
     datareport: any=[];
+    datareport1:any=[];
     constructor(private ReportService: ReportService,
     private spinner: NgxSpinnerService
         ) { }
 
     ngOnInit(): void {
         this.spinner.show();
-
         setTimeout(() => {
-          /** spinner ends after 5 seconds */
           this.spinner.hide();
         }, 1000);
         this.data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels: ['1', '3', '5', '7', '9', '11', '13', '15', '17', '19', '21', '23', '25','27','29'],
             datasets: [{
                 type: 'line',
-                label: 'Đơn hàng ',
+                label: 'Số đơn  ',
                 borderColor: '#42A5F5',
                 borderWidth: 2,
                 fill: false,
-                data: [
-                    50,
-                    25,
-                    12,
-                    48,
-                    56,
-                    76,
-                    42
-                ]
-            }, {
-                type: 'bar',
-                label: 'Khách hàng ',
-                backgroundColor: '#66BB6A',
-                data: [
-                    21,
-                    84,
-                    24,
-                    75,
-                    37,
-                    65,
-                    34
-                ],
-                borderColor: 'white',
-                borderWidth: 2
+                data:this.datachars?.countBooking
             }, {
                 type: 'bar',
                 label: 'Doanh thu',
-                backgroundColor: '#FFA726',
-                data: [
-                    41,
-                    52,
-                    24,
-                    74,
-                    23,
-                    21,
-                    32
-                ]
+                backgroundColor: '#66BB6A',
+                data: 
+                  this.datachars?.turnover
+                ,
+                borderColor: 'white',
+                borderWidth: 2
             }]
         };
         this.chartOptions = {
@@ -109,6 +82,9 @@ export class ReportComponent implements OnInit {
         const params = queryString.stringify(this.query);
         this.ReportService.getReport(params).subscribe(response => {
           this.datareport = response.data;
+          this.datachars=this.datareport.charts;
+        this.datareport1=this.datareport.charts.map((t:any )=>t.day)
+        console.log(this.datachars)
         })
       }
 }

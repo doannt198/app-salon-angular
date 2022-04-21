@@ -36,7 +36,7 @@
                         <p>Trạng thái:</p>
                     </div>
                     <div class="left-dropdown">
-                        <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name" [showClear]="true"  >
+                        <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name" [showClear]="true" (onChange)="handleChange($event)" >
                         </p-dropdown>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table [value]="datalinhvuc">
+                    <p-table [value]="datalinhvucFilter">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th>STT</th>
@@ -93,25 +93,20 @@
                                 <th>Trạng thái</th>
                             </tr> 
                         </ng-template>
-                        <ng-template pTemplate="body" let-datalinhvuc>
+                        <ng-template pTemplate="body" let-datalinhvucFilter>
                             <tr>
                                 <td>
-                                    {{datalinhvuc?.id}}
+                                    {{datalinhvucFilter?.id}}
                                 </td>
                                 <td>
-                                    {{datalinhvuc?.code}}
+                                    {{datalinhvucFilter?.code}}
                                 </td>
                                 <td>
-                                    {{datalinhvuc?.name}} 
+                                    {{datalinhvucFilter?.name}} 
                                 </td>
-                                <td [style.color]="datalinhvuc?.isActive? 'green':'red'">
-                                    {{datalinhvuc?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
+                                <td [style.color]="datalinhvucFilter?.isActive? 'green':'red'">
+                                    {{datalinhvucFilter?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
                                 </td>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="8">No customers found.</td>
                             </tr>
                         </ng-template>
                     </p-table>

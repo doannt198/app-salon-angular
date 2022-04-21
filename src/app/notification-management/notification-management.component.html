@@ -69,7 +69,7 @@
                     <p-table [value]="datathongbao">
                         <ng-template pTemplate="header">
                             <tr>
-                                <th></th>
+                                <th> <p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
                                 <th> Tiêu đề thông báo</th>
                                 <th>Mô tả thông báo </th>
                                 <th>Thời gian tạo </th>
@@ -81,7 +81,7 @@
                         <ng-template pTemplate="body" let-datathongbao>
                             <tr>
                                 <td>
-                                    <p-tableCheckbox [value]="datathongbao"></p-tableCheckbox>
+                                    <p-tableCheckbox [value]="datathongbao" tabindex="1"></p-tableCheckbox>
                                 </td>
                                 <td>
                                     {{datathongbao?.title}}

@@ -58,7 +58,7 @@
             <div class="booking-sort">
                 <div class="grid">
                     <div class="col-6">
-                        Đã chọn (0,0) | Xuất Excel
+                        Đã chọn  | Xuất Excel
                     </div>
                     <div class="col-6 ">
                         <div class="sort-columnd">
@@ -70,10 +70,10 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table [value]="datafeedback">
+                    <p-table [value]="datafeedback" [scrollable]="true" scrollHeight="600px" >
                         <ng-template pTemplate="header">
                             <tr>
-                                <th></th>
+                                <th><p-tableHeaderCheckbox ></p-tableHeaderCheckbox></th>
                                 <th> Mã booking</th>
                                 <th>Tên Salon </th>
                                 <th>Tên thợ </th>
@@ -83,7 +83,7 @@
                                 <th>Chức năng</th>
                             </tr>
                         </ng-template>
-                        <ng-template pTemplate="body" let-datafeedback>
+                        <ng-template pTemplate="body" let-datafeedback  >
                             <tr>
                                 <td>
                                     <p-tableCheckbox [value]="datafeedback"></p-tableCheckbox>

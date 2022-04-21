@@ -23,7 +23,7 @@
                 <div class="statistical">
                     <div class="statistical-top">
                         <div class="statistical-top-name"> Thống kê</div>
-                        <div class="statistical-top-month"> Tháng 8</div>
+                        <div class="statistical-top-month">Tháng {{datareport1 | date: 'MM'}}</div>
                     </div>
                     <div class="statistical-bottom" >
                         <div class="statistical-item" >
@@ -31,7 +31,7 @@
                                 <img src="../../assets/img/gio_hang.png" alt="">
                             </div>
                             <div class="statistical-item-right">
-                                <div class="statistical-item-name">{{datareport.countBooking}}</div>
+                                <div class="statistical-item-name" style="font-size: 20px; font-weight: 700;">{{datareport.countBooking}}</div>
                              <div class="statistical-item-description">Đơn hàng </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                 <img src="../../assets/img/user.png" alt="">
                             </div>
                             <div class="statistical-item-right">
-                                <div class="statistical-item-name">{{datareport.customer}}</div>
+                                <div class="statistical-item-name" style="font-size: 20px; font-weight: 700;">{{datareport.customer}}</div>
                              <div class="statistical-item-description">Khách hàng  </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                 <img src="../../assets/img/gio_hang.png" alt="">
                             </div>
                             <div class="statistical-item-right">
-                                <div class="statistical-item-name">{{datareport.turnover}}</div>
+                                <div class="statistical-item-name" style="font-size: 20px; font-weight: 700;">{{datareport.turnover | currency:"VND"}}</div>
                              <div class="statistical-item-description">Doanh thu </div>
                             </div>
                         </div>

@@ -16,6 +16,7 @@ export class QuanLyDanhGiaComponent implements OnInit {
   selectedCity2: City;
   items: SelectItem[];
   totalRecord = 0;
+  index =0;
   query: any = {
     PageIndex: 1,
     PageSize: 5,

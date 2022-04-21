@@ -65,10 +65,10 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table [value]="datakhachhang">
+                    <p-table [value]="datakhachhang" [scrollable]="true" scrollHeight="600px">
                         <ng-template pTemplate="header">
                             <tr>
-                                <th></th>
+                                <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
                                 <th> Mã Khách hàng</th>
                                 <th>Tên khách hàng </th>
                                 <th>Số điện thoại </th>
@@ -100,7 +100,7 @@
                                     {{datakhachhang?.address}}
                                 </td>
                                 <td [style.color]="datakhachhang?.isOnline?'green':'red'">
-                                    {{datakhachhang?.isOnline?'Online':'Offine'}}
+                                    {{datakhachhang?.isOnline?'Đang hoạt động':'Dừng hpạt động'}}
                                 </td>
                                 <td >
                                     <button pButton type="button" label="Chi tiết" routerLink="/customer-detail/{{datakhachhang?.id}}"></button>

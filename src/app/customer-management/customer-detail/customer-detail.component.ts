@@ -33,19 +33,12 @@ export class CustomerDetailComponent implements OnInit {
     this.CustomerService.getCustomerdetail(this.id).subscribe((response: any) => {
       this.detail = response.data;
     })
-    this.getBookingByCustomer();
-  }
-  getBookingByCustomer() {
-    const params = queryString.stringify(this.query);
-    console.log(params)
-    this.BookingService.getListBookingbyCustomer(params).subscribe((response: any) => {
+    this.BookingService.getListBookingbyCustomer(this.id, 1, 10).subscribe((response: any) => {
 
-      this.data = response.data.map((t: any) => {
-        return {
-          ...t, service: t.bookingDetals.map((a: any) => a.service.name).toString()
-        }
-      });
-      console.log(this.data)
+      this.data = response.data
+       
+      console.log("data",this.data)
     })
   }
+ 
 } 

@@ -27,7 +27,8 @@ export class BookingService {
         { id: 'JGD345VE', name: 'Nguyễn Hoàng Yến', phone: '034 034 3947', hairdresser: 'Đặng Kim Thanh', salon: 'Nails Room Mit’s House ', service: 'Nối mi. cắt móng, cắt tóc ', field: 'NAILS,HAIR' }
       )
   }
-  getListBookingbyCustomer(queryString:any):Observable<any>{
-      return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Booking/getListBookingByIdCustomer?${queryString}`)
+  
+  getListBookingbyCustomer(id:any, PageIndex:any,  PageSize:any):Observable<any>{
+      return this.httpClient.get<any>(`http://103.81.87.134:5002/api/Booking/getListBookingByIdCustomer?CustomerId=${id}&PageIndex=${PageIndex}&PageSize=${PageSize}`)
   }
 }

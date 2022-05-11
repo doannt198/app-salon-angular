@@ -14,8 +14,10 @@ export class HeaderComponent implements OnInit {
   menus: MenuItem[];
   selectedMenu: MenuItem;
   showMore=false
-  constructor(private router: Router,
-    private spinner: NgxSpinnerService) { 
+  constructor(
+    private router: Router,
+    private spinner: NgxSpinnerService
+    ) { 
     this.menus = [
       { label: 'Báo cáo', routerLink: '/report', visible: false },
       { label: 'Quản lý booking', routerLink: '/managerbooking', visible: false },
@@ -34,8 +36,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.initMenuTop();
   }
+
   initMenuTop() {
-    this.spinner.show();
     const index = this.menus.findIndex((_) => {
         return this.router.url.includes(_.routerLink)
       }
@@ -52,17 +54,15 @@ export class HeaderComponent implements OnInit {
         e.visible = false
       }
     })
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 1000);
+    
   };
-  selectMenu(menu: MenuItem) {
+
+  selectMenu( menu: MenuItem) {
     this.selectedMenu = menu;
     this.router.navigateByUrl(menu.routerLink);
-
   }
-  selectMoreMenu (menu: MenuItem) {
+
+  selectMoreMenu( menu: MenuItem) {
     const index = lastIndexOf(this.menus, 'visible', true);
     if (index !== -1) {
       this.menus[index].visible = false;

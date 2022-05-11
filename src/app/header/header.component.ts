@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { lastIndexOf } from '../helpers/function';
 import { NgxSpinner, NgxSpinnerService } from "ngx-spinner";
+import { TRISTATECHECKBOX_VALUE_ACCESSOR } from 'primeng/tristatecheckbox';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,6 +13,7 @@ export class HeaderComponent implements OnInit {
   items: MenuItem[];
   menus: MenuItem[];
   selectedMenu: MenuItem;
+  showMore=false
   constructor(private router: Router,
     private spinner: NgxSpinnerService) { 
     this.menus = [

@@ -9,6 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./customer-management.component.scss']
 })
 export class CustomerManagementComponent implements OnInit {
+  multipleSelection = [];
   items: MenuItem[];
   activeItem: MenuItem;
   datakhachhang:any=[];

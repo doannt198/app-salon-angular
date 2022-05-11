@@ -9,6 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./worker-management.component.scss']
 })
 export class WorkerManagementComponent implements OnInit {
+  multipleSelection=[];
   items: MenuItem[];
   activeItem: MenuItem;
   val2= 4;

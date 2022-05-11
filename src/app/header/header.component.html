@@ -14,13 +14,13 @@
                 </ng-container>
                 <div class="menu-item show-more" *ngIf="menus.length > 5">
                     <i class="pi pi-ellipsis-h"></i>
-                    <div class="show-more-list">
-                        <ng-container *ngFor="let menu of menus">
+                     <div class="show-more-list" >
+                        <ng-container *ngFor="let menu of menus" >
                             <div class="show-more-item" [ngClass]="{active: selectedMenu.routerLink === menu.routerLink}" *ngIf="!menu.visible" (click)="selectMoreMenu(menu)">
                                 {{menu?.label}}
                             </div>
                         </ng-container>
-                    </div>
+                    </div> 
                 </div>
             </div>
     </div>
@@ -35,7 +35,7 @@
             <span> Đoàn</span>
         </div>
         <div class="account-avatar">
-          <img src="../../assets/img/hinh-dai-dien.jpg" alt="">
+          <img src="../../assets/img/admin.png" alt="admin">
         </div>
         <div class="arrow"><i class="pi pi-angle-down"></i></div>
     </div>

@@ -13,6 +13,7 @@ interface City {
   styleUrls: ['./notification-management.component.scss']
 })
 export class NotificationManagementComponent implements OnInit {
+  multipleSelection=[];
   cities: City[];
   selectedCity2: City;
   items: SelectItem[];
@@ -47,11 +48,14 @@ export class NotificationManagementComponent implements OnInit {
   }
   getNotification() {
     const params = queryString.stringify(this.query);
-    this.NotificationService.getNotification(params).subscribe(response => {
-      this.datathongbao = response.data;
-      if (this.datathongbao && this.datathongbao.length) {
-        this.totalRecord = this.datathongbao[0].totalRecord;
-      }
+    this.NotificationService.getNotification(params).subscribe({
+      next: (response) => {
+        this.datathongbao = response.data;
+        if (this.datathongbao && this.datathongbao.length) {
+          this.totalRecord = this.datathongbao[0].totalRecord;
+        }
+      },
+      error: (error) => { console.log(error)}
     })
   }
   paginate(event: any): void {

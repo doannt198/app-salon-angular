@@ -1,122 +1,89 @@
 <div class="booking-manager">
-    <div class="grid">
-        <div class="col-12">
-            <div class="option">
-                <div class="grid">
-                    <div class="col-6">
-                        <div class="option-left">
-                            <a routerLink="/report"><i class="pi pi-chevron-left"></i>Tổng quan</a> 
-
-                        </div>
+    <div class="option">
+        <div class="option-left">
+            <a routerLink="/report"><i class="pi pi-chevron-left"></i>Tổng quan</a>
+        </div>
+        <div class="option-right">
+            <a routerLink="/report"><i class="pi pi-times"></i></a>
+        </div>
+    </div>
+    <div class="left">
+        <div class="left-title">
+                 <p-tabMenu [model]="items1" [activeItem]="activeItem"></p-tabMenu>
+        </div>
+        <div class="flex justify-content-between align-items-center">
+            <div class="add-booking flex justify-content-between align-items-center">
+                <div class="left-button">
+                    <button pButton type="button" label="Thêm" icon="pi pi-plus" routerLink="/them-dich-vu"></button>
+                </div>
+                <div class="left-title">
+                    <p>Trạng thái:</p>
+                </div>
+                <div class="left-dropdown">
+                    <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name" [showClear]="true"
+                        (onChange)="handleChange($event)"></p-dropdown>
+                </div>
+            </div>
+           
+            <div class="right">
+                <div class="right-title">Tìm kiếm theo tên__________________</div>
+                <div class="right-body flex justify-content-between align-items-center ">
+                    <div class="search">
+                        <span class="p-input-icon-right">
+                            <i class="pi pi-search"></i>
+                            <input type="text" pInputText placeholder="Search">
+                        </span>
                     </div>
-                    <div class="col-6">
-                        <div class="option-right">
-                            <a routerLink="/report"><i class="pi pi-times"></i></a>
-                        </div>
+                    <div class="search-button">
+                          <button pButton type="button" label="Lấy giá trị"></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+<div class="col-12 booking-body">
+    <div class="booking-sort">
+        <div class="grid">
+            <div class="col-6">
+                Đã chọn (0,0) | <button pButton type="button" label="Xuất Excel" (click)="exportexcel()"></button>
+            </div>
+            <div class="col-6 ">
+                <div class="sort-columnd">
+                    Tìm theo cột
+                    <i class="pi pi-sort-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="grid">
-        <div class="col-6">
-            <div class="left">
-                <div class="left-title">
-                    <div class="grid">
-                        <div class="col-3">
-                            <p-tabMenu [model]="items1" [activeItem]="activeItem"></p-tabMenu>
-                        </div>
-                    </div>
-                    Công cụ
-                </div>
-                <div class="add-booking">
-                    <div class="left-button">
-                        <button pButton type="button" label="Thêm" icon="pi pi-plus" routerLink="/them-dich-vu"></button>
-                    </div>
-                    <div class="left-title">
-                        <p>Trạng thái:</p>
-                    </div>
-                    <div class="left-dropdown">
-                        <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name" [showClear]="true" (onChange)="handleChange($event)"></p-dropdown>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 flex justify-content-end">
-            <div class="right">
-                <div class="right-title">Tìm kiếm theo tên__________________</div>
-                <div class="right-body">
-                    <div class="grid">
-                        <div class="col-4">
-                            <div class="search">
-                                <span class="p-input-icon-right">
-                                    <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="grid">
-                                <div class="col-12">
-                                    <div class="restoredata">
-                                        <button pButton type="button" label="Lấy giá trị"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 booking-body">
-            <div class="booking-sort">
-                <div class="grid">
-                    <div class="col-6">
-                        Đã chọn (0,0) |  <button pButton type="button" label="Xuất Excel" (click)="exportexcel()"></button>
-                    </div>
-                    <div class="col-6 ">
-                        <div class="sort-columnd">
-                            Tìm theo cột
-                            <i class="pi pi-sort-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="col-12">
-                    <p-table [value]="datadichvuFilter">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th>STT</th>
-                                <th> Mã lĩnh vực</th>
-                                <th>Tên lĩnh vực </th>
-                                <th>Trạng thái</th>
-                            </tr>
-                        </ng-template>
-                            <ng-template pTemplate="body" let-datadichvuFilter>
-                                <tr>
-                                    <td>
-                                        {{datadichvuFilter?.id}}
-                                    </td>
-                                    <td>
-                                        {{datadichvuFilter?.code}}
-                                    </td>
-                                    <td>
-                                        {{datadichvuFilter?.name}} 
-                                    </td>
-                                    <td [style.color]="datadichvuFilter?.isActive? 'green':'red'">
-                                        {{datadichvuFilter?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
-                                    </td>
-                                </tr>
-                            </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="8">No customers found.</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </div>
-            </div>
+        <div class="col-12">
+            <p-table [value]="datadichvuFilter">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>STT</th>
+                        <th> Mã lĩnh vực</th>
+                        <th>Tên lĩnh vực </th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-datadichvuFilter>
+                    <tr>
+                        <td>
+                            {{datadichvuFilter?.id}}
+                        </td>
+                        <td>
+                            {{datadichvuFilter?.code}}
+                        </td>
+                        <td>
+                            {{datadichvuFilter?.name}}
+                        </td>
+                        <td [style.color]="datadichvuFilter?.isActive? 'green':'red'">
+                            {{datadichvuFilter?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </div>
     </div>
 </div>

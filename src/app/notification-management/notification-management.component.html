@@ -54,7 +54,7 @@
             <div class="booking-sort">
                 <div class="grid">
                     <div class="col-6">
-                        Đã chọn (0,0) | Xuất Excel
+                        Đã chọn ({{ multipleSelection.length }}) | Xuất Excel
                     </div>
                     <div class="col-6 ">
                         <div class="sort-columnd">
@@ -66,7 +66,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <p-table [value]="datathongbao">
+                    <p-table [value]="datathongbao" [(selection)]="multipleSelection">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th> <p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>

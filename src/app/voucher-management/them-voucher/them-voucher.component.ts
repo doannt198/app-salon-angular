@@ -7,6 +7,7 @@ import { PrimeNGConfig } from 'primeng/api';
 import { VoucherService } from 'src/services/voucher.service';
 import { SalonService } from 'src/services/salon.service';
 import * as queryString from 'query-string';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-them-voucher',
   templateUrl: './them-voucher.component.html',
@@ -44,7 +45,8 @@ export class ThemVoucherComponent implements OnInit {
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
     private voucherService: VoucherService,
-    private salonservice :SalonService
+    private salonservice :SalonService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -82,9 +84,11 @@ export class ThemVoucherComponent implements OnInit {
     bodyFormData.append('IsShowInHome:', this.infovoucher.IsShowInHome)
     bodyFormData.append('VoucherServicesModel', [])
     this.voucherService.addVoucher(bodyFormData).subscribe(response => {
-      console.log(response)
-    })
-    this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Thêm Voucher thành công' });
+      console.log(response);
+      this.getSalon();
+      this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Thêm Voucher thành công' });
+      this.router.navigateByUrl('/managementvoucher') ;
+    }) 
   }
   handleChange(e: any) {
     this.index = e.index;

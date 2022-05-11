@@ -9,6 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./salon-management.component.scss']
 })
 export class SalonManagementComponent implements OnInit {
+  multipleSelection=[];
   items: MenuItem[];
   activeItem: MenuItem;
   val2: number;

@@ -16,10 +16,7 @@
     }
     &-right{
         display: flex;
-    
-        margin-right: 50px;
         padding: 5px 5px;
-        justify-content: center;
        align-items: center;
       &-img{
       
@@ -31,7 +28,8 @@
     }
 }
 .header-center{
-    margin-top: 7px;
+    display: flex;
+    align-items: end;
     margin-left: 180px;
 }
 .header {
@@ -65,11 +63,10 @@
     &-list {
         display: flex;
         gap: 5px;
-        align-items: end;
         z-index: 99999999999;
     }
     &-item {
-        padding: 13px 40px;
+        padding: 9px 22px;
         min-width: 40px;
         background: rgb(211, 211, 212);
         border-top-left-radius: 10px;

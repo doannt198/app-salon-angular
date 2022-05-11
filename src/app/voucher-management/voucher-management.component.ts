@@ -13,6 +13,7 @@ import { ConfirmationService } from 'primeng/api';
   providers: [MessageService, ConfirmationService]
 })
 export class VoucherManagementComponent implements OnInit {
+   multipleSelection=[];
   items: MenuItem[];
   activeItem: MenuItem;
   val2: number = 3;

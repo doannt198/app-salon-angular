@@ -12,6 +12,7 @@ interface City {
   styleUrls: ['./quan-ly-danh-gia.component.scss']
 })
 export class QuanLyDanhGiaComponent implements OnInit {
+  multipleSelection=[];
   cities: City[];
   selectedCity2: City;
   items: SelectItem[];

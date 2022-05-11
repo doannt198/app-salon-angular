@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-thong-tin-phien-ban',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./thong-tin-phien-ban.component.scss']
 })
 export class ThongTinPhienBanComponent implements OnInit {
-
-  constructor() { }
+  @Input() policy:string;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  onExit(){
+    this.router.navigateByUrl('/quan-tri-app')
+  }
 }

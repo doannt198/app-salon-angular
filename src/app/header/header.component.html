@@ -3,7 +3,9 @@
         <div class="header-left__menubot">
             <img src="../assets/img/menudot.png" alt="">
         </div>
-        <div class="header-left__logo">Logo</div>
+        <div class="header-left__logo" > 
+            <img src="../../assets/img/icon.jpg" alt="logo" style="width:50px; height: 50px;">
+        </div>
     </div>
     <div class="header-center">
         <div class="menu-list">
@@ -41,7 +43,7 @@
         </div>
         <div class="arrow"><i class="pi pi-angle-down"></i></div>
     </div>
-    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <ngx-spinner  [zIndex]="9999999999999" bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
         <p style="font-size: 20px; color: white">Loading...</p>
     </ngx-spinner>
 </div>

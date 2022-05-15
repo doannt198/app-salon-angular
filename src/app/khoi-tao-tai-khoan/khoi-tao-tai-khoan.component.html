@@ -1,133 +1,101 @@
-
 <div class="booking-manager">
-    <div class="grid">
-        <div class="col-12">
-            <div class="option">
-                <div class="grid">
-                    <div class="col-6">
-                        <div class="option-left">
-                            <a routerLink="/report"><i class="pi pi-chevron-left"></i>Khởi tạo tài khoản</a> 
+    <div class="option flex justify-content-between align-items-center">
+        <div class="option-left">
+            <a routerLink="/report"><i class="pi pi-chevron-left"></i>Khởi tạo tài khoản</a>
+        </div>
 
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="option-right">
-                            <a routerLink="/report"><i class="pi pi-times"></i></a>
-                        </div>
+        <div class="option-right">
+            <a routerLink="/report"><i class="pi pi-times"></i></a>
+        </div>
+    </div>
+    <div class="flex justify-content-between">
+        <div class="left">
+            <div class="left-title">
+                Danh sách thợ
+            </div>
+            <div class="add-booking align-items-center mt-6">
+                <div class="left-button">
+                    <button pButton type="button" label="Thêm tài khoản" icon="pi pi-plus"
+                        routerLink="/them-tai-khoan"></button>
+                </div>
+                <div class="left-title ml-3">
+                    <p>Trạng thái:</p>
+                </div>
+                <div class="left-dropdown ml-3">
+                    <p-dropdown [options]="cities" [(ngModel)]="selectedStatus" optionValue="value" optionLabel="name">
+                    </p-dropdown>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-title">Tìm kiếm theo tên__________________</div>
+            <div class="right-body flex align-items-center">
+                <div class="search mr-5">
+                    <span class="p-input-icon-right">
+                        <i class="pi pi-search"></i>
+                        <input type="text" pInputText placeholder="Search">
+                    </span>
+                </div>
+                <div class="button-value">
+                    <div class="restoredata">
+                        <p-button icon="pi pi-sync" iconPos="left" class="mr-4"></p-button>
+                        <button pButton type="button" label="Lấy giá trị"></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="grid">
-        <div class="col-6">
-            <div class="left">
-                <div class="left-title">
-                    
-                    Danh sách thợ
-                </div>
-                <div class="add-booking">
-                    <div class="left-button">
-                        <button pButton type="button" label="Thêm tài khoản" icon="pi pi-plus" routerLink="/them-tai-khoan"></button>
-                    </div>
-                    <div class="left-title">
-                        <p>Trạng thái:</p>
-                    </div>
-                    <div class="left-dropdown">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedStatus" optionValue="value" optionLabel="name" >
-                        </p-dropdown>
-                    </div>
-                </div>
+    <div class="booking-body mt-6">
+        <div class="booking-sort flex align-items-center justify-content-between">
+            <div class="exportexcel">
+                Đã chọn (0,0) | <button pButton type="button" label="Xuất excel" (click)="exportexcel()"></button>
+            </div>
+            <div class="sort-column">
+                Tìm theo cột
+                <i class="pi pi-sort-alt"></i>
             </div>
         </div>
-        <div class="col-6">
-            <div class="right">
-                <div class="right-title">Tìm kiếm theo tên__________________</div>
-                <div class="right-body">
-                    <div class="grid">
-                        <div class="col-4">
-                            <div class="search">
-                                <span class="p-input-icon-right">
-                                    <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="grid">
-                                <div class="col-12">
-                                    <div class="restoredata">
-                                        <p-button icon="pi pi-sync" iconPos="left"></p-button>
-                                        <button pButton type="button" label="Lấy giá trị"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 booking-body">
-            <div class="booking-sort">
-                <div class="grid">
-                    <div class="col-6">
-                        Đã chọn (0,0) |  <button pButton type="button" label="Xuất excel" (click)="exportexcel()"></button>
-                    </div>
-                    <div class="col-6 ">
-                        <div class="sort-columnd">
-                            Tìm theo cột
-                            <i class="pi pi-sort-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="col-12">
-                    <p-table [value]="datataikhoan">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th></th>
-                                <th>Họ tên</th>
-                                <th>Email đăng nhập</th>
-                                <th>Số điện thoại </th>
-                                <th>Vài trò</th>
-                                <th>Đăng ký lúc</th>
-                                <th>Trạng thái</th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-datataikhoan>
-                            <tr class="p-selectable-row">
-                                <td>
-                                    <p-tableCheckbox [value]="datataikhoan"></p-tableCheckbox>
-                                </td>
-                                <td>
-                                    {{datataikhoan?.hoten}}
-                                </td>
-                                <td>
-                                   
-                                    {{datataikhoan?.email}}
-                                </td>
-                                <td>
-                                    {{datataikhoan?.phone}}
-                                </td>
-                                <td>
-                                    {{datataikhoan?.vaitro}}
-                                </td>
-                                <td>
-                                    {{datataikhoan?.timedangky}}
-                                </td>
-                                <td [style.color]="datataikhoan?.status?'green':'red'">
-                                    {{datataikhoan?.status ? "Đang hoạt động" :"Dừng hoạt động"}}
-                                </td>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="8">No customers found.</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </div>
+        <div class="grid">
+            <div class="col-12">
+                <p-table [value]="datataikhoan">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th></th>
+                            <th>Họ tên</th>
+                            <th>Email đăng nhập</th>
+                            <th>Số điện thoại </th>
+                            <th>Vài trò</th>
+                            <th>Đăng ký lúc</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-datataikhoan>
+                        <tr class="p-selectable-row">
+                            <td>
+                                <p-tableCheckbox [value]="datataikhoan"></p-tableCheckbox>
+                            </td>
+                            <td>
+                                {{datataikhoan?.hoten}}
+                            </td>
+                            <td>
+
+                                {{datataikhoan?.email}}
+                            </td>
+                            <td>
+                                {{datataikhoan?.phone}}
+                            </td>
+                            <td>
+                                {{datataikhoan?.vaitro}}
+                            </td>
+                            <td>
+                                {{datataikhoan?.timedangky}}
+                            </td>
+                            <td [style.color]="datataikhoan?.status?'green':'red'">
+                                {{datataikhoan?.status ? "Đang hoạt động" :"Dừng hoạt động"}}
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
             </div>
         </div>
     </div>

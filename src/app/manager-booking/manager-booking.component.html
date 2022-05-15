@@ -5,18 +5,18 @@
                 <div class="left-title">
                     Danh sách đơn booking
                 </div>
-                <div class="add-booking">
-                    <div class="left-button">
-                        <button pButton type="button" label="Thêm booking" icon="pi pi-plus" routerLink="/them-booking"
-                            class="btn-addbooking"></button>
-                    </div>
-                    <div class="left-title">
-                        <p>Trạng thái:</p>
-                    </div>
-                    <div class="left-dropdown">
-                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name" [showClear]="true"
-                            placeholder="Chọn trạng thái">
-                        </p-dropdown>
+                <div class="add-booking flex align-items-center m-3">
+                    <button pButton type="button" label="Thêm booking" icon="pi pi-plus" routerLink="/them-booking"
+                        class="btn-addbooking"></button>
+                    <div class="action flex align-items-center ml-3">
+                        <div class="action-status">
+                            <p>Trạng thái:</p>
+                        </div>
+                        <div class="action-dropdown ml-3">
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name"
+                                [showClear]="true" placeholder="Chọn trạng thái">
+                            </p-dropdown>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,9 @@
                     <p-table [value]="databooking">
                         <ng-template pTemplate="header">
                             <tr>
-                                <th><p-tableHeaderCheckbox></p-tableHeaderCheckbox></th>
+                                <th>
+                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                                </th>
                                 <th> Mã booking</th>
                                 <th>Tên khách hàng </th>
                                 <th>Số điện thoại </th>
@@ -115,12 +117,12 @@
                                 <td>
                                     {{databooking?.service}}
                                 </td>
-                                <td >
+                                <td>
                                     {{databooking?.field}}
                                 </td>
-                                <td >
+                                <td>
                                     <button pButton type="button" label="Chi tiết"
-                                    routerLink="/booking-detail"></button>
+                                        routerLink="/booking-detail"></button>
                                 </td>
                             </tr>
                         </ng-template>

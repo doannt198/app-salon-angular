@@ -1,117 +1,93 @@
 <div class="booking-manager">
-    <div class="grid">
-        <div class="col-12">
-            <div class="option">
-                <div class="grid">
-                    <div class="col-6">
-                        <div class="option-left">
-                            <a routerLink="/report"><i class="pi pi-chevron-left"></i>Tổng quan</a> 
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="option-right">
-                            <a routerLink="/report"><i class="pi pi-times"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="header flex justify-content-between">
+        <div class="option-left">
+            <a routerLink="/report"><i class="pi pi-chevron-left"></i>Tổng quan</a>
+        </div>
+        <div class="option-right">
+            <a routerLink="/report"><i class="pi pi-times"></i></a>
         </div>
     </div>
-    <div class="grid">
-        <div class="col-6">
-            <div class="left">
-                <div class="left-title">
-                    <div class="grid">
-                        <div class="col-3">
-                            <p-tabMenu [model]="items1" [activeItem]="activeItem"></p-tabMenu>
-                        </div>
-                    </div>
+    <div class="utilities flex justify-content-between ">
+        <div class="left">
+            <div class="left-title">
+                <div class="col-6">
+                    <p-tabMenu [model]="items1" [activeItem]="activeItem"></p-tabMenu>
+                </div>
+                <div class="title mt-3">
                     Công cụ
                 </div>
-                <div class="add-booking">
-                    <div class="left-button">
-                        <button pButton type="button" label="Thêm" icon="pi pi-plus" routerLink="/them-dich-vu"></button>
-                    </div>
-                    <div class="left-title">
+            </div>
+            <div class="add-booking flex align-items-center mt-4">
+                <div class="left-button">
+                    <button pButton type="button" label="Thêm" icon="pi pi-plus" routerLink="/them-dich-vu"></button>
+                </div>
+                <div class="flex align-items-center ml-3">
+                    <div class="left-title ml-3">
                         <p>Trạng thái:</p>
                     </div>
-                    <div class="left-dropdown">
-                        <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name" [showClear]="true" (onChange)="handleChange($event)" >
+                    <div class="left-dropdown ml-3">
+                        <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name"
+                            [showClear]="true" (onChange)="handleChange($event)">
                         </p-dropdown>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="right">
-                <div class="right-title">Tìm kiếm theo tên__________________</div>
-                <div class="right-body">
-                    <div class="grid">
-                        <div class="col-4">
-                            <div class="search">
-                                <span class="p-input-icon-right">
-                                    <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="grid">
-                                <div class="col-12">
-                                    <div class="restoredata">
-                                        <button pButton type="button" label="Lấy giá trị"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="right mt-4">
+            <div class="right-title">Tìm kiếm theo tên__________________</div>
+            <div class="right-body flex mt-7">
+                <div class="search mr-6">
+                    <span class="p-input-icon-right">
+                        <i class="pi pi-search"></i>
+                        <input type="text" pInputText placeholder="Search">
+                    </span>
                 </div>
-            </div>
-        </div>
-        <div class="col-12 booking-body">
-            <div class="booking-sort">
-                <div class="grid">
-                    <div class="col-6">
-                        Đã chọn (0,0) | <button pButton type="button" label="Xuất Excel"></button>
-                    </div>
-                    <div class="col-6 ">
-                        <div class="sort-columnd">
-                            Tìm theo cột
-                            <i class="pi pi-sort-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="col-12">
-                    <p-table [value]="datalinhvucFilter">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th>STT</th>
-                                <th> Mã lĩnh vực</th>
-                                <th>Tên lĩnh vực </th>
-                                <th>Trạng thái</th>
-                            </tr> 
-                        </ng-template>
-                        <ng-template pTemplate="body" let-datalinhvucFilter>
-                            <tr>
-                                <td>
-                                    {{datalinhvucFilter?.id}}
-                                </td>
-                                <td>
-                                    {{datalinhvucFilter?.code}}
-                                </td>
-                                <td>
-                                    {{datalinhvucFilter?.name}} 
-                                </td>
-                                <td [style.color]="datalinhvucFilter?.isActive? 'green':'red'">
-                                    {{datalinhvucFilter?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
-                                </td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </div>
+                <button pButton type="button" label="Lấy giá trị"></button>
             </div>
         </div>
     </div>
-</div>
+    <div class="booking-body mt-5">
+        <div class="booking-sort">
+            <div class="grid">
+                <div class="col-6">
+                    Đã chọn (0,0) | <button pButton type="button" label="Xuất Excel"></button>
+                </div>
+                <div class="col-6 ">
+                    <div class="sort-columnd">
+                        Tìm theo cột
+                        <i class="pi pi-sort-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-12">
+                <p-table [value]="datalinhvucFilter">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>STT</th>
+                            <th> Mã lĩnh vực</th>
+                            <th>Tên lĩnh vực </th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-datalinhvucFilter>
+                        <tr>
+                            <td>
+                                {{datalinhvucFilter?.id}}
+                            </td>
+                            <td>
+                                {{datalinhvucFilter?.code}}
+                            </td>
+                            <td>
+                                {{datalinhvucFilter?.name}}
+                            </td>
+                            <td [style.color]="datalinhvucFilter?.isActive? 'green':'red'">
+                                {{datalinhvucFilter?.isActive ? "Đang hoạt động " :" Dừng hoạt động"}}
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>

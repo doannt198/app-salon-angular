@@ -1,52 +1,44 @@
-.left{
-    margin-top: 50px;
-    margin-left: 20px;
-}
-.left-button{
-    margin-top: 20px;
-}
-.add-booking{
-    display: flex; 
-}
-.left-title{
-     padding: 20px;
-}
-.left-dropdown{
-    padding: 20px;
+.booking-manager{
+    padding: 24px;
+    .left{
+        margin-top: 50px;
+        margin-left: 20px;
+    }
+    .left-button{
+        margin-top: 20px;
+    }
+    .add-booking{
+        display: flex; 
+    }
+    .left-title{
+         padding: 20px;
+    }
+    .left-dropdown{
+        padding: 20px;
+    }
+    
+    .dropdown-center{
+        gap:20px
+     }
+
+    .dropdown-item { 
+        gap: 10px;
+    }
+  
+    .date{
+        margin-top: 20px;
+    }
+    .option{
+        margin: 5px;
+    }
+   
+    .option-left a{
+     text-decoration: none;
+     font-size: 20px;
+     font-weight: bold;
+     color: black;
+    }
 }
 
-.right-title{
-    margin-top: 65px;
-}
-.date{
-    margin-top: 20px;
-}
-.search{
-    margin-top: 35px;
-}
-.restoredata{
-    display: flex;
-    margin-top: 35px;
-    justify-content: space-around;
-}
-.sort-columnd{
-  float: right;
-}
-.option{
-    margin: 5px;
-}
-.option-right{
-    float: right;
-}
-.option-left a{
- text-decoration: none;
- font-size: 20px;
- font-weight: bold;
- color: black;
-}
-.dropdown-center{
-    display: flex;
-    justify-content: space-between;
-}
 
 

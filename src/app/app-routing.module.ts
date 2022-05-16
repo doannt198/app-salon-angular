@@ -42,6 +42,7 @@ import { QuanLyForumComponent } from './quan-ly-forum/quan-ly-forum.component';
 import { QuanTriAppChiTietComponent } from './quan-tri-app/quan-tri-app-chi-tiet/quan-tri-app-chi-tiet.component';
 import { ChiTietThongBaoComponent } from './notification-management/chi-tiet-thong-bao/chi-tiet-thong-bao.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

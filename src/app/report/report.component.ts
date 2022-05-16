@@ -14,8 +14,8 @@ export class ReportComponent implements OnInit {
     chartOptions: any;
     datachars:any
     query = {
-        from: '2022-04-01',
-        to: '2022-04-30',
+        from: '2022-05-01',
+        to: '2022-05-30',
         status: 'checkout'
     }
     datareport: any=[];

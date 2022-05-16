@@ -41,9 +41,11 @@ import { QuanLyDanhGiaComponent } from './quan-ly-danh-gia/quan-ly-danh-gia.comp
 import { QuanLyForumComponent } from './quan-ly-forum/quan-ly-forum.component';
 import { QuanTriAppChiTietComponent } from './quan-tri-app/quan-tri-app-chi-tiet/quan-tri-app-chi-tiet.component';
 import { ChiTietThongBaoComponent } from './notification-management/chi-tiet-thong-bao/chi-tiet-thong-bao.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/report', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'report', component: ReportComponent },
   { path: 'managerbooking', component: ManagerBookingComponent },
   { path: 'managementcustomer', component: CustomerManagementComponent },

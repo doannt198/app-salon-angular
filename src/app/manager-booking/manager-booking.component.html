@@ -1,139 +1,116 @@
 <div class="booking-manager">
+    <div class="booking-search flex justify-content-between align-items-center">
+        <div class="left">
+            <div class="left-title">
+                Danh sách đơn booking
+            </div>
+            <div class="add-booking flex align-items-center m-3">
+                <button pButton type="button" label="Thêm booking" icon="pi pi-plus" routerLink="/them-booking"
+                    class="btn-addbooking"></button>
+                <div class="action flex align-items-center ml-3">
+                    <div class="action-status">
+                        <p>Trạng thái:</p>
+                    </div>
+                    <div class="action-dropdown ml-3">
+                        <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name" [showClear]="true"
+                            placeholder="Chọn trạng thái">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-title">Tìm kiếm theo tên__________________</div>
+            <div class="right-body">
+                <div class="date flex align-items-center">
+                    <div class="start-day mr-4">
+                        <label for="icon">Từ ngày</label>
+                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                    </div> 
+                    <div class="end-day mr-4">
+                        <label for="icon">Đến ngày</label>
+                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
+                    </div>
+                    <div class="search mr-4">
+                        <span class="p-input-icon-right">
+                            <i class="pi pi-search"></i>
+                            <input type="text" pInputText placeholder="Search">
+                        </span>
+                    </div>
+                    <div class="restoredata mr-4">
+                        <p-button icon="pi pi-sync" iconPos="left" class="mr-3"></p-button>
+                        <button pButton type="button" label="Lấy giá trị"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 booking-body">
+    <div class="booking-sort">
+        <div class="grid">
+            <div class="col-6">
+                Đã chọn (0,0) | Xuất Excel
+            </div>
+            <div class="col-6 ">
+                <div class="sort-columnd">
+                    Tìm theo cột
+                    <i class="pi pi-sort-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="grid">
-        <div class="col-6">
-            <div class="left">
-                <div class="left-title">
-                    Danh sách đơn booking
-                </div>
-                <div class="add-booking flex align-items-center m-3">
-                    <button pButton type="button" label="Thêm booking" icon="pi pi-plus" routerLink="/them-booking"
-                        class="btn-addbooking"></button>
-                    <div class="action flex align-items-center ml-3">
-                        <div class="action-status">
-                            <p>Trạng thái:</p>
-                        </div>
-                        <div class="action-dropdown ml-3">
-                            <p-dropdown [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name"
-                                [showClear]="true" placeholder="Chọn trạng thái">
-                            </p-dropdown>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="right">
-                <div class="right-title">Tìm kiếm theo tên__________________</div>
-                <div class="right-body">
-                    <div class="grid">
-                        <div class="col-4">
-                            <div class="date">
-                                <div class="grid">
-                                    <div class="col-6">
-                                        <label for="icon">Từ ngày</label>
-                                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="icon">Đến ngày</label>
-                                        <p-calendar [showIcon]="true" inputId="icon"></p-calendar>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="search">
-                                <span class="p-input-icon-right">
-                                    <i class="pi pi-search"></i>
-                                    <input type="text" pInputText placeholder="Search">
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="grid">
-                                <div class="col-12">
-                                    <div class="restoredata">
-                                        <p-button icon="pi pi-sync" iconPos="left"></p-button>
-                                        <button pButton type="button" label="Lấy giá trị"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 booking-body">
-            <div class="booking-sort">
-                <div class="grid">
-                    <div class="col-6">
-                        Đã chọn (0,0) | Xuất Excel
-                    </div>
-                    <div class="col-6 ">
-                        <div class="sort-columnd">
-                            Tìm theo cột
-                            <i class="pi pi-sort-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid">
-                <div class="col-12">
-                    <p-table [value]="databooking">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th>
-                                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                                </th>
-                                <th> Mã booking</th>
-                                <th>Tên khách hàng </th>
-                                <th>Số điện thoại </th>
-                                <th>Thợ </th>
-                                <th>Salon</th>
-                                <th>Dịch vụ</th>
-                                <th>Lĩnh vực</th>
-                                <th>Chức năng</th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-databooking>
-                            <tr class="p-selectable-row">
-                                <td>
-                                    <p-tableCheckbox [value]="databooking"></p-tableCheckbox>
-                                </td>
-                                <td>
-                                    {{databooking.id}}
-                                </td>
-                                <td>
-                                    {{databooking?.name}}
-                                </td>
-                                <td>
-                                    {{databooking?.phone}}
-                                </td>
-                                <td>
-                                    {{databooking?.hairdresser}}
-                                </td>
-                                <td>
-                                    {{databooking?.salon}}
-                                </td>
-                                <td>
-                                    {{databooking?.service}}
-                                </td>
-                                <td>
-                                    {{databooking?.field}}
-                                </td>
-                                <td>
-                                    <button pButton type="button" label="Chi tiết"
-                                        routerLink="/booking-detail"></button>
-                                </td>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="8">No customers found.</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </div>
-            </div>
+        <div class="col-12">
+            <p-table [value]="databooking">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th> Mã booking</th>
+                        <th>Tên khách hàng </th>
+                        <th>Số điện thoại </th>
+                        <th>Thợ </th>
+                        <th>Salon</th>
+                        <th>Dịch vụ</th>
+                        <th>Lĩnh vực</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-databooking>
+                    <tr class="p-selectable-row">
+                        <td>
+                            <p-tableCheckbox [value]="databooking"></p-tableCheckbox>
+                        </td>
+                        <td>
+                            {{databooking.id}}
+                        </td>
+                        <td>
+                            {{databooking?.name}}
+                        </td>
+                        <td>
+                            {{databooking?.phone}}
+                        </td>
+                        <td>
+                            {{databooking?.hairdresser}}
+                        </td>
+                        <td>
+                            {{databooking?.salon}}
+                        </td>
+                        <td>
+                            {{databooking?.service}}
+                        </td>
+                        <td>
+                            {{databooking?.field}}
+                        </td>
+                        <td>
+                            <button pButton type="button" label="Chi tiết" routerLink="/booking-detail"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </div>
     </div>
 </div>

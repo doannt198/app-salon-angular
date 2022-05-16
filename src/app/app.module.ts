@@ -54,7 +54,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { TabViewModule } from 'primeng/tabview';
-import { HttpClientModule, HttpClient } from '@angular/common/http'
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { PaginatorModule } from 'primeng/paginator';
 import { DichVuComponent } from './linh-vuc-dich-vu/dich-vu/dich-vu.component';
 import { NotificationManagementComponent } from './notification-management/notification-management.component';
@@ -76,6 +76,8 @@ import { ThongTinPhienBanComponent } from './quan-tri-app/thong-tin-phien-ban/th
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ChiTietThongBaoComponent } from './notification-management/chi-tiet-thong-bao/chi-tiet-thong-bao.component';
+import { AuthInterceptorService } from 'src/services/auth-interceptor';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -129,6 +131,7 @@ import { ChiTietThongBaoComponent } from './notification-management/chi-tiet-tho
     QuanTriAppChiTietComponent,
     ThongTinPhienBanComponent,
     ChiTietThongBaoComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -161,7 +164,9 @@ import { ChiTietThongBaoComponent } from './notification-management/chi-tiet-tho
     ConfirmDialogModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService , multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

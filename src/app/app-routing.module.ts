@@ -45,7 +45,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/report', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'report', component: ReportComponent },
   { path: 'managerbooking', component: ManagerBookingComponent },

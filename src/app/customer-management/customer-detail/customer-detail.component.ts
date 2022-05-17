@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from 'src/services/customer.service';
 import { ActivatedRoute } from '@angular/router';
-import { BookingService } from 'src/services/booking.service';
-import * as queryString from 'query-string';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-customer-detail',
   templateUrl: './customer-detail.component.html',
@@ -18,9 +16,8 @@ export class CustomerDetailComponent implements OnInit {
     PageIndex: 1,
     PageSize: 10
   }
-  constructor(private CustomerService: CustomerService, 
+  constructor(private apiService: ApiService, 
     private route: ActivatedRoute, 
-    private BookingService: BookingService,
     private spinner: NgxSpinnerService
     ) { }
 
@@ -30,10 +27,10 @@ export class CustomerDetailComponent implements OnInit {
         this.spinner.hide();
       }, 1000);
     this.id = this.route.snapshot.params.id;
-    this.CustomerService.getCustomerdetail(this.id).subscribe((response: any) => {
+    this.apiService.getCustomerdetail(this.id).subscribe((response: any) => {
       this.detail = response.data;
     })
-    this.BookingService.getListBookingbyCustomer(this.id, 1, 10).subscribe((response: any) => {
+    this.apiService.getListBookingbyCustomer(this.id, 1, 10).subscribe((response: any) => {
 
       this.data = response.data
        

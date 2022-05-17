@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddbookingService } from 'src/services/addbooking.service';
+import { ApiService } from 'src/services/api.service';
 interface Booking {
   name: string,
   code: string,
@@ -14,7 +14,9 @@ export class BookingDetailComponent implements OnInit {
   status:string;
   selectedbooking: Booking;
   addbooking:any=[];
-  constructor(private getaddbooking:AddbookingService) { }
+  constructor(
+    private apiService: ApiService
+    ) { }
   ngOnInit(): void {
     this.cities = [
       {name: 'Salon 1', code: 'NY'},
@@ -26,6 +28,6 @@ export class BookingDetailComponent implements OnInit {
   this.getaddBooking()
   }
   getaddBooking(){
-    this.getaddbooking.getaddbooking().subscribe(respone=>this.addbooking=respone)
+    this.apiService.getaddbooking().subscribe(respone=>this.addbooking=respone)
   }
 }

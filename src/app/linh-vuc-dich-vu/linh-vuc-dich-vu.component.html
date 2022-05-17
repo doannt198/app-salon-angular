@@ -10,7 +10,7 @@
     <div class="utilities flex justify-content-between ">
         <div class="left">
             <div class="left-title">
-                <div class="col-6">
+                <div class="col-7">
                     <p-tabMenu [model]="items1" [activeItem]="activeItem"></p-tabMenu>
                 </div>
                 <div class="title mt-3">
@@ -26,8 +26,8 @@
                         <p>Trạng thái:</p>
                     </div>
                     <div class="left-dropdown ml-3">
-                        <p-dropdown [options]="cities" placeholder="Chọn trạng thái" optionLabel="name"
-                            [showClear]="true" (onChange)="handleChange($event)">
+                        <p-dropdown [options]="cities" optionLabel="name"
+                         (onChange)="handleChange($event)">
                         </p-dropdown>
                     </div>
                 </div>

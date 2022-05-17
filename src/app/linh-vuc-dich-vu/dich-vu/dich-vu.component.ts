@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { MenuItem } from 'primeng/api'
 import * as queryString from 'query-string';
-import { DichVuService } from '../../../services/dich-vu.service'
+import { ApiService } from 'src/services/api.service';
 import { ExportFileService } from 'src/services/export-file.service';
 interface Status {
   name: string
@@ -24,7 +24,7 @@ export class DichVuComponent implements OnInit {
   }
   
   constructor(
-    private dichvuservice:DichVuService,
+    private apiService: ApiService,
     private fileService: ExportFileService
     ) { }
 
@@ -43,7 +43,7 @@ export class DichVuComponent implements OnInit {
   }
   getDichVu() {
     const params = queryString.stringify(this.query);
-    this.dichvuservice.getDichVu(params).subscribe(response => {
+    this.apiService.getDichVu(params).subscribe(response => {
       this.datadichvu = response.data.map((t:any) =>{t.realm
         if (t && t.realm ) {
           t.isActive = t.realm.isActive;  

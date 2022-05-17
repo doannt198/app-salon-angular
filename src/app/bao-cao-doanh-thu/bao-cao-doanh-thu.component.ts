@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import {MenuItem} from 'primeng/api'
 import { NgxSpinnerService } from 'ngx-spinner';
-import { BaocaodoanhthuService } from 'src/services/baocaodoanhthu.service';
+import { ApiService } from 'src/services/api.service';
 interface Status{
   name: string
 }
@@ -22,7 +22,8 @@ export class BaoCaoDoanhThuComponent implements OnInit {
   items1: MenuItem[];
   activeItem: MenuItem;
   databooking:any= [];
-  constructor(private baocaodoanhthu:BaocaodoanhthuService,
+  constructor(
+    private apiService: ApiService,
     private spinner: NgxSpinnerService
     ) { }
 
@@ -49,6 +50,6 @@ export class BaoCaoDoanhThuComponent implements OnInit {
    this.getBaocaodoanhthu()
   }
   getBaocaodoanhthu(){
-    this.baocaodoanhthu.getBaocaodoanhthu().subscribe(reponse=>{this.databooking=reponse})
+    this.apiService.getBaocaodoanhthu().subscribe(reponse=>{this.databooking=reponse})
   }
 }

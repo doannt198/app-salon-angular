@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
-import { WorkerService } from 'src/services/worker.service';
+
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-worker-detail',
   templateUrl: './worker-detail.component.html',
@@ -14,7 +15,7 @@ export class WorkerDetailComponent implements OnInit {
   status: true;
   id: number = 0;
   detail: any;
-  constructor(private WorkerService: WorkerService, 
+  constructor(private apiService: ApiService, 
     private route: ActivatedRoute,
     private spinner: NgxSpinnerService,
     ) { }
@@ -33,7 +34,7 @@ export class WorkerDetailComponent implements OnInit {
     ];
     this.activeItem = this.items[0];
     this.id = this.route.snapshot.params.id;
-    this.WorkerService.getWorkerdetail(this.id).subscribe((response: any) => {
+    this.apiService.getWorkerdetail(this.id).subscribe((response: any) => {
       this.detail = response.data;
     })
   }

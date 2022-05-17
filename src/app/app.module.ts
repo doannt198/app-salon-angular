@@ -1,6 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
@@ -78,6 +77,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ChiTietThongBaoComponent } from './notification-management/chi-tiet-thong-bao/chi-tiet-thong-bao.component';
 import { AuthInterceptorService } from 'src/services/auth-interceptor';
 import { LoginComponent } from './login/login.component';
+import { ApiService } from 'src/services/api.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -165,7 +165,8 @@ import { LoginComponent } from './login/login.component';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService , multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService , multi: true},
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

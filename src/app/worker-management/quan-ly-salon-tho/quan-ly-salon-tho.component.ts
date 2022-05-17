@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
-import { SalonService } from 'src/services/salon.service';
 import * as queryString from 'query-string';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-quan-ly-salon-tho',
   templateUrl: './quan-ly-salon-tho.component.html',
@@ -17,14 +17,14 @@ export class QuanLySalonThoComponent implements OnInit {
     PageIndex: 1,
     PageSize: 10,
   };
-  constructor(private salonservice: SalonService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.getSalon()
   }
   getSalon() {
     const params = queryString.stringify(this.query);
-    this.salonservice.getSalon(params)
+    this.apiService.getSalon(params)
       .subscribe(response => {
         this.details = response.data;
         console.log(response.data)

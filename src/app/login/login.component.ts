@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private http:HttpClient
+    private http:HttpClient,
+    private authService: AuthService
   ) { }
   user= {
       userName: "",
@@ -20,5 +22,15 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.user)
+    this.authService.login(this.user)
+    .pipe()
+    .subscribe({
+      next: (res)=>{ 
+        console.log(res)
+      },
+      error: (error)=>{
+        console.log(error)
+      }
+    })
   }
 }

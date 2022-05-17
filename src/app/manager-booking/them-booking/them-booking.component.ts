@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SelectItem} from 'primeng/api';
-import { AddbookingService } from 'src/services/addbooking.service';
 import {MessageService} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { ApiService } from 'src/services/api.service';
 interface Booking {
   name: string
 }
@@ -31,7 +30,10 @@ export class ThemBookingComponent implements OnInit {
     email:'',
     status:''
   }
-  constructor(private getaddbooking:AddbookingService,private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+  constructor(
+    private apiService: ApiService,
+    private messageService: MessageService,
+     private primengConfig: PrimeNGConfig) { }
   ngOnInit(): void {
     this.cities = [
       {name: 'Salon 1'},
@@ -53,6 +55,6 @@ export class ThemBookingComponent implements OnInit {
     this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
   }
   getaddBooking(){
-    this.getaddbooking.getaddbooking().subscribe(respone=>this.addbooking=respone)
+    this.apiService.getaddbooking().subscribe(respone=>this.addbooking=respone)
   }
 }

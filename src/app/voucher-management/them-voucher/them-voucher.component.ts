@@ -1,13 +1,12 @@
-import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
+
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';;
 import { MenuItem } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
-import { VoucherService } from 'src/services/voucher.service';
-import { SalonService } from 'src/services/salon.service';
 import * as queryString from 'query-string';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-them-voucher',
   templateUrl: './them-voucher.component.html',
@@ -44,8 +43,7 @@ export class ThemVoucherComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
-    private voucherService: VoucherService,
-    private salonservice :SalonService,
+    private apiService: ApiService,
     private router: Router
   ) { }
 
@@ -83,7 +81,7 @@ export class ThemVoucherComponent implements OnInit {
     bodyFormData.append('IsShowInSalon:', !this.infovoucher.IsShowInHome)
     bodyFormData.append('IsShowInHome:', this.infovoucher.IsShowInHome)
     bodyFormData.append('VoucherServicesModel', [])
-    this.voucherService.addVoucher(bodyFormData).subscribe(response => {
+    this.apiService.addVoucher(bodyFormData).subscribe(response => {
       console.log(response);
       this.getSalon();
       this.messageService.add({ severity: 'success', summary: 'Thông báo', detail: 'Thêm Voucher thành công' });
@@ -95,7 +93,7 @@ export class ThemVoucherComponent implements OnInit {
   }
   getSalon() {
     const params = queryString.stringify(this.query);
-    this.salonservice.getSalon(params)
+    this.apiService.getSalon(params)
       .subscribe(response => {
         this.datasalon = response.data;
       })

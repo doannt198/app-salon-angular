@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from 'src/services/customer.service';
 import {MenuItem} from 'primeng/api'
 import * as queryString from 'query-string';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-customer-management',
   templateUrl: './customer-management.component.html',
@@ -22,7 +22,7 @@ export class CustomerManagementComponent implements OnInit {
     isOnline:''
   };
   constructor(
-    private customer :CustomerService,
+    private apiService : ApiService,
     private spinner: NgxSpinnerService) { 
     }
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class CustomerManagementComponent implements OnInit {
   }
   getCustomer(){
     const params = queryString.stringify(this.query);
-    this.customer.getCustomer(params)
+    this.apiService.getCustomer(params)
       .subscribe(response => {
         this.datakhachhang = response.data
         if (this.datakhachhang && this.datakhachhang.length) {

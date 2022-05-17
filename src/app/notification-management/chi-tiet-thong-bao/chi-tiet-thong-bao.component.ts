@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NotificationService } from 'src/services/notification.service';
+import { ApiService } from 'src/services/api.service';
 
 @Component({
   selector: 'app-chi-tiet-thong-bao',
@@ -13,7 +13,7 @@ export class ChiTietThongBaoComponent implements OnInit {
   detailuser:any=[];
   constructor(
     private router: ActivatedRoute,
-    private notiService: NotificationService
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class ChiTietThongBaoComponent implements OnInit {
     this.getDetail(this.id);
   }
   getDetail(id:number){
-    this.notiService.getDetailNotification(id).subscribe(res=>
+    this.apiService.getDetailNotification(id).subscribe(res=>
     {
       this.detailNoti=res.data
       this.detailuser=this.detailNoti.users.map((t:any)=>t.fullName)

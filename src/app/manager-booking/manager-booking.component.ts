@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import { BookingService } from 'src/services/booking.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/services/api.service';
 interface City {
   name: string
 }
@@ -18,7 +18,7 @@ export class ManagerBookingComponent implements OnInit {
   spinnerType:string;
   spinnerName:string;
   constructor(
-    private bookingService: BookingService,
+    private apiService: ApiService,
     private spinner: NgxSpinnerService,
   ) {
     
@@ -39,7 +39,7 @@ export class ManagerBookingComponent implements OnInit {
     this.getBookings(); 
   }
   getBookings() {
-    this.bookingService.getBookings()
+    this.apiService.getBookings()
       .subscribe(
         response => {
           this.databooking = response;

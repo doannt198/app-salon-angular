@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { MenuItem } from 'primeng/api'
-import { LinhvucService } from '../../services/linhvuc.service';
+import { ApiService } from 'src/services/api.service';
 interface City {
   name: string,
   value: number
@@ -19,7 +19,7 @@ export class LinhVucDichVuComponent implements OnInit {
   activeItem: MenuItem;
   datalinhvuc: any = []
   datalinhvucFilter: any = [];
-  constructor(private linhvucservice: LinhvucService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.cities = [
@@ -34,7 +34,7 @@ export class LinhVucDichVuComponent implements OnInit {
     this.getLinhVuc();
   }
   getLinhVuc() {
-    this.linhvucservice.getLinhVuc().subscribe(response => {
+    this.apiService.getLinhVuc().subscribe(response => {
       this.datalinhvuc = response.data;
     })
   }

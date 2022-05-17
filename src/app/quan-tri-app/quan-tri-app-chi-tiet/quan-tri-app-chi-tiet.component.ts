@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AppService} from '../../../services/app.service'
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-quan-tri-app-chi-tiet',
   templateUrl: './quan-tri-app-chi-tiet.component.html',
@@ -12,7 +12,7 @@ export class QuanTriAppChiTietComponent implements OnInit {
   detail:any;
   constructor(
     private spinner: NgxSpinnerService,
-    private appService: AppService,
+    private apiService: ApiService,
     private router: ActivatedRoute
   ) { }
 
@@ -26,7 +26,7 @@ export class QuanTriAppChiTietComponent implements OnInit {
   }
 
   getDetail(type:string){
-    this.appService.getAppDeltai(type).subscribe(reponse=>
+    this.apiService.getAppDeltai(type).subscribe(reponse=>
       this.detail=reponse.data
     )
   }

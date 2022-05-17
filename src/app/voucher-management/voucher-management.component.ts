@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api'
-import { VoucherService } from 'src/services/voucher.service';
 import * as queryString from 'query-string';
 import * as moment from 'moment';
 import { NgxSpinnerService } from "ngx-spinner";
 import { MessageService } from 'primeng/api';
 import { ConfirmationService } from 'primeng/api';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-voucher-management',
   templateUrl: './voucher-management.component.html',
@@ -29,7 +29,7 @@ export class VoucherManagementComponent implements OnInit {
     IsShowInSalon: '',
     IsShowInHome: ''
   }
-  constructor(private voucherService: VoucherService,
+  constructor(private apiService: ApiService,
     private spinner: NgxSpinnerService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService
@@ -51,7 +51,7 @@ export class VoucherManagementComponent implements OnInit {
       this.query.to = moment(this.query.to).format('YYYY-MM-DD HH:mm');
     }
     const params = queryString.stringify(this.query);
-    this.voucherService.getVoucher(params).subscribe(response => {
+    this.apiService.getVoucher(params).subscribe(response => {
       this.datavoucher = response.data;
       if (this.datavoucher && this.datavoucher.length) {
         this.totalRecord = this.datavoucher[0].totalRecord;
@@ -85,7 +85,7 @@ export class VoucherManagementComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Bạn có muốn xóa Voucher?',
       accept: () => {
-        this.voucherService.deleteVoucher(idvoucher).subscribe(_ => {
+        this.apiService.deleteVoucher(idvoucher).subscribe(_ => {
           this.getVoucher();
         })
       }

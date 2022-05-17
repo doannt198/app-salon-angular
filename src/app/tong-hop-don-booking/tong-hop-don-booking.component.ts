@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { MenuItem } from 'primeng/api'
-import { BaocaobookingService } from 'src/services/baocaobooking.service';
+import { ApiService } from 'src/services/api.service';
 interface Status {
   name: string
 }
@@ -21,7 +21,7 @@ export class TongHopDonBookingComponent implements OnInit {
   items1: MenuItem[];
   activeItem: MenuItem;
   databooking: any = [];
-  constructor(private baocaobooking: BaocaobookingService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.cities1 = [
@@ -46,6 +46,6 @@ export class TongHopDonBookingComponent implements OnInit {
     this.getbaocaobooking();
   }
   getbaocaobooking() {
-    this.baocaobooking.getBaocaobooking().subscribe(reponse => { this.databooking = reponse })
+    this.apiService.getBaocaobooking().subscribe(reponse => { this.databooking = reponse })
   }
 }

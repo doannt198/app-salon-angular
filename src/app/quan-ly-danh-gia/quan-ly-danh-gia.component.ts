@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import { FeedbackService} from '../../services/feedback.service';
 import * as queryString from 'query-string';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/services/api.service';
 interface City {
   name: string
 }
@@ -23,7 +23,7 @@ export class QuanLyDanhGiaComponent implements OnInit {
     PageSize: 5,
   };
   datafeedback: any = [];
-  constructor(private FeedbackServices: FeedbackService,
+  constructor(private apiService: ApiService,
     private spinner: NgxSpinnerService,
     ) {
     this.items = [];
@@ -48,7 +48,7 @@ export class QuanLyDanhGiaComponent implements OnInit {
   }
   getFeedback(){
     const params = queryString.stringify(this.query);
-    this.FeedbackServices.getFeedback(params)
+    this.apiService.getFeedback(params)
       .subscribe(response => {  
         this.datafeedback = response.data.map((t: any) => {
           if (t && t.booking ) {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import { NotificationService } from '../../services/notification.service'
 import * as queryString from 'query-string';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/services/api.service';
 interface City {
   name: string
   value: string
@@ -25,7 +25,7 @@ export class NotificationManagementComponent implements OnInit {
     PageIndex: 1,
     PageSize: 10,
   }
-  constructor(private NotificationService: NotificationService,
+  constructor(private apiService: ApiService,
     private spinner: NgxSpinnerService,
   ) { }
 
@@ -48,7 +48,7 @@ export class NotificationManagementComponent implements OnInit {
   }
   getNotification() {
     const params = queryString.stringify(this.query);
-    this.NotificationService.getNotification(params).subscribe({
+    this.apiService.getNotification(params).subscribe({
       next: (response) => {
         this.datathongbao = response.data;
         if (this.datathongbao && this.datathongbao.length) {

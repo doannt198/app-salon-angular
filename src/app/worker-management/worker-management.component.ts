@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api'
-import { WorkerService } from 'src/services/worker.service';
 import * as queryString from 'query-string';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-worker-management',
   templateUrl: './worker-management.component.html',
@@ -21,7 +21,7 @@ export class WorkerManagementComponent implements OnInit {
     Search:'',
     isActive:true
   };
-  constructor(private workerService: WorkerService,
+  constructor(private apiService: ApiService,
     private spinner: NgxSpinnerService,
     ) { }
 
@@ -40,7 +40,7 @@ export class WorkerManagementComponent implements OnInit {
   }
   getWorker() {
     const params = queryString.stringify(this.query);
-    this.workerService.getWorker(params)
+    this.apiService.getWorker(params)
       .subscribe(response => {
         this.dataworker = response.data
         if (this.dataworker && this.dataworker.length) {

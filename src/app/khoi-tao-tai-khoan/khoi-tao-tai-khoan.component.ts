@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService, SelectItem } from 'primeng/api';
 import { MenuItem } from 'primeng/api';
+import { ApiService } from 'src/services/api.service';
 import { ExportFileService } from 'src/services/export-file.service';
-import { KhoitaotaikhoanService } from 'src/services/khoitaotaikhoan.service';
 interface Status {
   name: string,
   value: any
@@ -20,7 +20,7 @@ export class KhoiTaoTaiKhoanComponent implements OnInit {
   activeItem: MenuItem;
   datataikhoan: any = [];
   constructor(
-    private khoitaotaikhoan: KhoitaotaikhoanService,
+    private apiService: ApiService,
     private fileService: ExportFileService
   ) { }
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class KhoiTaoTaiKhoanComponent implements OnInit {
     this.getKhoitao();
   }
   getKhoitao() {
-    this.khoitaotaikhoan.getKhoitaotaikhoan().subscribe(reponse => { this.datataikhoan = reponse })
+    this.apiService.getKhoitaotaikhoan().subscribe(reponse => { this.datataikhoan = reponse })
   }
 
   exportexcel() {

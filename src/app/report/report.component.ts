@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ReportService } from 'src/services/report.service';
 import * as queryString from 'query-string';
 import * as moment from 'moment';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ApiService } from 'src/services/api.service';
 @Component({
     selector: 'app-report',
     templateUrl: './report.component.html',
@@ -20,7 +20,7 @@ export class ReportComponent implements OnInit {
     }
     datareport: any=[];
     datareport1:any=[];
-    constructor(private ReportService: ReportService,
+    constructor(private apiService: ApiService,
     private spinner: NgxSpinnerService
         ) { }
 
@@ -80,7 +80,7 @@ export class ReportComponent implements OnInit {
     }
     getReport(){
         const params = queryString.stringify(this.query);
-        this.ReportService.getReport(params).subscribe(response => {
+        this.apiService.getReport(params).subscribe(response => {
           this.datareport = response.data;
           this.datachars=this.datareport.charts;
         this.datareport1=this.datareport.charts.map((t:any )=>t.day)

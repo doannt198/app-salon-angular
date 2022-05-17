@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { SalonService } from 'src/services/salon.service';
 import * as queryString from 'query-string';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-salon-management',
   templateUrl: './salon-management.component.html',
@@ -21,7 +21,7 @@ export class SalonManagementComponent implements OnInit {
     Search: '',
     isActive: ''
   };
-  constructor(private salonservice: SalonService,
+  constructor(private apiService: ApiService,
     private spinner: NgxSpinnerService,
     ) { }
 
@@ -40,7 +40,7 @@ export class SalonManagementComponent implements OnInit {
   }
   getSalon() {
     const params = queryString.stringify(this.query);
-    this.salonservice.getSalon(params)
+    this.apiService.getSalon(params)
       .subscribe(response => {
         this.datasalon = response.data;
         if (this.datasalon && this.datasalon.length) {

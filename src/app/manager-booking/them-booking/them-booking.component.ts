@@ -48,13 +48,10 @@ export class ThemBookingComponent implements OnInit {
       {tentho:'Nguyễn Tiến D'},
 
   ];
-  this.getaddBooking()
   this.primengConfig.ripple = true;
   }
   onSubmit(){
     this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
   }
-  getaddBooking(){
-    this.apiService.getaddbooking().subscribe(respone=>this.addbooking=respone)
-  }
+ 
 }

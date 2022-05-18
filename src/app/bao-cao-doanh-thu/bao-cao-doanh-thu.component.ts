@@ -47,9 +47,7 @@ export class BaoCaoDoanhThuComponent implements OnInit {
       { name: 'Online' },
       { name: 'Office' },
     ];
-   this.getBaocaodoanhthu()
+  
   }
-  getBaocaodoanhthu(){
-    this.apiService.getBaocaodoanhthu().subscribe(reponse=>{this.databooking=reponse})
-  }
+ 
 }

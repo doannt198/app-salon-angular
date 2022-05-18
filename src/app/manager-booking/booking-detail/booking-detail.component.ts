@@ -25,9 +25,7 @@ export class BookingDetailComponent implements OnInit {
       {name: 'Salon 4', code: 'IST'},
       {name: 'Salon 5', code: 'PRS'}
   ];
-  this.getaddBooking()
+  
   }
-  getaddBooking(){
-    this.apiService.getaddbooking().subscribe(respone=>this.addbooking=respone)
-  }
+ 
 }

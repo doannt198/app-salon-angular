@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MessageService} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { ApiService } from 'src/services/api.service';
-interface Booking {
-  name: string
-}
+
 @Component({
   selector: 'app-them-khach-hang',
   templateUrl: './them-khach-hang.component.html',
@@ -12,56 +10,76 @@ interface Booking {
   providers: [MessageService]
 })
 export class ThemKhachHangComponent implements OnInit {
-  thanhpho: Booking[];
-  quan: Booking[];
-  phuong: Booking[];
-  status:string;
-  selectedthanhpho: Booking;
-  selectedquan: Booking;
-  selectedphuong: Booking;
-  addbooking:any=[];
-  infokhachhang: any = {
-    makhachhang:'',
-    tenkhachhang: '',
-    email: '',
-    sodienthoai: '',
-  };
+  
+ 
   constructor(
     private apiService: ApiService,
     private messageService: MessageService, 
     private primengConfig: PrimeNGConfig) { }
+    status:string;
+    addbooking:any=[];
+    city: any[] = [];
+    ward: any[] = [];
+    district: any[] = []
+    infoKhachHang: any = {
+      maKhachHang:'',
+      tenKhachHang: '',
+      email: '',
+      soDienThoai: '',
+      thanhPho: '',
+      quan: '',
+      phuong: ''
+    };
 
   ngOnInit(): void {
-
-    this.thanhpho = [
-      {name: 'Hà Nội' },
-      {name: 'TP.Hồ Chí Minh' },
-      {name: 'Đà Nẵng'},
-      {name: 'Hải Phòng'},
-      {name: 'Bắc Ninh'}
-  ];
-    this.quan = [
-      {name: 'Hai Bà Trưng' },
-      {name: 'Hoàng Mai' },
-      {name: 'Đống Đa'},
-      {name: 'Cầu giấy'},
-      {name: 'Thanh Xuân'}
-  ];
-    this.phuong = [
-      {name: 'Minh Khai' },
-      {name: 'Tương Mai' },
-      {name: 'Tân Mai'},
-      {name: 'Trương Định'},
-      {name: 'Mỹ Đình'}
-  ];
-  this.getaddBooking()
+  this.getAllCity();
   this.primengConfig.ripple = true;
   }
-  getaddBooking(){
-    this.apiService.getaddbooking().subscribe(respone=>this.addbooking=respone)
-  }
+ 
   onSubmit(){
+    console.log(this.infoKhachHang)
     this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Lưu thành công'});
   }
+  getAllCity() {
+    this.apiService.getAllCity().pipe()
+    .subscribe({
+      next: (res)=>{
+      
+        this.city = res.data
+        console.log("city", this.city)
+      },
+      error: (err)=> {
+        console.log("error", err)
+      }
+    })
+  }
+
+  getDistrict(event:any) {
+    this.apiService.getDistrict(event.value).pipe()
+    .subscribe({
+      next: (res)=>{
+      
+        this.district = res.data
+        console.log("ward", this.city)
+      },
+      error: (err)=> {
+        console.log("error", err)
+      }
+    })
+  } 
+
+  getWard(event:any) {
+    this.apiService.getWard(event.value).pipe()
+    .subscribe({
+      next: (res)=>{
+      
+        this.ward = res.data
+        console.log("ward", this.city)
+      },
+      error: (err)=> {
+        console.log("error", err)
+      }
+    })
+  } 
   }
 

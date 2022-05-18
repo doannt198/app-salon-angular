@@ -21,11 +21,11 @@
                     </div>
                     <div class="input-text">
                         <input type="text" pInputText="sodienthoai" name="makhachhang"
-                        [(ngModel)]="infokhachhang.makhachhang" #makhachhang="ngModel" required
+                        [(ngModel)]="infoKhachHang.makhachhang" #makhachhang="ngModel" required
                         >
                     </div>
                     <div *ngIf="f.submitted && makhachhang.invalid">
-                        <div *ngIf="makhachhang.errors?.['required']">
+                        <div *ngIf="makhachhang.errors?.required">
                             <small>Trường này không được để trống</small>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="input-text">
                         <input type="text" pInputText name="tenkhachhang"
-                        [(ngModel)]="infokhachhang.tenkhachhang" #tenkhachhang="ngModel" required>
+                        [(ngModel)]="infoKhachHang.tenkhachhang" #tenkhachhang="ngModel" required>
                     </div>
                     <div *ngIf="f.submitted && tenkhachhang.invalid">
                         <div *ngIf="tenkhachhang.errors?.['required']">
@@ -47,17 +47,18 @@
                             <div class="input-title">
                                 Tỉnh/Thành phố
                             </div>
-                        <p-dropdown [options]="thanhpho" optionLabel="name">
+                        <p-dropdown [options]="city" name="selectCity" [(ngModel)]="infoKhachHang.thanhPho" placeholder="Chọn Tỉnh/thành phố" optionLabel="name" emptyMessage="Không có dữ liệu" optionValue="id" (onChange)="getDistrict($event)">
                         </p-dropdown></div>
                            <div class="col-4">
                             <div class="input-title">
                                 Quận/Huyện
-                            </div> <p-dropdown [options]="quan"  optionLabel="name">
+                            </div> <p-dropdown [options]="district" name="selectDistrict" [(ngModel)]="infoKhachHang.quan" name="selectCity" optionLabel="name" optionValue="id" placeholder="Chọn Quận/Huyện" emptyMessage="Không có dữ liệu" (onChange)="getWard($event)">
                         </p-dropdown></div>
                            <div class="col-4">
                             <div class="input-title">
                                 Xã/Phường
-                            </div> <p-dropdown [options]="phuong" optionLabel="name">
+                            </div> <p-dropdown [options]="ward" name="selectWard" [(ngModel)]="infoKhachHang.phuong" placeholder="Chọn Phường/Xã" optionLabel="name" emptyMessage="Không có dữ liệu">
+                                
                         </p-dropdown></div>
                        </div>
                     </div>
@@ -72,7 +73,7 @@
                     </div>
                     <div class="input-text">
                         <input type="text" pInputText name="email"
-                        [(ngModel)]="infokhachhang.email" #email="ngModel" required email
+                        [(ngModel)]="infoKhachHang.email" #email="ngModel" required email
                         [ngClass]="{ 'is-invalid': f.submitted && email.invalid }">
                     </div>
                     <div *ngIf="f.submitted && email.invalid">
@@ -88,7 +89,7 @@
                     </div>
                     <div class="input-text">
                         <input type="number" pInputText name="sodienthoai"
-                        [(ngModel)]="infokhachhang.sodienthoai" #sodienthoai="ngModel" maxlength="10" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" ng-pattern="/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/" >
+                        [(ngModel)]="infoKhachHang.sodienthoai" #sodienthoai="ngModel" maxlength="10" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" ng-pattern="/(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/" >
                     </div>
                     <div *ngIf="f.submitted && sodienthoai.invalid">
                         <div *ngIf="sodienthoai.errors?.['required']">
